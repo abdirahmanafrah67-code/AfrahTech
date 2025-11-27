@@ -1,18 +1,39 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Logo = () => (
-    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Outer Circle Segments (Orange) */}
-        <path d="M20 50 A 30 30 0 0 1 80 50" stroke="#f97316" strokeWidth="8" strokeLinecap="round" />
-        <path d="M20 50 A 30 30 0 0 0 50 80" stroke="#f97316" strokeWidth="8" strokeLinecap="round" />
+    <svg width="140" height="50" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+            </style>
+        </defs>
 
-        {/* Inner 'A' shape (White) */}
-        <path d="M50 25 L30 75 M50 25 L70 75 M35 60 L65 60" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Text 'afra' - White for Dark Footer */}
+        <text x="10" y="45" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="38" fill="#FFFFFF">afra</text>
 
-        {/* Tech Dots (Orange) */}
-        <circle cx="20" cy="50" r="6" fill="#f97316" />
-        <circle cx="80" cy="50" r="6" fill="#f97316" />
-        <circle cx="50" cy="80" r="6" fill="#f97316" />
+        {/* Text 'h' - Red */}
+        <text x="92" y="45" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="38" fill="#D9381E">h</text>
+
+        {/* Text 'Tech' - White, aligned under h */}
+        <text x="118" y="58" fontFamily="Poppins, sans-serif" fontWeight="500" fontSize="12" fill="#FFFFFF" textAnchor="end">Tech</text>
+
+        {/* Graphic Elements */}
+        {/* Yellow Sun */}
+        <circle cx="78" cy="18" r="6" fill="#F2A900" />
+
+        {/* Arc Shapes */}
+        {/* Navy Triangle (Left) -> White */}
+        <path d="M 88 22 L 98 8 L 102 22 Z" fill="#FFFFFF" />
+
+        {/* Red Triangle (Top/Right) */}
+        <path d="M 100 22 L 115 15 L 108 28 Z" fill="#D9381E" />
+
+        {/* Small Navy Triangle (Right) -> White */}
+        <path d="M 110 30 L 120 35 L 112 38 Z" fill="#FFFFFF" />
+
+        {/* Decorative dots/shards */}
+        <circle cx="95" cy="30" r="2" fill="#D9381E" />
+        <circle cx="105" cy="10" r="1.5" fill="#FFFFFF" />
     </svg>
 );
 
@@ -23,12 +44,8 @@ export default function Footer() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-6">
                         <div className="flex items-center gap-3">
-                            <div className="bg-white/10 p-1.5 rounded-full backdrop-blur-sm">
+                            <div className="cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
                                 <Logo />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="font-logo font-bold text-xl text-white leading-none tracking-wide">AFRAH <span className="text-secondary">Tech</span></span>
-                                <span className="text-[8px] text-slate-400 tracking-wider font-logo">Your Digital Partner for Growth</span>
                             </div>
                         </div>
                         <p className="text-slate-400 leading-relaxed">
