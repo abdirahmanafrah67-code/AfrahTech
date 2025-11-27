@@ -1,4 +1,5 @@
 import { Smartphone, Upload, Palette, Layout, Wrench, Globe } from 'lucide-react';
+import { useState } from 'react';
 
 const services = [
     {
@@ -40,6 +41,8 @@ const services = [
 ];
 
 export default function Services() {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
     return (
         <section id="services" className="section-padding bg-gradient-to-br from-slate-50 to-slate-100">
             <div className="max-w-7xl mx-auto">
@@ -52,14 +55,23 @@ export default function Services() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <div key={index} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200 group hover:border-primary/30">
-                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm group-hover:shadow-lg ${service.color === 'orange'
-                                ? 'bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white group-hover:shadow-secondary/20'
-                                : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-primary/20'
+                        <div
+                            key={index}
+                            onClick={() => setActiveIndex(index)}
+                            className={`bg-white p-8 rounded-2xl shadow-md transition-all duration-300 border group cursor-pointer ${activeIndex === index
+                                ? 'border-secondary/50 shadow-xl shadow-secondary/10 -translate-y-1'
+                                : 'border-slate-200 hover:shadow-2xl hover:border-primary/30'
+                                }`}
+                        >
+                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm ${activeIndex === index
+                                ? 'bg-secondary text-white shadow-lg shadow-secondary/30 scale-110'
+                                : service.color === 'orange'
+                                    ? 'bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white group-hover:shadow-secondary/20'
+                                    : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-primary/20'
                                 }`}>
                                 {service.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                            <h3 className={`text-xl font-bold mb-3 transition-colors ${activeIndex === index ? 'text-secondary' : 'text-slate-900 group-hover:text-primary'}`}>{service.title}</h3>
                             <p className="text-slate-600 leading-relaxed">
                                 {service.description}
                             </p>

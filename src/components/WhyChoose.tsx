@@ -1,4 +1,5 @@
 import { CheckCircle2, Award, Users, Clock, Shield, Zap } from 'lucide-react';
+import { useState } from 'react';
 
 const reasons = [
     {
@@ -40,6 +41,8 @@ const reasons = [
 ];
 
 export default function WhyChoose() {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
     return (
         <section id="why-choose" className="section-padding bg-gradient-to-br from-primary-dark via-primary to-primary-dark text-white overflow-hidden relative">
             {/* Background Pattern */}
@@ -59,14 +62,20 @@ export default function WhyChoose() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {reasons.map((reason, index) => (
-                        <div key={index} className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group shadow-lg hover:shadow-2xl hover:shadow-secondary/10">
-                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-md ${reason.color === 'cyan'
+                        <div
+                            key={index}
+                            onClick={() => setActiveIndex(index)}
+                            className={`bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 transition-all duration-300 group shadow-lg hover:shadow-2xl cursor-pointer ${activeIndex === index ? 'border-secondary/50 shadow-secondary/20' : 'hover:bg-white/10 hover:border-white/20 hover:shadow-secondary/10'}`}
+                        >
+                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-md ${activeIndex === index
+                                ? 'bg-secondary text-white shadow-lg shadow-secondary/30 scale-110'
+                                : reason.color === 'cyan'
                                     ? 'bg-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-white group-hover:shadow-lg group-hover:shadow-secondary/30'
                                     : 'bg-white/10 text-white group-hover:bg-white/20 group-hover:shadow-lg'
                                 }`}>
                                 {reason.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">{reason.title}</h3>
+                            <h3 className={`text-xl font-bold mb-3 transition-colors ${activeIndex === index ? 'text-secondary' : 'text-white'}`}>{reason.title}</h3>
                             <p className="text-white/80 leading-relaxed">
                                 {reason.description}
                             </p>
