@@ -8,16 +8,17 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#0e7490', // Cyan 700 (Dark Cyan)
-                    light: '#0891b2',   // Cyan 600
-                    dark: '#155e75',    // Cyan 800
+                    DEFAULT: '#002855', // Navy Blue
+                    light: '#003366',   // Lighter Navy
+                    dark: '#001f40',    // Darker Navy
                 },
                 secondary: {
-                    DEFAULT: '#f97316', // Orange 500
-                    light: '#fb923c',   // Orange 400
+                    DEFAULT: '#D9381E', // Red
+                    light: '#ef4444',   // Lighter Red
                 },
                 accent: {
-                    DEFAULT: '#ffffff',
+                    DEFAULT: '#009BDE', // Light Blue (Tech)
+                    yellow: '#F2A900',  // Gold/Yellow
                 }
             },
             fontFamily: {

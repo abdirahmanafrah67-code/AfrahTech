@@ -2,7 +2,7 @@ import { ArrowRight, Smartphone, Code2, Palette, Globe, Rocket, BarChart3 } from
 
 export default function Hero() {
     return (
-        <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-primary via-[#0c6b87] to-primary-dark">
+        <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary-dark">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-secondary/15 to-transparent opacity-70 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 -z-10 w-1/2 h-full bg-gradient-to-tr from-secondary/15 to-transparent opacity-70 blur-3xl"></div>
