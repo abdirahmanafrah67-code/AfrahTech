@@ -2,39 +2,39 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Logo = () => (
-    <svg width="140" height="50" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="150" height="55" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
             </style>
         </defs>
 
-        {/* Text 'afra' - Navy */}
-        <text x="10" y="45" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="38" fill="#002855">afra</text>
+        {/* Text 'afra' - Dark Navy */}
+        <text x="5" y="48" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="42" fill="#0B1C3E" letterSpacing="-1">afra</text>
 
         {/* Text 'h' - Red */}
-        <text x="92" y="45" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="38" fill="#D9381E">h</text>
+        <text x="96" y="48" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="42" fill="#E3342F">h</text>
 
-        {/* Text 'Tech' - Navy, aligned under h */}
-        <text x="118" y="58" fontFamily="Poppins, sans-serif" fontWeight="500" fontSize="12" fill="#002855" textAnchor="end">Tech</text>
+        {/* Text 'Tech' - Dark Navy, aligned under h */}
+        <text x="124" y="60" fontFamily="Poppins, sans-serif" fontWeight="600" fontSize="14" fill="#0B1C3E" textAnchor="end">Tech</text>
 
         {/* Graphic Elements */}
-        {/* Yellow Sun */}
-        <circle cx="78" cy="18" r="6" fill="#F2A900" />
+        {/* Yellow Sun (above 'r') */}
+        <circle cx="72" cy="18" r="7" fill="#FDB913" />
 
         {/* Arc Shapes */}
-        {/* Navy Triangle (Left) */}
-        <path d="M 88 22 L 98 8 L 102 22 Z" fill="#002855" />
+        {/* Navy Triangle (above 'a') */}
+        <path d="M 85 22 L 95 6 L 100 22 Z" fill="#0B1C3E" />
 
-        {/* Red Triangle (Top/Right) */}
-        <path d="M 100 22 L 115 15 L 108 28 Z" fill="#D9381E" />
+        {/* Red Triangle (above gap between 'a' and 'h') */}
+        <path d="M 102 22 L 118 14 L 110 28 Z" fill="#E3342F" />
 
-        {/* Small Navy Triangle (Right) */}
-        <path d="M 110 30 L 120 35 L 112 38 Z" fill="#002855" />
+        {/* Small Navy Triangle (overlapping 'h') */}
+        <path d="M 112 30 L 124 36 L 114 40 Z" fill="#0B1C3E" />
 
-        {/* Decorative dots/shards */}
-        <circle cx="95" cy="30" r="2" fill="#D9381E" />
-        <circle cx="105" cy="10" r="1.5" fill="#002855" />
+        {/* Small decorative dots */}
+        <circle cx="92" cy="12" r="2" fill="#0B1C3E" />
+        <circle cx="104" cy="32" r="2" fill="#E3342F" />
     </svg>
 );
 
