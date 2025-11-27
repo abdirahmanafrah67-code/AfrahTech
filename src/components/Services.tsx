@@ -1,4 +1,4 @@
-import { Smartphone, Upload, Palette, Layout, Wrench, Code2 } from 'lucide-react';
+import { Smartphone, Upload, Palette, Layout, Wrench, Globe } from 'lucide-react';
 
 const services = [
     {
@@ -8,15 +8,15 @@ const services = [
         color: "orange"
     },
     {
-        icon: <Upload className="h-8 w-8" />,
-        title: "App Store Publishing",
-        description: "Complete handling of the submission process to Google Play Store and Apple App Store.",
+        icon: <Globe className="h-8 w-8" />,
+        title: "Web Development",
+        description: "Responsive, modern websites and web applications built with the latest frameworks and technologies.",
         color: "teal"
     },
     {
-        icon: <Palette className="h-8 w-8" />,
-        title: "Branding & Identity",
-        description: "Crafting unique brand identities that resonate with your target audience and stand out.",
+        icon: <Upload className="h-8 w-8" />,
+        title: "App Store Publishing",
+        description: "Complete handling of the submission process to Google Play Store and Apple App Store.",
         color: "orange"
     },
     {
@@ -26,15 +26,15 @@ const services = [
         color: "teal"
     },
     {
-        icon: <Wrench className="h-8 w-8" />,
-        title: "Maintenance & Support",
-        description: "Ongoing updates, bug fixes, and performance optimization to keep your app running smoothly.",
+        icon: <Palette className="h-8 w-8" />,
+        title: "Branding & Identity",
+        description: "Crafting unique brand identities that resonate with your target audience and stand out.",
         color: "orange"
     },
     {
-        icon: <Code2 className="h-8 w-8" />,
-        title: "Custom Solutions",
-        description: "Tailored software solutions to meet specific business requirements and challenges.",
+        icon: <Wrench className="h-8 w-8" />,
+        title: "Maintenance & Support",
+        description: "Ongoing updates, bug fixes, and performance optimization to keep your app running smoothly.",
         color: "teal"
     }
 ];
@@ -54,8 +54,8 @@ export default function Services() {
                     {services.map((service, index) => (
                         <div key={index} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200 group hover:border-primary/30">
                             <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm group-hover:shadow-lg ${service.color === 'orange'
-                                    ? 'bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white group-hover:shadow-secondary/20'
-                                    : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-primary/20'
+                                ? 'bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white group-hover:shadow-secondary/20'
+                                : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-primary/20'
                                 }`}>
                                 {service.icon}
                             </div>
