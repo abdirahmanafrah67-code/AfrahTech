@@ -1,18 +1,18 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Logo = () => (
-    <svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="200" height="70" viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
             </style>
         </defs>
 
         {/* Text 'afraıno' - White using dotless 'i' */}
-        <text x="10" y="45" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="42" fill="#FFFFFF" letterSpacing="-1">afraıno</text>
+        <text x="5" y="52" fontFamily="Poppins, sans-serif" fontWeight="900" fontSize="52" fill="#FFFFFF" letterSpacing="-2">afraıno</text>
 
         {/* Red Dot for the 'i' */}
-        <circle cx="98" cy="24" r="5" fill="#FF0000" />
+        <circle cx="115" cy="20" r="7" fill="#FF0000" />
     </svg>
 );
 
