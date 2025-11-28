@@ -8,28 +8,25 @@ const Logo = () => (
             </style>
         </defs>
 
-        {/* Text 'afra' - White */}
-        <text x="5" y="48" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="42" fill="#FFFFFF" letterSpacing="-1">afra</text>
-
-        {/* Text 'h' - Red */}
-        <text x="96" y="48" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="42" fill="#E3342F">h</text>
+        {/* Text 'afrah' - White */}
+        <text x="5" y="48" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="42" fill="#FFFFFF" letterSpacing="-1">afrah</text>
 
         {/* Text 'Tech' - White, aligned under h */}
         <text x="124" y="60" fontFamily="Poppins, sans-serif" fontWeight="600" fontSize="14" fill="#FFFFFF" textAnchor="end">Tech</text>
 
         {/* Graphic Elements */}
         {/* Yellow Sun */}
-        <circle cx="72" cy="18" r="7" fill="#FDB913" />
+        <circle cx="72" cy="18" r="7" fill="#FDB913" stroke="#0f172a" strokeWidth="3" />
 
         {/* Arc Shapes */}
         {/* Navy Triangle (above 'a') -> White */}
-        <path d="M 85 22 L 95 6 L 100 22 Z" fill="#FFFFFF" />
+        <path d="M 85 22 L 95 6 L 100 22 Z" fill="#FFFFFF" stroke="#0f172a" strokeWidth="3" />
 
         {/* Red Triangle (above gap between 'a' and 'h') */}
-        <path d="M 102 22 L 118 14 L 110 28 Z" fill="#E3342F" />
+        <path d="M 102 22 L 118 14 L 110 28 Z" fill="#E3342F" stroke="#0f172a" strokeWidth="3" />
 
         {/* Small Navy Triangle (overlapping 'h') -> White */}
-        <path d="M 112 30 L 124 36 L 114 40 Z" fill="#FFFFFF" />
+        <path d="M 112 30 L 124 36 L 114 40 Z" fill="#FFFFFF" stroke="#0f172a" strokeWidth="3" />
 
         {/* Small decorative dots */}
         <circle cx="92" cy="12" r="2" fill="#FFFFFF" />
