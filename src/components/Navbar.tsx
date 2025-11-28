@@ -17,17 +17,17 @@ const Logo = () => (
 
         {/* Graphic Elements */}
         {/* Yellow Sun (above 'r') */}
-        <circle cx="72" cy="18" r="7" fill="#FDB913" stroke="white" strokeWidth="3" />
+        <circle cx="72" cy="18" r="7" fill="#FDB913" stroke="white" strokeWidth="4" />
 
         {/* Arc Shapes */}
         {/* Navy Triangle (above 'a') */}
-        <path d="M 85 22 L 95 6 L 100 22 Z" fill="#0B1C3E" stroke="white" strokeWidth="3" />
+        <path d="M 85 22 L 95 6 L 100 22 Z" fill="#0B1C3E" stroke="white" strokeWidth="4" />
 
         {/* Red Triangle (above gap between 'a' and 'h') */}
-        <path d="M 102 22 L 118 14 L 110 28 Z" fill="#E3342F" stroke="white" strokeWidth="3" />
+        <path d="M 102 22 L 118 14 L 110 28 Z" fill="#E3342F" stroke="white" strokeWidth="4" />
 
         {/* Small Navy Triangle (overlapping 'h') */}
-        <path d="M 112 30 L 124 36 L 114 40 Z" fill="#0B1C3E" stroke="white" strokeWidth="3" />
+        <path d="M 112 30 L 124 36 L 114 40 Z" fill="#0B1C3E" stroke="white" strokeWidth="4" />
 
         {/* Small decorative dots */}
         <circle cx="92" cy="12" r="2" fill="#0B1C3E" />
