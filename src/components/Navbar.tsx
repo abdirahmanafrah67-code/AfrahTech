@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Logo = () => (
-    <svg width="200" height="70" viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="160" height="55" viewBox="0 0 160 55" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
             </style>
         </defs>
 
-        {/* Text 'afraıno' - Dark Navy using dotless 'i' */}
-        <text x="5" y="52" fontFamily="Poppins, sans-serif" fontWeight="900" fontSize="52" fill="#1a1f71" letterSpacing="-2">afraıno</text>
+        {/* Text 'afraıno' - Navy Blue using dotless 'i' */}
+        <text x="2" y="42" fontFamily="Poppins, sans-serif" fontWeight="900" fontSize="42" fill="#002855" letterSpacing="-2">afraıno</text>
 
         {/* Red Dot for the 'i' */}
-        <circle cx="115" cy="20" r="7" fill="#FF0000" />
+        <circle cx="92" cy="16" r="6" fill="#D9381E" />
     </svg>
 );
 
