@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
 
 const Logo = () => (
     <svg width="160" height="55" viewBox="0 0 160 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,6 +42,9 @@ export default function Footer() {
                             </a>
                             <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-secondary transition-all shadow-lg hover:shadow-secondary/30">
                                 <Linkedin className="h-5 w-5" />
+                            </a>
+                            <a href="https://github.com/abdirahmanafrah67-code" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 rounded-full hover:bg-secondary transition-all shadow-lg hover:shadow-secondary/30">
+                                <Github className="h-5 w-5" />
                             </a>
                         </div>
                     </div>
