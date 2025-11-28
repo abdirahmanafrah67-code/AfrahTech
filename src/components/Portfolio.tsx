@@ -41,18 +41,18 @@ export default function Portfolio() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     {apps.map((app, index) => (
-                        <div key={index} className="group bg-gradient-to-br from-primary-dark via-primary to-primary-dark p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-primary-light/20">
+                        <div key={index} className="group bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-200 hover:border-primary/30">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm shadow-lg border border-white/10">
-                                    <Smartphone className="h-7 w-7 text-secondary" />
+                                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shadow-lg border border-primary/20">
+                                    <Smartphone className="h-7 w-7 text-primary" />
                                 </div>
-                                <ExternalLink className="h-5 w-5 text-white/60 group-hover:text-secondary transition-colors" />
+                                <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-secondary transition-colors" />
                             </div>
-                            <span className="inline-block px-3 py-1 bg-secondary/20 text-secondary text-xs font-semibold rounded-full mb-4 backdrop-blur-sm border border-secondary/20">
+                            <span className="inline-block px-3 py-1 bg-secondary/10 text-secondary text-xs font-semibold rounded-full mb-4 border border-secondary/20">
                                 {app.category}
                             </span>
-                            <h3 className="text-2xl font-bold text-white mb-3">{app.name}</h3>
-                            <p className="text-slate-100 leading-relaxed">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-3">{app.name}</h3>
+                            <p className="text-slate-600 leading-relaxed">
                                 {app.description}
                             </p>
                         </div>

@@ -2,18 +2,18 @@ import { ArrowRight, Smartphone, Code2, Palette, Globe, Rocket, BarChart3 } from
 
 export default function Hero() {
     return (
-        <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary-dark">
+        <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
             {/* Background Elements */}
-            <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-secondary/15 to-transparent opacity-70 blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 -z-10 w-1/2 h-full bg-gradient-to-tr from-secondary/15 to-transparent opacity-70 blur-3xl"></div>
+            <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-secondary/5 to-transparent opacity-70 blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 -z-10 w-1/2 h-full bg-gradient-to-tr from-primary/5 to-transparent opacity-70 blur-3xl"></div>
 
             {/* Grid Pattern */}
-            <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+            <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8 animate-slide-up">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm border border-secondary/30 backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm border border-primary/30 backdrop-blur-sm">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
@@ -21,11 +21,11 @@ export default function Hero() {
                             #1 Mobile Development Agency in Somalia
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-white">
+                        <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-slate-900">
                             Transforming Ideas into <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-secondary-light to-secondary">Digital Reality</span>
                         </h1>
 
-                        <p className="text-xl text-white/90 max-w-lg leading-relaxed">
+                        <p className="text-xl text-slate-700 max-w-lg leading-relaxed">
                             We craft high-performance mobile apps, stunning UI/UX designs, and scalable digital solutions that drive business growth across East Africa.
                         </p>
 
@@ -34,23 +34,23 @@ export default function Hero() {
                                 Start Your Project
                                 <ArrowRight className="h-5 w-5" />
                             </a>
-                            <a href="#portfolio" className="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full font-semibold transition-all backdrop-blur-sm hover:border-secondary/50">
+                            <a href="#portfolio" className="inline-flex justify-center items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 px-8 py-4 rounded-full font-semibold transition-all hover:border-primary/50">
                                 View Our Work
                             </a>
                         </div>
 
-                        <div className="pt-8 border-t border-white/20 flex gap-8">
+                        <div className="pt-8 border-t border-slate-200 flex gap-8">
                             <div>
                                 <p className="text-3xl font-bold text-secondary">5+</p>
-                                <p className="text-sm text-white/80">Apps Published</p>
+                                <p className="text-sm text-slate-600">Apps Published</p>
                             </div>
                             <div>
                                 <p className="text-3xl font-bold text-secondary">4.9/5</p>
-                                <p className="text-sm text-white/80">Client Rating</p>
+                                <p className="text-sm text-slate-600">Client Rating</p>
                             </div>
                             <div>
                                 <p className="text-3xl font-bold text-secondary">100%</p>
-                                <p className="text-sm text-white/80">Success Rate</p>
+                                <p className="text-sm text-slate-600">Success Rate</p>
                             </div>
                         </div>
                     </div>
