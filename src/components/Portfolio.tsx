@@ -1,35 +1,45 @@
-import { Smartphone, ExternalLink, Sparkles } from 'lucide-react';
+import { Smartphone, ExternalLink, Sparkles, Brain, Home, Car, Hotel, FileText } from 'lucide-react';
 
 const apps = [
     {
-        name: "Guryp App",
-        description: "Comprehensive group management and communication platform",
-        category: "Social & Communication",
-        gradient: "from-purple-500 to-pink-500"
+        name: "Birth Registration System",
+        description: "Digital birth registration and certificate management system for government services",
+        category: "Government Services",
+        image: "/apps/birth-registration.jpg",
+        icon: <FileText className="h-7 w-7" />,
+        gradient: "from-indigo-500 to-purple-500"
     },
     {
-        name: "Shirwac Flight Booking App",
-        description: "Seamless flight booking experience for travelers",
-        category: "Travel & Booking",
+        name: "Nasasho Hotel Booking App",
+        description: "Comprehensive hotel booking platform with real-time availability and seamless reservations",
+        category: "Hospitality",
+        image: "/apps/nasasho-hotel.jpg",
+        icon: <Hotel className="h-7 w-7" />,
         gradient: "from-blue-500 to-cyan-500"
     },
     {
-        name: "Hotel Booking App",
-        description: "Easy hotel reservations and management system",
-        category: "Hospitality",
-        gradient: "from-orange-500 to-red-500"
-    },
-    {
-        name: "Somcar App",
-        description: "Modern car rental and transportation solution",
+        name: "Rent Car App",
+        description: "Modern car rental platform with easy booking, flexible rental periods, and fleet management",
         category: "Transportation",
-        gradient: "from-green-500 to-emerald-500"
+        image: "/apps/rent-car.jpg",
+        icon: <Car className="h-7 w-7" />,
+        gradient: "from-red-500 to-orange-500"
     },
     {
-        name: "Birth Registration System",
-        description: "Digital birth registration and certificate management",
-        category: "Government Services",
-        gradient: "from-indigo-500 to-purple-500"
+        name: "Guryo App",
+        description: "Smart house rental platform connecting property owners with tenants efficiently",
+        category: "Real Estate",
+        image: "/apps/guryo-houses.jpg",
+        icon: <Home className="h-7 w-7" />,
+        gradient: "from-cyan-500 to-blue-500"
+    },
+    {
+        name: "AI Model & Agents Platform",
+        description: "Intelligent automation system with custom AI models for business process optimization",
+        category: "Artificial Intelligence",
+        image: null,
+        icon: <Brain className="h-7 w-7" />,
+        gradient: "from-purple-500 to-pink-500"
     }
 ];
 
@@ -58,15 +68,29 @@ export default function Portfolio() {
                             key={index}
                             className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200 overflow-hidden"
                         >
-                            {/* Gradient Header */}
-                            <div className={`h-2 bg-gradient-to-r ${app.gradient}`}></div>
+                            {/* Image or Gradient Header */}
+                            {app.image ? (
+                                <div className="h-48 overflow-hidden bg-slate-100">
+                                    <img
+                                        src={app.image}
+                                        alt={app.name}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                </div>
+                            ) : (
+                                <div className={`h-48 bg-gradient-to-br ${app.gradient} flex items-center justify-center`}>
+                                    <div className="text-white opacity-80">
+                                        {app.icon}
+                                    </div>
+                                </div>
+                            )}
 
                             <div className="p-8">
                                 {/* Icon and External Link */}
                                 <div className="flex items-start justify-between mb-6">
                                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${app.gradient} p-0.5 shadow-lg`}>
                                         <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center">
-                                            <Smartphone className="h-7 w-7 text-slate-700" />
+                                            {app.icon}
                                         </div>
                                     </div>
                                     <button className="p-2 rounded-full bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-primary transition-all group-hover:scale-110">
@@ -106,16 +130,16 @@ export default function Portfolio() {
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
                             <div className="group bg-white p-8 rounded-2xl shadow-md border border-slate-200 flex items-center justify-center h-28 hover:shadow-xl hover:border-primary/30 transition-all hover:-translate-y-1">
-                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors text-center">Shirwac Airlines</span>
+                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors text-center">Government of Somalia</span>
                             </div>
                             <div className="group bg-white p-8 rounded-2xl shadow-md border border-slate-200 flex items-center justify-center h-28 hover:shadow-xl hover:border-primary/30 transition-all hover:-translate-y-1">
-                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">Somcar</span>
+                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">Nasasho Hotels</span>
                             </div>
                             <div className="group bg-white p-8 rounded-2xl shadow-md border border-slate-200 flex items-center justify-center h-28 hover:shadow-xl hover:border-primary/30 transition-all hover:-translate-y-1">
-                                <span className="text-lg font-bold text-primary text-center group-hover:text-secondary transition-colors">Government of Somalia</span>
+                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">Rent Car Services</span>
                             </div>
                             <div className="group bg-white p-8 rounded-2xl shadow-md border border-slate-200 flex items-center justify-center h-28 hover:shadow-xl hover:border-primary/30 transition-all hover:-translate-y-1">
-                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">Guryp</span>
+                                <span className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">Guryo</span>
                             </div>
                         </div>
                     </div>

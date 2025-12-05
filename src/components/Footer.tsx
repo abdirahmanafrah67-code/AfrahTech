@@ -1,24 +1,16 @@
 import { Facebook, Twitter, Instagram, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
 
 const Logo = () => (
-    <svg width="160" height="55" viewBox="0 0 160 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
-            </style>
-        </defs>
-
-        {/* Text 'afraıno' - White using dotless 'i' */}
-        <text x="2" y="42" fontFamily="Poppins, sans-serif" fontWeight="900" fontSize="42" fill="#FFFFFF" letterSpacing="-2">afraıno</text>
-
-        {/* Red Dot for the 'i' */}
-        <circle cx="92" cy="16" r="6" fill="#D9381E" />
-    </svg>
+    <img
+        src="/logo.png"
+        alt="Fraino - Your Digital Partner for Growth"
+        className="h-14 w-auto object-contain"
+    />
 );
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-700">
+        <footer className="bg-primary text-white pt-20 pb-10 border-t border-primary-light">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-6">
@@ -76,7 +68,7 @@ export default function Footer() {
                         <ul className="space-y-4 text-slate-400">
                             <li className="flex items-center gap-3 hover:text-secondary transition-colors">
                                 <Mail className="h-5 w-5 text-secondary" />
-                                <span>afrahTech@gmail.com</span>
+                                <span>frainotech@gmail.com</span>
                             </li>
                             <li className="flex items-center gap-3 hover:text-secondary transition-colors">
                                 <Phone className="h-5 w-5 text-secondary" />
@@ -92,10 +84,10 @@ export default function Footer() {
 
                 <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-slate-500 text-sm">
-                        © {new Date().getFullYear()} AFRAH Tech. All rights reserved.
+                        © {new Date().getFullYear()} Fraino Tech. All rights reserved.
                     </p>
                     <p className="text-slate-500 text-sm flex items-center gap-1">
-                        Designed with <span className="text-secondary">♥</span> by AFRAH Tech Team
+                        Designed with <span className="text-secondary">♥</span> by Fraino Tech Team
                     </p>
                 </div>
             </div>

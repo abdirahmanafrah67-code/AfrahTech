@@ -1,4 +1,4 @@
-import { Smartphone, Upload, Palette, Layout, Wrench, Globe } from 'lucide-react';
+import { Smartphone, Upload, Send, Layout, Wrench, Globe, Brain } from 'lucide-react';
 import { useState } from 'react';
 
 const services = [
@@ -15,28 +15,34 @@ const services = [
         color: "teal"
     },
     {
+        icon: <Brain className="h-8 w-8" />,
+        title: "AI Model & Agents",
+        description: "Custom AI models and intelligent agents built to automate tasks and enhance decision-making.",
+        color: "orange"
+    },
+    {
         icon: <Upload className="h-8 w-8" />,
         title: "App Store Publishing",
         description: "Complete handling of the submission process to Google Play Store and Apple App Store.",
-        color: "orange"
+        color: "teal"
     },
     {
         icon: <Layout className="h-8 w-8" />,
         title: "UI/UX Design",
         description: "User-centric interfaces designed for intuitive navigation and exceptional user experiences.",
-        color: "teal"
+        color: "orange"
     },
     {
-        icon: <Palette className="h-8 w-8" />,
+        icon: <Send className="h-8 w-8" />,
         title: "Branding & Identity",
         description: "Crafting unique brand identities that resonate with your target audience and stand out.",
-        color: "orange"
+        color: "teal"
     },
     {
         icon: <Wrench className="h-8 w-8" />,
         title: "Maintenance & Support",
         description: "Ongoing updates, bug fixes, and performance optimization to keep your app running smoothly.",
-        color: "teal"
+        color: "orange"
     }
 ];
 

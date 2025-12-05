@@ -8,17 +8,18 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#002855', // Navy Blue
-                    light: '#003366',   // Lighter Navy
-                    dark: '#001f40',    // Darker Navy
+                    DEFAULT: '#0A4D4D', // Dark Teal (exact match to logo)
+                    light: '#0D6060',   // Lighter Teal
+                    dark: '#073838',    // Darker Teal
                 },
                 secondary: {
-                    DEFAULT: '#D9381E', // Red
-                    light: '#ef4444',   // Lighter Red
+                    DEFAULT: '#FFD700', // Rich Gold/Yellow (premium look)
+                    light: '#FFE55C',   // Lighter Gold
+                    dark: '#FFC700',    // Darker Gold
                 },
                 accent: {
-                    DEFAULT: '#009BDE', // Light Blue (Tech)
-                    yellow: '#F2A900',  // Gold/Yellow
+                    DEFAULT: '#FFD700', // Gold accent
+                    teal: '#0A4D4D',    // Teal accent
                 }
             },
             fontFamily: {

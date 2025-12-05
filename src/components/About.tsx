@@ -48,7 +48,7 @@ export default function About() {
                     <div>
                         <h2 className="text-4xl font-bold text-slate-900 mb-6">Dedicated to Digital Excellence</h2>
                         <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                            At AFRAH Tech, we are passionate about technology and its potential to transform businesses. We started with a simple mission: to help companies navigate the complex mobile landscape and build solutions that truly make a difference.
+                            At Fraino Tech, we are passionate about technology and its potential to transform businesses. We started with a simple mission: to help companies navigate the complex mobile landscape and build solutions that truly make a difference.
                         </p>
                         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                             Today, we are a full-service mobile development agency, trusted by leading organizations across Somalia. We don't just build apps; we build lasting partnerships and digital products that drive real value for businesses and their customers.
