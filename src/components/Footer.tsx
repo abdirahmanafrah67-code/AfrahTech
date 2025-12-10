@@ -59,7 +59,7 @@ export default function Footer() {
                             <li><a href="#" className="hover:text-secondary transition-colors hover:translate-x-1 inline-block">App Store Publishing</a></li>
                             <li><a href="#" className="hover:text-secondary transition-colors hover:translate-x-1 inline-block">UI/UX Design</a></li>
                             <li><a href="#" className="hover:text-secondary transition-colors hover:translate-x-1 inline-block">Branding</a></li>
-                            <li><a href="#" className="hover:text-secondary transition-colors hover:translate-x-1 inline-block">Maintenance</a></li>
+                            <li><a href="#" className="hover:text-secondary transition-colors hover:translate-x-1 inline-block">AI & Machine Learning</a></li>
                         </ul>
                     </div>
 
