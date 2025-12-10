@@ -68,7 +68,7 @@ export default function Footer() {
                         <ul className="space-y-4 text-slate-400">
                             <li className="flex items-center gap-3 hover:text-secondary transition-colors">
                                 <Mail className="h-5 w-5 text-secondary" />
-                                <span>frainotech@gmail.com</span>
+                                <span>afraino2025@gmail.com</span>
                             </li>
                             <li className="flex items-center gap-3 hover:text-secondary transition-colors">
                                 <Phone className="h-5 w-5 text-secondary" />
@@ -84,10 +84,10 @@ export default function Footer() {
 
                 <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-slate-500 text-sm">
-                        © {new Date().getFullYear()} Fraino Tech. All rights reserved.
+                        © {new Date().getFullYear()} afraino. All rights reserved.
                     </p>
                     <p className="text-slate-500 text-sm flex items-center gap-1">
-                        Designed with <span className="text-secondary">♥</span> by Fraino Tech Team
+                        Designed with <span className="text-secondary">♥</span> by afraino Team
                     </p>
                 </div>
             </div>
