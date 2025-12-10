@@ -54,7 +54,7 @@ export default function WhyChoose() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-4xl font-bold text-slate-900 mb-4">Why Choose Fraino Tech?</h2>
+                    <h2 className="text-4xl font-bold text-slate-900 mb-4">Why Choose aFraino Tech?</h2>
                     <p className="text-lg text-slate-700">
                         We're not just developers – we're your partners in digital transformation. Here's what sets us apart.
                     </p>
