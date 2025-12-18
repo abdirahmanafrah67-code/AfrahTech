@@ -11,7 +11,7 @@ const reasons = [
     {
         icon: <Shield className="h-6 w-6" />,
         title: "Quality First",
-        description: "We never compromise on quality, ensuring your app is robust, secure, and scalable.",
+        description: "We never compromise on quality, ensuring your solution is robust, secure, and scalable.",
         color: "light"
     },
     {

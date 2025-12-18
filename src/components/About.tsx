@@ -29,7 +29,7 @@ export default function About() {
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-lg mb-2 text-slate-900">Vision</h4>
-                                        <p className="text-slate-600 text-sm leading-relaxed">To become the leading technology partner for businesses seeking digital excellence in Somalia and beyond.</p>
+                                        <p className="text-slate-600 text-sm leading-relaxed">To become the leading technology partner for businesses seeking digital excellence in East Africa and beyond.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -51,7 +51,7 @@ export default function About() {
                             At Fraino Tech, we are passionate about technology and its potential to transform businesses. We started with a simple mission: to help companies navigate the complex mobile landscape and build solutions that truly make a difference.
                         </p>
                         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                            Today, we are a full-service mobile development agency, trusted by leading organizations across Somalia. We don't just build apps; we build lasting partnerships and digital products that drive real value for businesses and their customers.
+                            Today, we are a full-service mobile development agency, trusted by leading organizations across East Africa. We don't just build apps; we build lasting partnerships and digital products that drive real value for businesses and their customers.
                         </p>
 
                         <div className="grid grid-cols-2 gap-8">

@@ -76,7 +76,7 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-3 hover:text-secondary transition-colors">
                                 <MapPin className="h-5 w-5 text-secondary" />
-                                <span>Mogadishu, Somalia</span>
+                                <span>East Africa</span>
                             </li>
                         </ul>
                     </div>

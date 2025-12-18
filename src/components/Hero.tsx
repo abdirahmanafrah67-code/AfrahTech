@@ -18,7 +18,7 @@ export default function Hero() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
                             </span>
-                            #1 Mobile Development Agency in Somalia
+                            #1 Mobile & AI Development Agency in East Africa
                         </div>
 
                         <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-slate-900">
@@ -26,7 +26,7 @@ export default function Hero() {
                         </h1>
 
                         <p className="text-xl text-slate-700 max-w-lg leading-relaxed">
-                            We craft high-performance mobile apps, stunning UI/UX designs, and scalable digital solutions that drive business growth across East Africa.
+                            We craft high-performance mobile apps, AI agents, machine learning solutions, and sustainable digital products that drive business growth across East Africa.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">

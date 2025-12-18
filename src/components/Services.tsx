@@ -41,7 +41,7 @@ const services = [
     {
         icon: <Wrench className="h-8 w-8" />,
         title: "Maintenance & Support",
-        description: "Ongoing updates, bug fixes, and performance optimization to keep your app running smoothly.",
+        description: "Ongoing updates, bug fixes, and performance optimization to keep your digital solutions running smoothly.",
         color: "orange"
     }
 ];
@@ -55,7 +55,7 @@ export default function Services() {
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-4xl font-bold text-slate-900 mb-4">Our Expertise</h2>
                     <p className="text-lg text-slate-600">
-                        We provide comprehensive digital solutions to help your business grow and succeed in the mobile-first world.
+                        We provide comprehensive digital solutions to help your business grow and succeed in the digital-first world.
                     </p>
                 </div>
 
