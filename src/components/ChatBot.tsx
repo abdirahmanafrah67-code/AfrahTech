@@ -134,8 +134,8 @@ export default function ChatBot() {
                                     <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full"></span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg tracking-tight">Afraino AI</h3>
-                                    <p className="text-xs text-[#FFD700] font-medium opacity-90">Digital Agency • Online</p>
+                                    <h3 className="font-bold text-lg tracking-tight">Afraino help</h3>
+                                    <p className="text-xs text-[#FFD700] font-medium opacity-90"></p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 relative z-10">
