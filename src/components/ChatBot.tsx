@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Sparkles, ChevronDown, Minimize2, Cpu, Globe, Rocket } from 'lucide-react';
+import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket } from 'lucide-react';
 
 interface Message {
     id: string;
@@ -128,8 +128,8 @@ export default function ChatBot() {
 
                             <div className="flex items-center gap-4 relative z-10">
                                 <div className="relative">
-                                    <div className="bg-white p-2 rounded-2xl shadow-lg">
-                                        <img src="/logo.png" alt="Afraino" className="h-8 w-8 object-contain" />
+                                    <div className="bg-white p-1 rounded-2xl shadow-lg overflow-hidden w-12 h-12">
+                                        <img src="/afraino-icon.jpg" alt="Afraino" className="w-full h-full object-cover" />
                                     </div>
                                     <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full"></span>
                                 </div>
@@ -182,11 +182,15 @@ export default function ChatBot() {
                                     className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div className={`flex gap-3 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                                        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${msg.sender === 'bot'
-                                            ? 'bg-gradient-to-br from-[#0A4D4D] to-[#0D6D6D] text-[#FFD700]'
+                                        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden ${msg.sender === 'bot'
+                                            ? 'bg-[#0A4D4D]'
                                             : 'bg-gradient-to-br from-[#FFD700] to-[#FFA500] text-[#0A4D4D]'
                                             }`}>
-                                            {msg.sender === 'bot' ? <Cpu className="h-5 w-5" /> : <User className="h-5 w-5" />}
+                                            {msg.sender === 'bot' ? (
+                                                <img src="/afraino-icon.jpg" alt="AI Agent" className="w-full h-full object-cover" />
+                                            ) : (
+                                                <User className="h-5 w-5" />
+                                            )}
                                         </div>
                                         <div className={`p-4 rounded-[1.5rem] text-sm leading-relaxed shadow-sm ${msg.sender === 'bot'
                                             ? 'bg-white text-slate-700 border border-slate-100 rounded-tl-none'
@@ -208,8 +212,8 @@ export default function ChatBot() {
                                     className="flex justify-start"
                                 >
                                     <div className="flex gap-3 items-center">
-                                        <div className="w-10 h-10 rounded-2xl bg-slate-200 animate-pulse flex items-center justify-center">
-                                            <Sparkles className="h-5 w-5 text-slate-400" />
+                                        <div className="w-10 h-10 rounded-2xl overflow-hidden bg-slate-200 animate-pulse flex items-center justify-center">
+                                            <img src="/afraino-icon.jpg" alt="AI thinking" className="w-full h-full object-cover opacity-50" />
                                         </div>
                                         <div className="bg-white p-4 rounded-[1.5rem] rounded-tl-none border border-slate-100 flex gap-1">
                                             <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
@@ -285,7 +289,9 @@ export default function ChatBot() {
                         <ChevronDown className="h-7 w-7" />
                     ) : (
                         <div className="relative">
-                            <Sparkles className="h-7 w-7 text-[#FFD700]" />
+                            <div className="w-7 h-7 rounded-full overflow-hidden">
+                                <img src="/afraino-icon.jpg" alt="Afraino Chat" className="w-full h-full object-cover" />
+                            </div>
                             <motion.div
                                 className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-[#0A4D4D]"
                                 animate={{ scale: [1, 1.3, 1] }}
