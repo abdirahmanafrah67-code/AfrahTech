@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Sparkles, ChevronDown, Minimize2, Cpu } from 'lucide-react';
+import { X, Send, User, Sparkles, ChevronDown, Minimize2, Cpu, Globe, Rocket } from 'lucide-react';
 
 interface Message {
     id: string;
@@ -52,7 +52,7 @@ export default function ChatBot() {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: "Welcome to Afraino! I'm your AI strategist. What innovative project can we build together?",
+            text: "Welcome to Afraino! Our AI is ready to help you. You can also connect with us directly via the buttons above!",
             sender: 'bot',
             timestamp: new Date(),
         },
@@ -128,14 +128,14 @@ export default function ChatBot() {
 
                             <div className="flex items-center gap-4 relative z-10">
                                 <div className="relative">
-                                    <div className="bg-gradient-to-br from-[#FFD700] to-[#FFA500] p-3 rounded-2xl shadow-lg shadow-[#FFD700]/20">
-                                        <Sparkles className="h-6 w-6 text-[#0A4D4D]" />
+                                    <div className="bg-white p-2 rounded-2xl shadow-lg">
+                                        <img src="/logo.png" alt="Afraino" className="h-8 w-8 object-contain" />
                                     </div>
                                     <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full"></span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg tracking-tight">Fraino Strategist</h3>
-                                    <p className="text-xs text-[#FFD700] font-medium opacity-90">AI Agent • Always Active</p>
+                                    <h3 className="font-bold text-lg tracking-tight">Afraino AI</h3>
+                                    <p className="text-xs text-[#FFD700] font-medium opacity-90">Digital Agency • Online</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 relative z-10">
@@ -152,6 +152,24 @@ export default function ChatBot() {
                                     <X className="h-5 w-5" />
                                 </button>
                             </div>
+                        </div>
+
+                        {/* Quick Contact Bar */}
+                        <div className="bg-slate-100/80 backdrop-blur-sm border-b border-slate-200 p-3 flex justify-center gap-4">
+                            <a
+                                href="mailto:afraino2025@gmail.com"
+                                className="flex items-center gap-2 text-[10px] font-bold text-[#0A4D4D] bg-white px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#FFD700] transition-all"
+                            >
+                                <Globe className="h-3 w-3 text-[#FFD700]" />
+                                Email Us
+                            </a>
+                            <a
+                                href="https://wa.me/252619849199"
+                                className="flex items-center gap-2 text-[10px] font-bold text-[#0A4D4D] bg-white px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#FFD700] transition-all"
+                            >
+                                <Rocket className="h-3 w-3 text-[#FFD700]" />
+                                WhatsApp
+                            </a>
                         </div>
 
                         {/* Messages */}
