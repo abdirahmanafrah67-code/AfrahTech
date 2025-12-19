@@ -12,35 +12,43 @@ interface Message {
 const KNOWLEDGE_BASE = [
     {
         keywords: ["hello", "hi", "hey", "greetings", "yo"],
-        response: "Hello! I'm the Afraino AI agent. How can I help you transform your business today?"
+        response: "Hello! I'm the Afraino AI Agent. I can help with App Development, AI Automation, and Website builds. What project are you planning?"
     },
     {
         keywords: ["who are you", "what is afraino", "tell me about", "about"],
-        response: "Afraino is a premium AI & Mobile Development Agency in East Africa. We don't just build apps; we create intelligent digital partners for your business."
+        response: "Afraino is a results-driven agency specializing in AI integration and High-Performance Mobile Apps. We focus on ROI and cutting-edge tech."
     },
     {
-        keywords: ["services", "what do you do", "offer", "apps", "mobile", "ai", "machine learning", "develop"],
-        response: "We specialize in Mobile App Development (iOS & Android), AI Agents, Custom Machine Learning models, UI/UX Design, and Global Brand Strategy."
+        keywords: ["website", "web", "site", "landing", "seo", "develop"],
+        response: "We build SEO-optimized, ultra-fast websites using Next.js and React. Our builds include custom animations, CMS integration, and lead capture forms. Packages start at $800."
+    },
+    {
+        keywords: ["app", "mobile", "ios", "android", "flutter", "react native"],
+        response: "We develop premium cross-platform apps with AI features. Our apps include payment gateway integration, real-time analytics, and offline functionality."
     },
     {
         keywords: ["shop", "store", "business", "e-commerce", "sell", "retail"],
-        response: "We can build a smart e-commerce app for your shop! It can include AI-powered inventory management, customer insights, and seamless local payments. Would you like to see a demo?"
+        response: "Our E-commerce solution includes AI-powered inventory tracking, MPESA/Global payment integration, and automated customer marketing. Boosts sales by up to 30%."
     },
     {
         keywords: ["contact", "email", "phone", "reach", "hire", "talk to"],
-        response: "You can reach our team at afraino2025@gmail.com or call +252 619 849 199. We're ready to discuss your next big project!"
+        response: "Email: afraino2025@gmail.com | WhatsApp: +252 619 849 199. Our team responds within 2 hours during business hours."
     },
     {
         keywords: ["location", "where", "office", "east africa", "somalia", "kenya"],
-        response: "Our primary hub is in East Africa, but we serve clients globally. We are digital nomads with a focus on local excellence."
+        response: "Headquartered in East Africa with a global client base. We operate 24/7 digitally to support all time zones."
     },
     {
         keywords: ["ai", "agent", "chatbot", "intelligence", "automatic", "automation"],
-        response: "As an AI Agent company, we build custom LLM-powered assistants, automated customer service bots, and data-driven prediction tools for businesses."
+        response: "We build custom AI agents (GPT-4/Llama-3) to automate your customer service and business workflows. We specialized in reducing operational costs by 40%."
     },
     {
         keywords: ["price", "cost", "how much", "quote", "expensive"],
-        response: "Every project is unique! We offer competitive pricing based on the complexity of the AI and mobile features. Let's schedule a call to give you a precise quote."
+        response: "Websites start at $800, Apps at $2500, and AI Automations at $1500. Pricing depends on your specific complexity. Contact us for a custom quote."
+    },
+    {
+        keywords: ["portfolio", "work", "projects", "show", "example", "past"],
+        response: "We have delivered 50+ projects globally, including custom E-commerce apps, AI-driven CRM tools, and high-performance financial dashboards. View our 'Featured Works' above."
     }
 ];
 
@@ -98,14 +106,23 @@ export default function ChatBot() {
     const getBotResponse = (text: string) => {
         const lowerText = text.toLowerCase();
 
-        // Find the best match
-        const match = KNOWLEDGE_BASE.find(item =>
-            item.keywords.some(word => lowerText.includes(word))
-        );
+        // Find match based on highest keyword count
+        let bestMatch = null;
+        let maxMatches = 0;
 
-        if (match) return match.response;
+        for (const item of KNOWLEDGE_BASE) {
+            const matches = item.keywords.filter(kw => lowerText.includes(kw)).length;
+            if (matches > maxMatches) {
+                maxMatches = matches;
+                bestMatch = item;
+            }
+        }
 
-        return "That's a great question about digital innovation! While I specialize in AI and Mobile development, I'd love to learn more about your specific needs. Would you like to speak with one of our human experts?";
+        if (bestMatch && maxMatches > 0) {
+            return bestMatch.response;
+        }
+
+        return "I'm the Afraino AI Agent. I specialize in App Development, AI Automation, and Web Design. For specific technical questions or custom quotes, please use the Email/WhatsApp buttons above!";
     };
 
     return (
