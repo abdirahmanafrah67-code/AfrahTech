@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot, User, ChevronDown, Minimize2 } from 'lucide-react';
+import { X, Send, User, Sparkles, ChevronDown, Minimize2, Cpu } from 'lucide-react';
 
 interface Message {
     id: string;
@@ -9,33 +9,50 @@ interface Message {
     timestamp: Date;
 }
 
-const KNOWLEDGE_BASE = {
-    greetings: ["hello", "hi", "hey", "greetings"],
-    about: ["who are you", "what is afraino", "tell me about afraino", "about"],
-    services: ["services", "what do you do", "offer", "apps", "mobile", "ai", "machine learning"],
-    contact: ["contact", "email", "phone", "reach", "hire"],
-    location: ["location", "where", "east africa", "somalia", "kenya"],
-    ai: ["ai", "agent", "chatbot", "intelligence", "automation"],
-};
-
-const RESPONSES = {
-    greetings: "Hello! I'm the Afraino AI agent. How can I help you today?",
-    about: "Afraino is a leading Mobile & AI Development Agency in East Africa. We specialize in transforming ideas into digital reality through high-performance apps and AI solutions.",
-    services: "We offer Mobile App Development, AI & Machine Learning solutions, UI/UX Design, Branding, and App Store Publishing. Check out our Services section for more details!",
-    contact: "You can reach us at afraino2025@gmail.com or call us at +252 619 849 199. We're also available for a consultation through the contact form on this page.",
-    location: "We are based in East Africa, serving clients across the region and globally with top-tier digital products.",
-    ai: "Yes! We are an AI-first company. We develop custom AI agents, automated workflows, and machine learning models to help businesses scale and innovate.",
-    default: "That's interesting! Could you tell me more? You can also ask about our services, location, or how to contact us.",
-};
+const KNOWLEDGE_BASE = [
+    {
+        keywords: ["hello", "hi", "hey", "greetings", "yo"],
+        response: "Hello! I'm the Afraino AI agent. How can I help you transform your business today?"
+    },
+    {
+        keywords: ["who are you", "what is afraino", "tell me about", "about"],
+        response: "Afraino is a premium AI & Mobile Development Agency in East Africa. We don't just build apps; we create intelligent digital partners for your business."
+    },
+    {
+        keywords: ["services", "what do you do", "offer", "apps", "mobile", "ai", "machine learning", "develop"],
+        response: "We specialize in Mobile App Development (iOS & Android), AI Agents, Custom Machine Learning models, UI/UX Design, and Global Brand Strategy."
+    },
+    {
+        keywords: ["shop", "store", "business", "e-commerce", "sell", "retail"],
+        response: "We can build a smart e-commerce app for your shop! It can include AI-powered inventory management, customer insights, and seamless local payments. Would you like to see a demo?"
+    },
+    {
+        keywords: ["contact", "email", "phone", "reach", "hire", "talk to"],
+        response: "You can reach our team at afraino2025@gmail.com or call +252 619 849 199. We're ready to discuss your next big project!"
+    },
+    {
+        keywords: ["location", "where", "office", "east africa", "somalia", "kenya"],
+        response: "Our primary hub is in East Africa, but we serve clients globally. We are digital nomads with a focus on local excellence."
+    },
+    {
+        keywords: ["ai", "agent", "chatbot", "intelligence", "automatic", "automation"],
+        response: "As an AI Agent company, we build custom LLM-powered assistants, automated customer service bots, and data-driven prediction tools for businesses."
+    },
+    {
+        keywords: ["price", "cost", "how much", "quote", "expensive"],
+        response: "Every project is unique! We offer competitive pricing based on the complexity of the AI and mobile features. Let's schedule a call to give you a precise quote."
+    }
+];
 
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: "Hi! I'm Fraino, your AI assistant. How can I help you today?",
+            text: "Welcome to Afraino! I'm your AI strategist. What innovative project can we build together?",
             sender: 'bot',
             timestamp: new Date(),
         },
@@ -48,10 +65,10 @@ export default function ChatBot() {
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages, isOpen]);
+    }, [messages, isTyping, isOpen]);
 
     const handleSend = () => {
-        if (!input.trim()) return;
+        if (!input.trim() || isTyping) return;
 
         const userMessage: Message = {
             id: Date.now().toString(),
@@ -62,8 +79,9 @@ export default function ChatBot() {
 
         setMessages((prev) => [...prev, userMessage]);
         setInput('');
+        setIsTyping(true);
 
-        // Simulate Bot thinking
+        // Simulate professional AI thinking
         setTimeout(() => {
             const botResponse = getBotResponse(input);
             const botMessage: Message = {
@@ -73,20 +91,21 @@ export default function ChatBot() {
                 timestamp: new Date(),
             };
             setMessages((prev) => [...prev, botMessage]);
-        }, 1000);
+            setIsTyping(false);
+        }, 1500);
     };
 
     const getBotResponse = (text: string) => {
         const lowerText = text.toLowerCase();
 
-        if (KNOWLEDGE_BASE.greetings.some(word => lowerText.includes(word))) return RESPONSES.greetings;
-        if (KNOWLEDGE_BASE.about.some(word => lowerText.includes(word))) return RESPONSES.about;
-        if (KNOWLEDGE_BASE.services.some(word => lowerText.includes(word))) return RESPONSES.services;
-        if (KNOWLEDGE_BASE.contact.some(word => lowerText.includes(word))) return RESPONSES.contact;
-        if (KNOWLEDGE_BASE.location.some(word => lowerText.includes(word))) return RESPONSES.location;
-        if (KNOWLEDGE_BASE.ai.some(word => lowerText.includes(word))) return RESPONSES.ai;
+        // Find the best match
+        const match = KNOWLEDGE_BASE.find(item =>
+            item.keywords.some(word => lowerText.includes(word))
+        );
 
-        return RESPONSES.default;
+        if (match) return match.response;
+
+        return "That's a great question about digital innovation! While I specialize in AI and Mobile development, I'd love to learn more about your specific needs. Would you like to speak with one of our human experts?";
     };
 
     return (
@@ -94,83 +113,114 @@ export default function ChatBot() {
             <AnimatePresence>
                 {isOpen && !isMinimized && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                        className="bg-white w-[350px] sm:w-[400px] h-[500px] rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col mb-4"
+                        initial={{ opacity: 0, y: 30, scale: 0.9, rotate: -2 }}
+                        animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+                        exit={{ opacity: 0, y: 30, scale: 0.9, rotate: 2 }}
+                        className="bg-white w-[350px] sm:w-[400px] h-[550px] rounded-[2.5rem] shadow-[0_20px_50px_rgba(10,77,77,0.3)] border border-slate-200 overflow-hidden flex flex-col mb-4"
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-primary to-primary-light p-4 text-white flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="bg-white/20 p-2 rounded-xl backdrop-blur-sm">
-                                    <Bot className="h-5 w-5 text-secondary" />
+                        <div className="bg-[#0A4D4D] p-6 text-white flex items-center justify-between relative overflow-hidden">
+                            <motion.div
+                                className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
+                                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                                transition={{ duration: 4, repeat: Infinity }}
+                            />
+
+                            <div className="flex items-center gap-4 relative z-10">
+                                <div className="relative">
+                                    <div className="bg-gradient-to-br from-[#FFD700] to-[#FFA500] p-3 rounded-2xl shadow-lg shadow-[#FFD700]/20">
+                                        <Sparkles className="h-6 w-6 text-[#0A4D4D]" />
+                                    </div>
+                                    <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full"></span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold">Fraino AI</h3>
-                                    <p className="text-[10px] text-secondary flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                                        Online & Ready to Help
-                                    </p>
+                                    <h3 className="font-bold text-lg tracking-tight">Fraino Strategist</h3>
+                                    <p className="text-xs text-[#FFD700] font-medium opacity-90">AI Agent • Always Active</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 relative z-10">
                                 <button
                                     onClick={() => setIsMinimized(true)}
-                                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
                                 >
-                                    <Minimize2 className="h-4 w-4" />
+                                    <Minimize2 className="h-5 w-5" />
                                 </button>
                                 <button
                                     onClick={() => setIsOpen(false)}
-                                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
                                 >
-                                    <X className="h-4 w-4" />
+                                    <X className="h-5 w-5" />
                                 </button>
                             </div>
                         </div>
 
                         {/* Messages */}
-                        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
+                        <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/50">
                             {messages.map((msg) => (
                                 <motion.div
                                     key={msg.id}
-                                    initial={{ opacity: 0, x: msg.sender === 'user' ? 20 : -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
+                                    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
                                     className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
-                                    <div className={`flex gap-2 max-w-[80%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.sender === 'bot' ? 'bg-primary text-secondary' : 'bg-secondary text-primary'
+                                    <div className={`flex gap-3 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+                                        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${msg.sender === 'bot'
+                                            ? 'bg-gradient-to-br from-[#0A4D4D] to-[#0D6D6D] text-[#FFD700]'
+                                            : 'bg-gradient-to-br from-[#FFD700] to-[#FFA500] text-[#0A4D4D]'
                                             }`}>
-                                            {msg.sender === 'bot' ? <Bot className="h-4 w-4" /> : <User className="h-4 w-4" />}
+                                            {msg.sender === 'bot' ? <Cpu className="h-5 w-5" /> : <User className="h-5 w-5" />}
                                         </div>
-                                        <div className={`p-3 rounded-2xl text-sm ${msg.sender === 'bot'
-                                            ? 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none'
-                                            : 'bg-primary text-white shadow-md rounded-tr-none'
+                                        <div className={`p-4 rounded-[1.5rem] text-sm leading-relaxed shadow-sm ${msg.sender === 'bot'
+                                            ? 'bg-white text-slate-700 border border-slate-100 rounded-tl-none'
+                                            : 'bg-[#0A4D4D] text-white rounded-tr-none'
                                             }`}>
                                             {msg.text}
+                                            <p className={`text-[9px] mt-2 opacity-50 ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
+                                                {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                            </p>
                                         </div>
                                     </div>
                                 </motion.div>
                             ))}
+
+                            {isTyping && (
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    className="flex justify-start"
+                                >
+                                    <div className="flex gap-3 items-center">
+                                        <div className="w-10 h-10 rounded-2xl bg-slate-200 animate-pulse flex items-center justify-center">
+                                            <Sparkles className="h-5 w-5 text-slate-400" />
+                                        </div>
+                                        <div className="bg-white p-4 rounded-[1.5rem] rounded-tl-none border border-slate-100 flex gap-1">
+                                            <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
+                                            <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity, delay: 0.2 }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
+                                            <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity, delay: 0.4 }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
                             <div ref={messagesEndRef} />
                         </div>
 
                         {/* Input */}
-                        <div className="p-4 bg-white border-t border-slate-100">
-                            <div className="relative">
+                        <div className="p-6 bg-white border-t border-slate-100">
+                            <div className="relative group">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                                    placeholder="Ask about Afraino..."
-                                    className="w-full pl-4 pr-12 py-3 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                                    placeholder="Type your message..."
+                                    className="w-full pl-5 pr-14 py-4 bg-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-[#0A4D4D]/20 transition-all text-sm group-hover:bg-slate-200/50"
                                 />
                                 <button
                                     onClick={handleSend}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-primary text-secondary rounded-lg hover:scale-105 transition-transform"
+                                    disabled={!input.trim() || isTyping}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-[#0A4D4D] text-[#FFD700] rounded-xl hover:scale-105 transition-all disabled:opacity-50 disabled:scale-100 shadow-lg shadow-[#0A4D4D]/20"
                                 >
-                                    <Send className="h-4 w-4" />
+                                    <Send className="h-5 w-5" />
                                 </button>
                             </div>
                         </div>
@@ -179,21 +229,26 @@ export default function ChatBot() {
             </AnimatePresence>
 
             {/* Floating Trigger Button */}
-            <div className="flex items-center gap-3">
-                {isMinimized && isOpen && (
-                    <motion.button
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        onClick={() => setIsMinimized(false)}
-                        className="bg-white px-4 py-2 rounded-full shadow-lg border border-slate-200 text-sm font-semibold flex items-center gap-2 text-primary hover:border-secondary transition-all"
-                    >
-                        <Bot className="h-4 w-4 text-secondary" />
-                        Restore Chat
-                    </motion.button>
-                )}
+            <div className="flex items-center gap-4">
+                <AnimatePresence>
+                    {isMinimized && isOpen && (
+                        <motion.button
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 20 }}
+                            onClick={() => setIsMinimized(false)}
+                            className="bg-white px-6 py-3 rounded-2xl shadow-2xl border border-slate-200 text-sm font-bold flex items-center gap-3 text-[#0A4D4D] hover:border-[#FFD700] transition-all group"
+                        >
+                            <div className="bg-[#0A4D4D]/10 p-2 rounded-lg group-hover:bg-[#0A4D4D] group-hover:text-[#FFD700] transition-all">
+                                <Sparkles className="h-4 w-4" />
+                            </div>
+                            Restore Fraino AI
+                        </motion.button>
+                    )}
+                </AnimatePresence>
 
                 <motion.button
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => {
                         if (isMinimized) {
@@ -202,17 +257,20 @@ export default function ChatBot() {
                             setIsOpen(!isOpen);
                         }
                     }}
-                    className={`p-4 rounded-full shadow-2xl flex items-center justify-center transition-all ${isOpen && !isMinimized ? 'bg-white text-primary' : 'bg-primary text-white'
+                    className={`p-5 rounded-[2rem] shadow-[0_10px_30px_rgba(10,77,77,0.4)] flex items-center justify-center transition-all relative overflow-hidden ${isOpen && !isMinimized ? 'bg-white text-[#0A4D4D]' : 'bg-[#0A4D4D] text-white'
                         }`}
                 >
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                     {isOpen && !isMinimized ? (
-                        <ChevronDown className="h-6 w-6" />
+                        <ChevronDown className="h-7 w-7" />
                     ) : (
                         <div className="relative">
-                            <MessageSquare className="h-6 w-6" />
+                            <Sparkles className="h-7 w-7 text-[#FFD700]" />
                             <motion.div
-                                className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-primary"
-                                animate={{ scale: [1, 1.2, 1] }}
+                                className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-[#0A4D4D]"
+                                animate={{ scale: [1, 1.3, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
                         </div>
