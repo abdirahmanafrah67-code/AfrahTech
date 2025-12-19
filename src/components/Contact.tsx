@@ -18,7 +18,7 @@ export default function Contact() {
 
         try {
             // Using FormSubmit.co - a free form backend service
-            const response = await fetch('https://formsubmit.co/ajax/abdirahmanafarh67@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/afraino2025@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
