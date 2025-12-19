@@ -128,7 +128,7 @@ export default function ChatBot() {
 
                             <div className="flex items-center gap-4 relative z-10">
                                 <div className="relative">
-                                    <div className="bg-white p-1 rounded-2xl shadow-lg overflow-hidden w-12 h-12">
+                                    <div className="w-12 h-12 rounded-2xl shadow-lg border-2 border-[#FFD700]/20 overflow-hidden">
                                         <img src="/afraino-icon.jpg" alt="Afraino" className="w-full h-full object-cover" />
                                     </div>
                                     <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full"></span>
@@ -183,7 +183,7 @@ export default function ChatBot() {
                                 >
                                     <div className={`flex gap-3 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                                         <div className={`w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden ${msg.sender === 'bot'
-                                            ? 'bg-[#0A4D4D]'
+                                            ? ''
                                             : 'bg-gradient-to-br from-[#FFD700] to-[#FFA500] text-[#0A4D4D]'
                                             }`}>
                                             {msg.sender === 'bot' ? (
@@ -289,7 +289,7 @@ export default function ChatBot() {
                         <ChevronDown className="h-7 w-7" />
                     ) : (
                         <div className="relative">
-                            <div className="w-7 h-7 rounded-full overflow-hidden">
+                            <div className="w-8 h-8 rounded-lg overflow-hidden border border-[#FFD700]/30 shadow-sm">
                                 <img src="/afraino-icon.jpg" alt="Afraino Chat" className="w-full h-full object-cover" />
                             </div>
                             <motion.div
