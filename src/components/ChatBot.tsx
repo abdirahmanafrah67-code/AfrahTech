@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket } from 'lucide-react';
+import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket, Volume2, VolumeX } from 'lucide-react';
+import { generateAIResponse, speakWithElevenLabs } from '../utils/aiService';
 
 interface Message {
     id: string;
@@ -57,6 +58,7 @@ export default function ChatBot() {
     const [isMinimized, setIsMinimized] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [input, setInput] = useState('');
+    const [isMuted, setIsMuted] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
@@ -66,6 +68,7 @@ export default function ChatBot() {
         },
     ]);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -75,7 +78,7 @@ export default function ChatBot() {
         scrollToBottom();
     }, [messages, isTyping, isOpen]);
 
-    const handleSend = () => {
+    const handleSend = async () => {
         if (!input.trim() || isTyping) return;
 
         const userMessage: Message = {
@@ -86,27 +89,48 @@ export default function ChatBot() {
         };
 
         setMessages((prev) => [...prev, userMessage]);
+        const currentInput = input;
         setInput('');
         setIsTyping(true);
 
-        // Simulate professional AI thinking
-        setTimeout(() => {
-            const botResponse = getBotResponse(input);
+        try {
+            // First check local knowledge base for quick answers
+            let botResponse = getLocalResponse(currentInput);
+
+            // If no local match, use AI
+            if (!botResponse) {
+                botResponse = await generateAIResponse(currentInput);
+            }
+
             const botMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 text: botResponse,
                 sender: 'bot',
                 timestamp: new Date(),
             };
+
             setMessages((prev) => [...prev, botMessage]);
             setIsTyping(false);
-        }, 1500);
+
+            // Voice response if not muted
+            if (!isMuted) {
+                const audio = await speakWithElevenLabs(botResponse);
+                if (audio) {
+                    if (audioRef.current) {
+                        audioRef.current.pause();
+                    }
+                    audioRef.current = audio;
+                    audio.play();
+                }
+            }
+        } catch (error) {
+            console.error("Error handling message:", error);
+            setIsTyping(false);
+        }
     };
 
-    const getBotResponse = (text: string) => {
+    const getLocalResponse = (text: string) => {
         const lowerText = text.toLowerCase();
-
-        // Find match based on highest keyword count
         let bestMatch = null;
         let maxMatches = 0;
 
@@ -118,11 +142,7 @@ export default function ChatBot() {
             }
         }
 
-        if (bestMatch && maxMatches > 0) {
-            return bestMatch.response;
-        }
-
-        return "I'm the Afraino AI Agent. I specialize in App Development, AI Automation, and Web Design. For specific technical questions or custom quotes, please use the Email/WhatsApp buttons above!";
+        return bestMatch && maxMatches > 0 ? bestMatch.response : null;
     };
 
     return (
@@ -151,11 +171,18 @@ export default function ChatBot() {
                                     <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full"></span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg tracking-tight">Afraino help</h3>
-                                    <p className="text-xs text-[#FFD700] font-medium opacity-90"></p>
+                                    <h3 className="font-bold text-lg tracking-tight">Afraino AI</h3>
+                                    <p className="text-[10px] text-[#FFD700] font-medium opacity-90">Online & Voice Enabled</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 relative z-10">
+                                <button
+                                    onClick={() => setIsMuted(!isMuted)}
+                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
+                                    title={isMuted ? "Unmute Voice" : "Mute Voice"}
+                                >
+                                    {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                                </button>
                                 <button
                                     onClick={() => setIsMinimized(true)}
                                     className="p-2 hover:bg-white/10 rounded-xl transition-colors"
@@ -251,7 +278,7 @@ export default function ChatBot() {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                                    placeholder="Type your message..."
+                                    placeholder="Ask anything about Afraino..."
                                     className="w-full pl-5 pr-14 py-4 bg-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-[#0A4D4D]/20 transition-all text-sm group-hover:bg-slate-200/50"
                                 />
                                 <button
