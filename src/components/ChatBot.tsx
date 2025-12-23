@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket, Volume2, VolumeX } from 'lucide-react';
-import { generateAIResponse, speakWithElevenLabs } from '../utils/aiService';
+import { generateContextualResponse, speakWithElevenLabs, ConversationContext } from '../utils/aiService';
+
 
 interface Message {
     id: string;
@@ -10,48 +11,7 @@ interface Message {
     timestamp: Date;
 }
 
-const KNOWLEDGE_BASE = [
-    {
-        keywords: ["hello", "hi", "hey", "greetings", "yo"],
-        response: "Hello! I'm the Afraino AI Agent. I can help with App Development, AI Automation, and Website builds. What project are you planning?"
-    },
-    {
-        keywords: ["who are you", "what is afraino", "tell me about", "about"],
-        response: "Afraino is a results-driven agency specializing in AI integration and High-Performance Mobile Apps. We focus on ROI and cutting-edge tech."
-    },
-    {
-        keywords: ["website", "web", "site", "landing", "seo", "develop"],
-        response: "We build SEO-optimized, ultra-fast websites using Next.js and React. Our builds include custom animations, CMS integration, and lead capture forms. Packages start at $800."
-    },
-    {
-        keywords: ["app", "mobile", "ios", "android", "flutter", "react native"],
-        response: "We develop premium cross-platform apps with AI features. Our apps include payment gateway integration, real-time analytics, and offline functionality."
-    },
-    {
-        keywords: ["shop", "store", "business", "e-commerce", "sell", "retail"],
-        response: "Our E-commerce solution includes AI-powered inventory tracking, MPESA/Global payment integration, and automated customer marketing. Boosts sales by up to 30%."
-    },
-    {
-        keywords: ["contact", "email", "phone", "reach", "hire", "talk to"],
-        response: "Email: afraino2025@gmail.com | WhatsApp: +252 619 849 199. Our team responds within 2 hours during business hours."
-    },
-    {
-        keywords: ["location", "where", "office", "east africa", "somalia", "kenya"],
-        response: "Headquartered in East Africa with a global client base. We operate 24/7 digitally to support all time zones."
-    },
-    {
-        keywords: ["ai", "agent", "chatbot", "intelligence", "automatic", "automation"],
-        response: "We build custom AI agents (GPT-4/Llama-3) to automate your customer service and business workflows. We specialized in reducing operational costs by 40%."
-    },
-    {
-        keywords: ["price", "cost", "how much", "quote", "expensive"],
-        response: "Websites start at $800, Apps at $2500, and AI Automations at $1500. Pricing depends on your specific complexity. Contact us for a custom quote."
-    },
-    {
-        keywords: ["portfolio", "work", "projects", "show", "example", "past"],
-        response: "We have delivered 50+ projects globally, including custom E-commerce apps, AI-driven CRM tools, and high-performance financial dashboards. View our 'Featured Works' above."
-    }
-];
+// Conversation context is now managed in aiService.ts
 
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
@@ -59,10 +19,14 @@ export default function ChatBot() {
     const [isTyping, setIsTyping] = useState(false);
     const [input, setInput] = useState('');
     const [isMuted, setIsMuted] = useState(false);
+    const [conversationContext, setConversationContext] = useState<ConversationContext>({
+        stage: 'greeting',
+        messageHistory: []
+    });
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: "Welcome to Afraino! Our AI is ready to help you. You can also connect with us directly via the buttons above!",
+            text: "Hi there! 👋 I'm here to help you bring your digital vision to life. We specialize in Mobile Apps, Web Development, AI Automation, UI/UX Design, Branding, and E-commerce solutions.\n\nWhat are you looking to build today?",
             sender: 'bot',
             timestamp: new Date(),
         },
@@ -94,13 +58,14 @@ export default function ChatBot() {
         setIsTyping(true);
 
         try {
-            // First check local knowledge base for quick answers
-            let botResponse = getLocalResponse(currentInput);
+            // Use contextual AI response with conversation state
+            const { response: botResponse, newContext } = await generateContextualResponse(
+                currentInput,
+                conversationContext
+            );
 
-            // If no local match, use AI
-            if (!botResponse) {
-                botResponse = await generateAIResponse(currentInput);
-            }
+            // Update conversation context
+            setConversationContext(newContext);
 
             const botMessage: Message = {
                 id: (Date.now() + 1).toString(),
@@ -129,20 +94,21 @@ export default function ChatBot() {
         }
     };
 
-    const getLocalResponse = (text: string) => {
-        const lowerText = text.toLowerCase();
-        let bestMatch = null;
-        let maxMatches = 0;
-
-        for (const item of KNOWLEDGE_BASE) {
-            const matches = item.keywords.filter(kw => lowerText.includes(kw)).length;
-            if (matches > maxMatches) {
-                maxMatches = matches;
-                bestMatch = item;
-            }
+    // Get conversation stage indicator
+    const getStageIndicator = () => {
+        switch (conversationContext.stage) {
+            case 'greeting':
+            case 'service_discovery':
+                return '🔍 Discovering your needs...';
+            case 'service_details':
+                return '💡 Sharing details...';
+            case 'contact_collection':
+                return '📞 Ready to connect...';
+            case 'handoff':
+                return '✅ Team assigned!';
+            default:
+                return 'Online & Voice Enabled';
         }
-
-        return bestMatch && maxMatches > 0 ? bestMatch.response : null;
     };
 
     return (
@@ -172,7 +138,7 @@ export default function ChatBot() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg tracking-tight">Afraino AI</h3>
-                                    <p className="text-[10px] text-[#FFD700] font-medium opacity-90">Online & Voice Enabled</p>
+                                    <p className="text-[10px] text-[#FFD700] font-medium opacity-90">{getStageIndicator()}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 relative z-10">
