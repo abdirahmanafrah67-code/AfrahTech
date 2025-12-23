@@ -17,55 +17,37 @@ export interface ConversationContext {
     messageHistory: string[];
 }
 
-// Service catalog with detailed information
+// Service catalog - focused on capabilities, not pricing
 const SERVICES = {
     'mobile_app': {
         name: 'Mobile App Development',
         keywords: ['app', 'mobile', 'ios', 'android', 'flutter', 'react native', 'application'],
-        description: 'We build premium cross-platform mobile apps with cutting-edge features including AI integration, payment gateways (MPESA, Stripe, PayPal), real-time analytics, offline functionality, and push notifications.',
-        pricing: 'Starting at $2,500',
-        technologies: 'Flutter, React Native, Firebase, Supabase',
-        timeline: '4-12 weeks depending on complexity'
+        description: 'We build premium cross-platform mobile apps for iOS and Android with AI integration, payment systems, real-time features, and push notifications. Perfect for startups and established businesses looking to reach mobile users.'
     },
     'web_development': {
         name: 'Web Development',
         keywords: ['website', 'web', 'site', 'landing', 'seo', 'develop', 'next', 'react'],
-        description: 'We create SEO-optimized, ultra-fast websites using Next.js and React. Our builds include custom animations, CMS integration, lead capture forms, and responsive design that works perfectly on all devices.',
-        pricing: 'Starting at $800',
-        technologies: 'Next.js, React, TypeScript, TailwindCSS',
-        timeline: '2-6 weeks depending on complexity'
+        description: 'We create fast, SEO-optimized websites with modern designs. From landing pages to full web applications, we build solutions that convert visitors into customers.'
     },
     'ai_ml': {
-        name: 'AI Models & Agents',
+        name: 'AI & Automation',
         keywords: ['ai', 'agent', 'chatbot', 'intelligence', 'automatic', 'automation', 'machine learning', 'ml', 'gpt', 'llama'],
-        description: 'We build custom AI agents powered by GPT-4, Claude, or Llama-3 to automate customer service, business workflows, and decision-making. Our solutions reduce operational costs by up to 40% while improving response times.',
-        pricing: 'Starting at $1,500',
-        technologies: 'OpenAI GPT-4, Anthropic Claude, Llama-3, LangChain',
-        timeline: '3-8 weeks depending on complexity'
+        description: 'We build custom AI solutions to automate your customer service, business processes, and workflows. Our AI agents work 24/7 to save you time and reduce costs.'
     },
     'ui_ux': {
         name: 'UI/UX Design',
         keywords: ['ui', 'ux', 'design', 'interface', 'user experience', 'figma', 'prototype'],
-        description: 'We design user-centric interfaces focused on intuitive navigation and exceptional user experiences. Our designs are modern, accessible, and optimized for conversion.',
-        pricing: 'Starting at $600',
-        technologies: 'Figma, Adobe XD, Sketch, Prototyping Tools',
-        timeline: '1-4 weeks depending on scope'
+        description: 'We design beautiful, user-friendly interfaces that your customers will love. Our designs focus on creating smooth experiences that drive engagement and conversions.'
     },
     'branding': {
         name: 'Branding & Identity',
         keywords: ['brand', 'branding', 'identity', 'logo', 'visual', 'corporate'],
-        description: 'We craft unique brand identities that resonate with your target audience and stand out in the market. This includes logo design, color schemes, typography, and brand guidelines.',
-        pricing: 'Starting at $500',
-        technologies: 'Adobe Illustrator, Photoshop, Brand Strategy',
-        timeline: '2-4 weeks'
+        description: 'We create unique brand identities that make you stand out. From logos to complete visual systems, we help you build a brand that resonates with your audience.'
     },
     'ecommerce': {
         name: 'E-Commerce Solutions',
         keywords: ['shop', 'store', 'business', 'e-commerce', 'ecommerce', 'sell', 'retail', 'online store'],
-        description: 'Our E-commerce solutions include AI-powered inventory tracking, MPESA/Global payment integration, automated customer marketing, and analytics. Proven to boost sales by up to 30%.',
-        pricing: 'Starting at $1,200',
-        technologies: 'Shopify, WooCommerce, Custom Solutions',
-        timeline: '4-8 weeks'
+        description: 'We build complete online stores with payment integration, inventory management, and marketing automation. Get your products online and start selling globally.'
     }
 };
 
@@ -138,49 +120,35 @@ export const generateContextualResponse = async (
 
         case 'service_discovery':
             if (context.selectedService) {
-                newStage = 'service_details';
+                newStage = 'contact_collection';
                 const service = SERVICES[context.selectedService as keyof typeof SERVICES];
-                systemPrompt = `You are a professional consultant for Afraino. The client is interested in ${service.name}. Provide these details naturally in a conversational way:
+                systemPrompt = `You are a professional consultant for Afraino. The client is interested in ${service.name}. 
                 
-Service: ${service.name}
-Description: ${service.description}
-Pricing: ${service.pricing}
-Technologies: ${service.technologies}
-Timeline: ${service.timeline}
+Share this brief description: "${service.description}"
 
-After sharing this, ask if they'd like to discuss their specific project needs or if they have any questions. Be enthusiastic and helpful.`;
+Then IMMEDIATELY ask for their contact information (email or phone number) so our team can provide a detailed proposal and discuss their specific project. Be warm and enthusiastic. Don't mention pricing, timelines, or technical details - just focus on getting them connected with the team.`;
             } else {
-                systemPrompt = `You are a professional consultant for Afraino. The client hasn't clearly indicated which service they need. Gently ask clarifying questions to understand their needs. Services available: Mobile Apps ($2,500+), Web Development ($800+), AI Automation ($1,500+), UI/UX Design ($600+), Branding ($500+), E-commerce ($1,200+). Be helpful and patient.`;
+                systemPrompt = `You are a professional consultant for Afraino. The client hasn't clearly indicated which service they need. Gently ask what they're looking to build. Services available: Mobile Apps, Web Development, AI Automation, UI/UX Design, Branding, E-commerce. Be helpful and patient. Don't mention pricing.`;
             }
             break;
 
         case 'service_details':
-            if (context.contactInfo?.email || context.contactInfo?.phone) {
-                newStage = 'handoff';
-                systemPrompt = `You are a professional consultant for Afraino. You've received the client's contact information. Thank them warmly and assure them that:
-1. Our best team will be assigned to their project
-2. We'll transform their vision into reality
-3. They'll receive a response within 2 hours during business hours
-4. We're excited to work with them
-
-Be genuine, professional, and enthusiastic. Make them feel valued.`;
-            } else {
-                newStage = 'contact_collection';
-                systemPrompt = `You are a professional consultant for Afraino. You've discussed the service details. Now naturally ask for their contact information (email or phone number) so the team can reach out with a detailed proposal. Be polite and explain that this helps us provide a personalized quote and timeline. Don't be pushy.`;
-            }
+            // Skip service details stage, go straight to contact collection
+            newStage = 'contact_collection';
+            systemPrompt = `You are a professional consultant for Afraino. Ask for the client's contact information (email or phone number) so our team can provide a detailed proposal. Be polite and professional. Explain that this helps us give them a personalized solution.`;
             break;
 
         case 'contact_collection':
             if (context.contactInfo?.email || context.contactInfo?.phone) {
                 newStage = 'handoff';
-                systemPrompt = `You are a professional consultant for Afraino. You've received the client's contact information. Thank them warmly and assure them that our best team will be assigned to transform their vision into reality. Mention they'll hear from us within 2 hours during business hours. Be enthusiastic and professional.`;
+                systemPrompt = `You are a professional consultant for Afraino. You've received the client's contact information. Thank them warmly and confirm that our best team will reach out within 2 hours during business hours to discuss their project and provide a detailed proposal. Be enthusiastic and make them feel valued.`;
             } else {
-                systemPrompt = `You are a professional consultant for Afraino. Gently remind the client that you need their email or phone number to connect them with the team. Explain that this ensures they get a personalized proposal. Be friendly and understanding.`;
+                systemPrompt = `You are a professional consultant for Afraino. Politely ask for the client's email or phone number so we can connect them with our team for a detailed discussion. Explain that this ensures they get a personalized proposal. Be friendly.`;
             }
             break;
 
         case 'handoff':
-            systemPrompt = `You are a professional consultant for Afraino. The handoff is complete. If the client has additional questions, answer them helpfully. Otherwise, reinforce that the team will be in touch soon and thank them for choosing Afraino. Be warm and professional.`;
+            systemPrompt = `You are a professional consultant for Afraino. The handoff is complete. If the client has questions, answer them helpfully but remind them the team will provide detailed information within 2 hours. Thank them for choosing Afraino.`;
             break;
     }
 
@@ -245,21 +213,21 @@ const getLocalFallbackResponse = (context: ConversationContext): string => {
         case 'service_discovery':
             if (selectedService) {
                 const service = SERVICES[selectedService as keyof typeof SERVICES];
-                return `Great choice! ${service.description}\n\n💰 ${service.pricing}\n⚡ ${service.technologies}\n📅 ${service.timeline}\n\nWould you like to discuss your specific project needs?`;
+                return `Great choice! ${service.description}\n\nTo get you connected with our best team, could you share your email or phone number? They'll provide a detailed proposal tailored to your project!`;
             }
             return "I'd love to help! Could you tell me a bit more about what you're looking for? Are you interested in a mobile app, website, AI solution, or something else?";
 
         case 'service_details':
-            return "Awesome! To get you connected with our best team and provide a detailed proposal, could you share your email or phone number?";
+            return "Perfect! To get you connected with our best team and provide a detailed proposal, could you share your email or phone number?";
 
         case 'contact_collection':
             if (contactInfo?.email || contactInfo?.phone) {
-                return `Perfect! Thank you ${contactInfo.email || contactInfo.phone}! 🎉\n\nOur best team will be assigned to your project, and we'll transform your vision into reality. Expect a response within 2 hours during business hours. We're excited to work with you!`;
+                return `Perfect! Thank you ${contactInfo.email || contactInfo.phone}! 🎉\n\nOur best team will reach out within 2 hours during business hours to discuss your project and provide a detailed proposal. We're excited to work with you!`;
             }
-            return "To connect you with our team, I'll need your email or phone number. This helps us provide you with a personalized quote and timeline!";
+            return "To connect you with our team, I'll need your email or phone number. This helps us provide you with a personalized proposal!";
 
         case 'handoff':
-            return "Thank you for choosing Afraino! Our team will be in touch very soon. If you have any other questions in the meantime, feel free to ask!";
+            return "Thank you for choosing Afraino! Our team will be in touch very soon with a detailed proposal. If you have any other questions in the meantime, feel free to ask!";
 
         default:
             return "I'm here to help! What would you like to know about Afraino's services?";
