@@ -26,7 +26,7 @@ export default function ChatBot() {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: "Hi there! 👋 I'm here to help you bring your digital vision to life. We specialize in Mobile Apps, Web Development, AI Automation, UI/UX Design, Branding, and E-commerce solutions.\n\nWhat are you looking to build today?",
+            text: "Hello! 👋 I'm here to help you transform your digital vision into reality. We specialize in building high-end Mobile Apps, Websites, and AI solutions that drive growth.\n\nWhat are you looking to build today?",
             sender: 'bot',
             timestamp: new Date(),
         },
