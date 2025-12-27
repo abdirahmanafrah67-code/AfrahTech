@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket, Volume2, VolumeX } from 'lucide-react';
-import { generateContextualResponse, speakWithElevenLabs, ConversationContext } from '../utils/aiService';
+import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket } from 'lucide-react';
+import { generateContextualResponse, ConversationContext } from '../utils/aiService';
 
 
 interface Message {
@@ -18,9 +18,8 @@ export default function ChatBot() {
     const [isMinimized, setIsMinimized] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [input, setInput] = useState('');
-    const [isMuted, setIsMuted] = useState(false);
     const [conversationContext, setConversationContext] = useState<ConversationContext>({
-        stage: 'greeting',
+        stage: 'active',
         messageHistory: []
     });
     const [messages, setMessages] = useState<Message[]>([
@@ -32,7 +31,6 @@ export default function ChatBot() {
         },
     ]);
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -77,17 +75,6 @@ export default function ChatBot() {
             setMessages((prev) => [...prev, botMessage]);
             setIsTyping(false);
 
-            // Voice response if not muted
-            if (!isMuted) {
-                const audio = await speakWithElevenLabs(botResponse);
-                if (audio) {
-                    if (audioRef.current) {
-                        audioRef.current.pause();
-                    }
-                    audioRef.current = audio;
-                    audio.play();
-                }
-            }
         } catch (error) {
             console.error("Error handling message:", error);
             setIsTyping(false);
@@ -97,17 +84,12 @@ export default function ChatBot() {
     // Get conversation stage indicator
     const getStageIndicator = () => {
         switch (conversationContext.stage) {
-            case 'greeting':
-            case 'service_discovery':
-                return '🔍 Discovering your needs...';
-            case 'service_details':
-                return '💡 Sharing details...';
-            case 'contact_collection':
-                return '📞 Ready to connect...';
+            case 'active':
+                return 'Online & Ready to Chat';
             case 'handoff':
                 return '✅ Team assigned!';
             default:
-                return 'Online & Voice Enabled';
+                return 'Online';
         }
     };
 
@@ -142,13 +124,6 @@ export default function ChatBot() {
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 relative z-10">
-                                <button
-                                    onClick={() => setIsMuted(!isMuted)}
-                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
-                                    title={isMuted ? "Unmute Voice" : "Mute Voice"}
-                                >
-                                    {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-                                </button>
                                 <button
                                     onClick={() => setIsMinimized(true)}
                                     className="p-2 hover:bg-white/10 rounded-xl transition-colors"

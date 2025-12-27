@@ -39,27 +39,4 @@ export const generateContextualResponse = async (
     };
 };
 
-// Keep the Speak function but make it browser-native for "zero cost" smartness
-export const speakWithElevenLabs = async (text: string) => {
-    // Fallback to browser speach for fully local experience
-    if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(text);
-        // Try to find a nice voice
-        const voices = window.speechSynthesis.getVoices();
-        const preferredVoice = voices.find(v => v.name.includes('Google') || v.name.includes('Female')) || voices[0];
-        if (preferredVoice) utterance.voice = preferredVoice;
 
-        utterance.rate = 1.0;
-        utterance.pitch = 1.0;
-
-        // Return a mock Audio-like object to satisfy the UI interface
-        window.speechSynthesis.speak(utterance);
-
-        return {
-            play: () => window.speechSynthesis.resume(),
-            pause: () => window.speechSynthesis.pause(),
-            // Custom cleanup if needed
-        } as any;
-    }
-    return null;
-};
