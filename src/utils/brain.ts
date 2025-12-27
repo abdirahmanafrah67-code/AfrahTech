@@ -25,7 +25,7 @@ export const BRAIN: BrainIntent[] = [
     {
         id: 'capabilities',
         keywords: ['can you', 'do you', 'make', 'build', 'create', 'develop', 'app', 'website', 'system', 'software', 'platform'],
-        priority: 2,
+        priority: 10,
         responses: [
             "Yes, we can build that! We focus on creating comprehensive, high-quality products. Contact us at +252619849199 to start your project.",
             "Absolutely. We specialize in building complete digital products. You can reach our team directly at +252619849199."

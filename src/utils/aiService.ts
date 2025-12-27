@@ -1,4 +1,5 @@
 import { findBestMatch } from './nlpEngine';
+console.log("🧠 Local Brain Loaded: v2.0");
 
 // Simplified Context mostly for UI compatibility
 export interface ConversationContext {
