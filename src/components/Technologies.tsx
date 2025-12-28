@@ -4,37 +4,31 @@ const technologies = [
     {
         category: "Mobile Development",
         icon: <Smartphone className="h-8 w-8" />,
-        tools: ["React Native", "Flutter", "iOS & Android"],
         color: "from-blue-500 to-cyan-500"
     },
     {
         category: "Web Development",
         icon: <Code2 className="h-8 w-8" />,
-        tools: ["React", "Next.js", "Node.js", "TypeScript"],
         color: "from-purple-500 to-pink-500"
     },
     {
-        category: "AI & Machine Learning",
+        category: "AI agents",
         icon: <Zap className="h-8 w-8" />,
-        tools: ["Python", "TensorFlow", "OpenAI", "Custom Models"],
         color: "from-orange-500 to-red-500"
     },
     {
         category: "UI/UX Design",
         icon: <Palette className="h-8 w-8" />,
-        tools: ["Figma", "Adobe XD", "Sketch", "Prototyping"],
         color: "from-green-500 to-emerald-500"
     },
     {
         category: "Backend & Cloud",
         icon: <Cloud className="h-8 w-8" />,
-        tools: ["Firebase", "AWS", "Node.js", "MongoDB"],
         color: "from-indigo-500 to-blue-500"
     },
     {
         category: "Database",
         icon: <Database className="h-8 w-8" />,
-        tools: ["PostgreSQL", "MongoDB", "Firebase", "SQL"],
         color: "from-cyan-500 to-teal-500"
     }
 ];
