@@ -1,0 +1,238 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "professional": "Professional",
+        "why_choose": "Why Choose Us",
+        "technologies": "Technologies",
+        "about": "About",
+        "get_started": "Get Started"
+    },
+    "hero": {
+        "badge": "#1 Mobile & AI Development Agency in East Africa",
+        "title_part1": "Transforming Ideas into",
+        "title_part2": "Digital Reality",
+        "description": "We craft high-performance mobile apps, AI agents, machine learning solutions, and sustainable digital products that drive business growth across East Africa.",
+        "cta_start": "Start Your Project",
+        "cta_work": "View Our Work",
+        "stats": {
+            "apps": "Apps Published",
+            "rating": "Client Rating",
+            "success": "Success Rate"
+        }
+    },
+    "services": {
+        "title": "Our Expertise",
+        "description": "We provide comprehensive digital solutions to help your business grow and succeed in the digital-first world.",
+        "items": {
+            "mobile": {
+                "title": "Mobile App Development",
+                "description": "Native and cross-platform apps built with cutting-edge technology for iOS and Android.",
+                "features": [
+                    "React Native & Expo",
+                    "Offline Syncing & Storage",
+                    "App Store & Play Release"
+                ]
+            },
+            "web": {
+                "title": "Web Development",
+                "description": "Responsive, modern websites and web applications built with the latest frameworks and technologies.",
+                "features": [
+                    "Next.js / React Web",
+                    "SEO & Core Web Vitals",
+                    "Dynamic Dashboards"
+                ]
+            },
+            "ai": {
+                "title": "AI Model & Agents",
+                "description": "Custom AI models and intelligent agents built to automate tasks and enhance decision-making.",
+                "features": [
+                    "LLM & Agent Integration",
+                    "Process Automation",
+                    "Predictive Analytics"
+                ]
+            },
+            "publishing": {
+                "title": "App Store Publishing",
+                "description": "Complete handling of the submission process to Google Play Store and Apple App Store.",
+                "features": [
+                    "Compliance & Guardlines",
+                    "Metadata Optimization",
+                    "Submission Strategy"
+                ]
+            },
+            "design": {
+                "title": "UI/UX Design",
+                "description": "User-centric interfaces designed for intuitive navigation and exceptional user experiences.",
+                "features": [
+                    "Design System Creation",
+                    "Interactive Prototyping",
+                    "Usability Testing"
+                ]
+            },
+            "branding": {
+                "title": "Branding & Identity",
+                "description": "Crafting unique brand identities that resonate with your target audience and stand out.",
+                "features": [
+                    "Brand Strategy & Guide",
+                    "Visual Identity Design",
+                    "Market Positioning"
+                ]
+            },
+            "maintenance": {
+                "title": "Maintenance & Support",
+                "description": "Ongoing updates, bug fixes, and performance optimization to keep your digital solutions running smoothly.",
+                "features": [
+                    "24/7 Security Monitoring",
+                    "Bug Fixes & Updates",
+                    "Performance Tuning"
+                ]
+            }
+        }
+    },
+    "why_choose": {
+        "title": "Why Choose afraino?",
+        "description": "We're not just developers – we're your partners in digital transformation. Here's what sets us apart.",
+        "items": {
+            "team": {
+                "title": "Expert Team",
+                "description": "Skilled developers and designers with years of industry experience delivering top-tier solutions."
+            },
+            "quality": {
+                "title": "Quality First",
+                "description": "We never compromise on quality, ensuring your solution is robust, secure, and scalable."
+            },
+            "delivery": {
+                "title": "On-Time Delivery",
+                "description": "We respect deadlines and ensure your project is launched on schedule without cutting corners."
+            },
+            "centric": {
+                "title": "Client-Centric Approach",
+                "description": "Your success is our priority. We work closely with you throughout the entire development process."
+            },
+            "tech": {
+                "title": "Cutting-Edge Technology",
+                "description": "We use the latest tools and frameworks to build modern, high-performance applications."
+            },
+            "track": {
+                "title": "Proven Track Record",
+                "description": "Successfully delivered multiple apps with thousands of active users across East Africa."
+            }
+        }
+    },
+    "technologies": {
+        "title": "Our Technology Stack",
+        "description": "We use cutting-edge technologies to build modern, scalable, and high-performance solutions for your business.",
+        "cta": {
+            "title": "Ready to Build Your Next Project?",
+            "description": "Let's transform your ideas into reality with our expert team and cutting-edge technology stack.",
+            "button": "Start Your Project Today"
+        }
+    },
+    "about": {
+        "mission_vision": "Our Mission & Vision",
+        "mission": {
+            "title": "Mission",
+            "description": "To empower businesses across East Africa with innovative digital solutions that drive growth and transformation."
+        },
+        "vision": {
+            "title": "Vision",
+            "description": "To become the leading technology partner for businesses seeking digital excellence in East Africa and beyond."
+        },
+        "innovation": {
+            "title": "Innovation",
+            "description": "We stay ahead of technology trends to deliver cutting-edge solutions that give you a competitive advantage."
+        },
+        "title": "Dedicated to Digital Excellence",
+        "p1": "At Afraino, we are passionate about technology and its potential to transform businesses. We started with a simple mission: to help companies navigate the complex mobile landscape and build solutions that truly make a difference.",
+        "p2": "Today, we are a full-service mobile development agency, trusted by leading organizations across East Africa. We don't just build apps; we build lasting partnerships and digital products that drive real value for businesses and their customers.",
+        "stats": {
+            "support": "Support Available",
+            "satisfaction": "Client Satisfaction"
+        }
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "description": "Ready to start your project? Contact us today for a free consultation.",
+        "form": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "subject": "Subject",
+            "message": "Message",
+            "placeholders": {
+                "name": "John Doe",
+                "email": "john@example.com",
+                "subject": "Project Inquiry",
+                "message": "Tell us about your project..."
+            },
+            "success": "Message sent successfully! We'll get back to you soon.",
+            "error": "Failed to send message. Please try again or email us directly.",
+            "sending": "Sending...",
+            "send": "Send Message"
+        }
+    },
+    "professional": {
+        "description": "Browse our latest projects and see how we help businesses transform.",
+        "nasasho": {
+            "title": "Nasasho Booking",
+            "description": "A premium hotel booking system designed for a seamless user experience and efficient property management."
+        },
+        "guriapp": {
+            "title": "Guri App",
+            "description": "A modern real estate platform for renting and discovering homes with ease."
+        },
+        "gaarapp": {
+            "title": "Gaar App",
+            "description": "A premium car rental and purchase platform designed for seamless vehicle discovery and transactions."
+        },
+        "meherbooks": {
+            "title": "MeherBooks",
+            "description": "A comprehensive business management and accounting solution built for MeherBook organization in Kenya."
+        }
+    },
+    "footer": {
+        "description": "Empowering businesses with innovative mobile solutions. We build, brand, and publish apps that make a difference across East Africa.",
+        "links": "Quick Links",
+        "services": "Our Services",
+        "contact": "Contact Info",
+        "rights": "All rights reserved.",
+        "designed_by": "Designed with {{heart}} by Afraino Team"
+    },
+    "chatbot": {
+        "welcome": "Hello! 👋 I'm here to help you transform your digital vision into reality. We specialize in building high-end Mobile Apps, Websites, and AI solutions that drive growth.\n\nWhat are you looking to build today?",
+        "status_active": "Online & Ready to Chat",
+        "status_handoff": "✅ Team assigned!",
+        "status_online": "Online",
+        "email_us": "Email Us",
+        "whatsapp": "WhatsApp",
+        "input_placeholder": "Ask anything about Afraino...",
+        "restore": "Restore Afraino AI"
+    },
+    "process": {
+        "steps": {
+            "discovery": {
+                "title": "Discovery",
+                "description": "We dive deep into your project vision, target audience, and business goals to create a strategic roadmap."
+            },
+            "design": {
+                "title": "Design",
+                "description": "Our designers craft premium, user-centric interfaces that reflect your brand and delight your users."
+            },
+            "development": {
+                "title": "Development",
+                "description": "We build with high-end engineering standards, ensuring performance, security, and scalability."
+            },
+            "delivery": {
+                "title": "Delivery",
+                "description": "A smooth launch process followed by ongoing optimization to ensure your long-term digital success."
+            }
+        }
+    },
+    "ramadan": {
+        "title": "Ramadan Kareem!",
+        "subtitle": "Special Offer",
+        "description": "Celebrate the holy month with a special 30% discount on all our high-end digital services.",
+        "cta": "Claim Your Discount",
+        "valid_until": "Limited time offer during Ramadan"
+    }
+}

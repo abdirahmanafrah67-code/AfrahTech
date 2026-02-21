@@ -1,0 +1,183 @@
+{
+    "nav": {
+        "home": "Hoyga",
+        "services": "Adeegyada",
+        "professional": "Shaqooyinkayada",
+        "why_choose": "Maxaad noo dooranaysaa",
+        "technologies": "Tiknoolajiyadda",
+        "about": "Nagu saabsan",
+        "get_started": "Bilow hadda"
+    },
+    "hero": {
+        "badge": "Wakaladda #1 ee horumarinta Mobile-ka iyo AI ee Bariga Afrika",
+        "title_part1": "U beddelista Fikradaha",
+        "title_part2": "Xaqiiqo Dijital ah",
+        "description": "Waxaan samaynaa barnaamijyada mobilada ee tayada sare leh, AI-ka, iyo xalalka tiknoolajiyadda ee casriga ah si aan kor ugu qaadno kobaca ganacsiga Bariga Afrika.",
+        "cta_start": "Bilow Mashruucaaga",
+        "cta_work": "Arag Shaqadeena",
+        "stats": {
+            "apps": "Apps la daabacay",
+            "rating": "Qiimaynta Macmiilka",
+            "success": "Heerka Guusha"
+        }
+    },
+    "services": {
+        "title": "Khibradeena",
+        "description": "Waxaan bixinaa xalal dhijital ah oo dhamaystiran si aan ganacsigaaga uga caawino inuu ku koco dunida tiknoolajiyadda casriga ah.",
+        "items": {
+            "mobile": {
+                "title": "Horumarinta Apps-ka Mobilada",
+                "description": "Apps-ka loogu talagalay macmiilka iyo kuwa kale oo lagu dhisay tiknoolajiyadda ugu dambaysa ee iOS iyo Android."
+            },
+            "web": {
+                "title": "Horumarinta Mareegaha",
+                "description": "Mareegaha casriga ah iyo codsiyada webka ee lagu dhisay qaababka iyo tiknoolajiyadda ugu dambeysay."
+            },
+            "ai": {
+                "title": "AI iyo Mashiinnada wax barta",
+                "description": "Xalalka AI-ka ee loogu talagalay in lagu qabto shaqooyinka iyo in lagu hagaajiyo go'aan qaadashada."
+            },
+            "publishing": {
+                "title": "Daabacaadda Apps-ka",
+                "description": "Maareyn dhamaystiran oo ku saabsan habka gudbinta Google Play Store iyo Apple App Store."
+            },
+            "design": {
+                "title": "Naqshadaynta UI/UX",
+                "description": "Naqshado diiradda saaraya isticmaalaha si loo fududeeyo isticmaalka iyo khibrad gaar ah."
+            },
+            "branding": {
+                "title": "Aqoonsiga Sumadda",
+                "description": "Abuuritaanka aqoonsi sumad oo gaar ah oo soo jiidaya macaamiishaada."
+            },
+            "maintenance": {
+                "title": "Dayactirka iyo Taageerada",
+                "description": "Cusboonaysiinta joogtada ah, hagaajinta khaladaadka, iyo hagaajinta waxqabadka si tiknoolajiyaddaadu ugu shaqeyso si habsami leh."
+            }
+        }
+    },
+    "why_choose": {
+        "title": "Maxaad u dooranaysaa Afraino?",
+        "description": "Annagu ma nihin horumariyaal kaliya - waxaan nahay lammaanahaaga isbeddelka dhijital ah. Halkan waxaa ah waxa na kala saaraya.",
+        "items": {
+            "team": {
+                "title": "Koox Khibrad leh",
+                "description": "Horumariyayaal iyo naqshadeeyayaal xirfad leh oo leh waayo-aragnimo sanado badan si ay u bixiyaan xalal heer sare ah."
+            },
+            "quality": {
+                "title": "Tayada Marka Hore",
+                "description": "Marnaba uma tanaasulno tayada, annagoo hubinayna inay tiknoolajiyaddaadu tahay mid adag, ammaan ah, oo koreysa."
+            },
+            "delivery": {
+                "title": "Gudbinta Wakhtiga",
+                "description": "Waxaan ixtiraamaa wakhtiga loo qabtay shaqada waxaanan hubinaa in mashruucaagu bilaabmo wakhtigii loogu talagalay."
+            },
+            "centric": {
+                "title": "U adeegidda Macmiilka",
+                "description": "Guushaada waa muhiimadayada koowaad. Waxaan kula shaqeynaa si dhow inta lagu jiro habka horumarinta oo dhan."
+            },
+            "tech": {
+                "title": "Tiknoolajiyadda Ugu Dambeysay",
+                "description": "Waxaan isticmaalnaa qalabka iyo qaababka ugu dambeeyay si aan u dhisno barnaamijyo casri ah oo waxqabad sare leh."
+            },
+            "track": {
+                "title": "Diiwaanka Guusha",
+                "description": "Waxaan si guul leh u gudbinay apps badan oo ay isticmaalaan kumanaan qof Bariga Afrika oo dhan."
+            }
+        }
+    },
+    "technologies": {
+        "title": "Tiknoolajiyadda aan Isticmaalno",
+        "description": "Waxaan isticmaalnaa tiknoolajiyadda ugu dambaysa si aan u dhisno xalal casri ah, la miisaami karo, oo waxqabad sare leh.",
+        "cta": {
+            "title": "Ma diyaar u tahay inaad dhisato Mashruucaaga xiga?",
+            "description": "Aan u beddelno fikradahaaga xaqiiqo annagoo isticmaalna kooxdeena khibradda leh iyo tiknoolajiyadda casriga ah.",
+            "button": "Bilow Mashruucaaga Maanta"
+        }
+    },
+    "about": {
+        "mission_vision": "Hadafka iyo Hiigsiga",
+        "mission": {
+            "title": "Hadafka",
+            "description": "In la siiyo ganacsiyada Bariga Afrika xalal dhijital ah oo cusub oo horseeda kobac iyo isbeddel."
+        },
+        "vision": {
+            "title": "Hiigsiga",
+            "description": "In aan noqono lammaanaha tiknoolajiyadda ee ugu horreeya ganacsiyada raadinaya heer sare dhijital ah."
+        },
+        "innovation": {
+            "title": "Hal-abuurnimo",
+            "description": "Waxaan la soconaa isbeddelada tiknoolajiyadda si aan u bixino xalal casri ah oo ku siinaya faa'iido tartan."
+        },
+        "title": "U go'naanta Heer Sare ee Dhijital ah",
+        "p1": "Fraino Tech, waxaan aad u jecelnahay tiknoolajiyadda iyo awoodda ay u leedahay inay beddesho ganacsiyada. Waxaan ku bilownay hadaf fudud: inaan ka caawino shirkadaha inay maraan dunida mobilada ee adag oo aan dhisno xalal isbeddel dhab ah sameeya.",
+        "p2": "Maanta, waxaan nahay wakaalad horumarineed oo dhamaystiran, oo ay aamuseen ururada hormuudka u ah Bariga Afrika. Ma dhisno apps kaliya; waxaan dhisnaa saaxiibtinimo waarta iyo alaabo dhijital ah oo qiimo dhab ah u keena ganacsiyada.",
+        "stats": {
+            "support": "Taageerada 24/7 ah",
+            "satisfaction": "Kaniiniga Macmiilka 100%"
+        }
+    },
+    "contact": {
+        "title": "Nala soo xiriir",
+        "description": "Ma diyaar u tahay inaad bilowdo mashruucaaga? Nala soo xiriir maanta si aad u hesho talo bilaash ah.",
+        "form": {
+            "name": "Magaca oo Buuxa",
+            "email": "Cinwaanka Email-ka",
+            "subject": "Mawduuca",
+            "message": "Farriinta",
+            "placeholders": {
+                "name": "John Doe",
+                "email": "john@tusaale.com",
+                "subject": "Weydiinta Mashruuca",
+                "message": "Nooga sheeg mashruucaaga..."
+            },
+            "success": "Farriinta si guul leh ayaa loo diray! Dhawaan ayaan laguu soo jawaabi doonaa.",
+            "error": "Wuu ku guuldareystay inuu diro farriinta. Fadlan isku day markale ama email noogu soo dir si toos ah.",
+            "sending": "Waa la dirayaa...",
+            "send": "Dir Farriinta"
+        }
+    },
+    "professional": {
+        "description": "Eeg mashaariicdaadii ugu dambeeyay iyo sida aan ganacsiyada uga caawino inay isbedelaan.",
+        "nasasho": {
+            "title": "Nasasho Booking",
+            "description": "Nidaam ballansasho hoteel oo heer sare ah oo loogu talagalay khibrad isticmaale oo hufan iyo maaraynta guryaha."
+        },
+        "guriapp": {
+            "title": "Guri App",
+            "description": "Platform casri ah oo loogu talagalay kiraynta iyo helitaanka guryaha si fudud."
+        },
+        "gaarapp": {
+            "title": "Gaar App",
+            "description": "App-ka ugu casrisan ee kiraynta iyo iibinta gawaarida, kaas oo loo naqshadeeyay fududeynta helitaanka iyo kala iibsiga gaadiidka."
+        },
+        "meherbooks": {
+            "title": "MeherBooks",
+            "description": "Xal lagu maareeyo ganacsiga iyo xisaabaadka oo loo dhisay ururka MeherBook ee dalka Kenya."
+        }
+    },
+    "footer": {
+        "description": "Siinta ganacsiyada xalal dhijital ah oo cusub. Waxaan dhisnaa, calaamadeynaa, oo daabacnaa barnaamijyo isbeddel ka sameeya Bariga Afrika oo dhan.",
+        "links": "Xiriirada Degdega ah",
+        "services": "Adeegyadeena",
+        "contact": "Macluumaadka Xiriirka",
+        "rights": "Xuquuqda oo dhan waa la dhowray.",
+        "designed_by": "Waxaa ku naqshadeeyey {{heart}} Kooxda afraino"
+    },
+    "chatbot": {
+        "welcome": "Haye! 👋 Waxaan halkan u joogaa inaan kaa caawiyo u beddelista aragtidaada dhijital ah xaqiiqo. Waxaan ku takhasusay dhisidda Apps-ka mobilada, mareegaha, iyo AI-ka ee kobciya ganacsiga.\n\nMaxaad doonaysaa inaad dhisto maanta?",
+        "status_active": "Online & diyaar u ah sheekaysiga",
+        "status_handoff": "✅ Kooxda ayaa lagu meeleeyey!",
+        "status_online": "Online",
+        "email_us": "Email noogu soo dir",
+        "whatsapp": "WhatsApp",
+        "input_placeholder": "Weydii wax kasta oo ku saabsan Afraino...",
+        "restore": "Soo celi Afraino AI"
+    },
+    "ramadan": {
+        "title": "Ramadan Kariim!",
+        "subtitle": "Dalab Gaar Ah",
+        "description": "U dabaaldeg bisha barakaysan adoo helaya 30% oo qiimo dhimis ah dhammaan adeegyadeena dijitaalka ah.",
+        "cta": "Hel Qiimo Dhimista",
+        "valid_until": "Dalab kooban inta lagu guda jiro bisha Ramadan"
+    }
+}

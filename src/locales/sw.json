@@ -1,0 +1,183 @@
+{
+    "nav": {
+        "home": "Nyumbani",
+        "services": "Huduma",
+        "professional": "Kazi Zetu",
+        "why_choose": "Kwa nini Utuchague",
+        "technologies": "Teknolojia",
+        "about": "Kuhusu Sisi",
+        "get_started": "Anza Sasa"
+    },
+    "hero": {
+        "badge": "Wakala #1 wa Maendeleo ya Simu na AI nchini Afrika Mashariki",
+        "title_part1": "Kubadilisha Mawazo kuwa",
+        "title_part2": "Ukweli wa Kidijitali",
+        "description": "Tunatengeneza programu za simu zenye utendaji wa juu, mawakala wa AI, ufumbuzi wa kujifunza kwa mashine, na bidhaa endelevu za kidijitali zinazochochea ukuaji wa biashara kote Afrika Mashariki.",
+        "cta_start": "Anza Mradi Wako",
+        "cta_work": "Tazama Kazi Zetu",
+        "stats": {
+            "apps": "Programu Zilizochapishwa",
+            "rating": "Ukadiriaji wa Wateja",
+            "success": "Kiwango cha Mafanikio"
+        }
+    },
+    "services": {
+        "title": "Utaalamu Wetu",
+        "description": "Tunatoa ufumbuzi kamili wa kidijitali kusaidia biashara yako kukua na kufanikiwa katika ulimwengu wa kidijitali.",
+        "items": {
+            "mobile": {
+                "title": "Maendeleo ya Programu za Simu",
+                "description": "Programu asilia na za majukwaa mbalimbali zilizojengwa kwa teknolojia ya kisasa ya iOS na Android."
+            },
+            "web": {
+                "title": "Maendeleo ya Wavuti",
+                "description": "Tovuti za kisasa na programu za wavuti zilizojengwa kwa mifumo na teknolojia za hivi karibuni."
+            },
+            "ai": {
+                "title": "Modeli za AI na Mawakala",
+                "description": "Modeli za AI zilizobinafsishwa na mawakala wenye akili waliojengwa ili kujiendesha na kuboresha ufanyaji maamuzi."
+            },
+            "publishing": {
+                "title": "Uchapishaji kwenye Maduka ya Programu",
+                "description": "Usimamizi kamili wa mchakato wa uwasilishaji kwenye Google Play Store na Apple App Store."
+            },
+            "design": {
+                "title": "Ubunifu wa UI/UX",
+                "description": "Michoro inayomlenga mtumiaji iliyoundwa kwa ajili ya urahisi wa matumizi na uzoefu wa kipekee."
+            },
+            "branding": {
+                "title": "Utambulisho wa Chapa",
+                "description": "Kuunda utambulisho wa kipekee wa chapa unaovutia hadhira yako na kutokeza."
+            },
+            "maintenance": {
+                "title": "Matengenezo na Usaidizi",
+                "description": "Sasisho zinazoendelea, kurekebisha makosa, na uboreshaji wa utendaji ili kuweka ufumbuzi wako wa kidijitali ukifanya kazi vizuri."
+            }
+        }
+    },
+    "why_choose": {
+        "title": "Kwa nini Chagua afraino?",
+        "description": "Sisi si waendelezaji tu – sisi ni washirika wako katika mabadiliko ya kidijitali. Hapa ndivyo vinavyotutofautisha.",
+        "items": {
+            "team": {
+                "title": "Timu ya Wataalamu",
+                "description": "Waendelezaji na wabunifu wenye ujuzi na uzoefu wa miaka mingi kutoa ufumbuzi wa hali ya juu."
+            },
+            "quality": {
+                "title": "Ubora Kwanza",
+                "description": "Hatulegezi kamba kwenye ubora, tukihakikisha ufumbuzi wako ni imara, salama, na unaoweza kukua."
+            },
+            "delivery": {
+                "title": "Uwasilishaji kwa Wakati",
+                "description": "Tunaheshimu muda uliopangwa na kuhakikisha mradi wako unazinduliwa kwa ratiba bila kupunguza ubora."
+            },
+            "centric": {
+                "title": "Mtazamo Unaomlenga Mteja",
+                "description": "Mafanikio yako ndio kipaumbele chetu. Tunafanya kazi nawe kwa karibu katika mchakato mzima."
+            },
+            "tech": {
+                "title": "Teknolojia ya Kisasa",
+                "description": "Tunatumia zana na mifumo ya hivi karibuni kujenga programu za kisasa na zenye utendaji wa juu."
+            },
+            "track": {
+                "title": "Rekodi ya Mafanikio",
+                "description": "Tumefanikiwa kutoa programu nyingi zenye maelfu ya watumiaji kote Afrika Mashariki."
+            }
+        }
+    },
+    "technologies": {
+        "title": "Mlolongo wetu wa Teknolojia",
+        "description": "Tunatumia teknolojia za kisasa kujenga ufumbuzi wa kisasa, unaoweza kukua, na wenye utendaji wa juu kwa biashara yako.",
+        "cta": {
+            "title": "Uko Tayari Kujenga Mradi Wako Ujao?",
+            "description": "Hebu tubadilishe mawazo yako kuwa ukweli na timu yetu ya wataalamu na teknolojia ya kisasa.",
+            "button": "Anza Mradi Wako Leo"
+        }
+    },
+    "about": {
+        "mission_vision": "Dhamira na Maono Yetu",
+        "mission": {
+            "title": "Dhamira",
+            "description": "Kuziwezesha biashara kote Afrika Mashariki na ufumbuzi wa kidijitali wa kibunifu unaochochea ukuaji na mabadiliko."
+        },
+        "vision": {
+            "title": "Maono",
+            "description": "Kuwa mshirika mkuu wa teknolojia kwa biashara zinazotafuta ubora wa kidijitali Afrika Mashariki na kwingineko."
+        },
+        "innovation": {
+            "title": "Ubunifu",
+            "description": "Tunakaa mbele ya mwelekeo wa teknolojia ili kutoa ufumbuzi wa hali ya juu unaokupa faida ya ushindani."
+        },
+        "title": "Tumejitolea kwa Ubora wa Kidijitali",
+        "p1": "Katika Fraino Tech, tunapenda teknolojia na uwezo wake wa kubadilisha biashara. Tulianza na dhamira rahisi: kusaidia makampuni kuelewa ulimwengu tata wa simu na kujenga ufumbuzi ambao unafanya mabadiliko ya kweli.",
+        "p2": "Leo, sisi ni wakala kamili wa maendeleo ya programu za simu, tukiwa tunaaminika na mashirika makuu kote Afrika Mashariki. Hatujengi programu tu; tunajenga ushirikiano wa kudumu na bidhaa za kidijitali zinazoleta thamani halisi.",
+        "stats": {
+            "support": "Usaidizi Unapatikana 24/7",
+            "satisfaction": "Kuridhika kwa Wateja 100%"
+        }
+    },
+    "contact": {
+        "title": "Wasiliana Nasi",
+        "description": "Uko tayari kuanza mradi wako? Wasiliana nasi leo kwa ushauri wa bure.",
+        "form": {
+            "name": "Jina Kamili",
+            "email": "Anwani ya Barua Pepe",
+            "subject": "Suala",
+            "message": "Ujumbe",
+            "placeholders": {
+                "name": "John Doe",
+                "email": "john@mfano.com",
+                "subject": "Uchunguzi wa Mradi",
+                "message": "Tuambie kuhusu mradi wako..."
+            },
+            "success": "Ujumbe umetumwa kwa mafanikio! Tutakujibu hivi karibuni.",
+            "error": "Imeshindwa kutuma ujumbe. Tafadhali jaribu tena au tutumie barua pepe moja kwa moja.",
+            "sending": "Inatuma...",
+            "send": "Tuma Ujumbe"
+        }
+    },
+    "professional": {
+        "description": "Vinjari miradi yetu ya hivi karibuni na uone jinsi tunavyosaidia biashara kubadilika.",
+        "nasasho": {
+            "title": "Nasasho Booking",
+            "description": "Mfumo wa hali ya juu wa kuhifadhi hoteli ulioundwa kwa ajili ya uzoefu bora wa mtumiaji na usimamizi mzuri wa mali."
+        },
+        "guriapp": {
+            "title": "Guri App",
+            "description": "Jukwaa la kisasa la mali isiyohamishika kwa kukodisha na kugundua nyumba kwa urahisi."
+        },
+        "gaarapp": {
+            "title": "Gaar App",
+            "description": "Jukwaa la kwanza la kukodisha na kununua magari lililoundwa kwa ajili ya ugunduzi wa gari na miamala bila matatizo."
+        },
+        "meherbooks": {
+            "title": "MeherBooks",
+            "description": "Suluhisho kamili la usimamizi wa biashara na uhasibu lililojengwa kwa shirika la MeherBook nchini Kenya."
+        }
+    },
+    "footer": {
+        "description": "Kuziwezesha biashara na ufumbuzi wa kibunifu wa programu za simu. Tunajenga, tunatengeneza chapa, na tunachapisha programu zinazofanya mabadiliko kote Afrika Mashariki.",
+        "links": "Viungo vya Haraka",
+        "services": "Huduma Zetu",
+        "contact": "Habari za Mawasiliano",
+        "rights": "Haki zote zimehifadhiwa.",
+        "designed_by": "Imeundwa kwa {{heart}} na Timu ya afraino"
+    },
+    "chatbot": {
+        "welcome": "Habari! 👋 Nipo hapa kukusaidia kubadilisha maono yako ya kidijitali kuwa ukweli. Tunajikita katika kujenga Programu za Simu za hali ya juu, Tovuti, na ufumbuzi wa AI unaochochea ukuaji.\n\nUnataka kujenga nini leo?",
+        "status_active": "Yupo Mtandaoni na Tayari kwa Mazungumzo",
+        "status_handoff": "✅ Timu imeteuliwa!",
+        "status_online": "Mtandaoni",
+        "email_us": "Tutumie Barua Pepe",
+        "whatsapp": "WhatsApp",
+        "input_placeholder": "Uliza chochote kuhusu Afraino...",
+        "restore": "Rejesha Afraino AI"
+    },
+    "ramadan": {
+        "title": "Ramadan Kareem!",
+        "subtitle": "Ofa Maalum",
+        "description": "Sherehekea mwezi huu mtukufu kwa punguzo maalum la 30% kwa huduma zetu zote za kidijitali.",
+        "cta": "Pata Punguzo",
+        "valid_until": "Ofa kwa muda mfupi katika mwezi wa Ramadan"
+    }
+}
