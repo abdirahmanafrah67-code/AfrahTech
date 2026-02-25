@@ -5,10 +5,14 @@ const clients = [
     { name: 'Guri App', logo: '/guriapp.png' },
     { name: 'Gaar App', logo: '/gaarapp.png' },
     { name: 'MeherBooks', logo: '/meherbooks.png' },
+    { name: 'Iken', logo: '/iken.jpg' },
+    { name: 'SkillLab', logo: '/gear-tech.jpg' },
     { name: 'Nasasho', logo: '/nasasho.jpg' }, // Duplicate for seamless scroll
     { name: 'Guri App', logo: '/guriapp.png' },
     { name: 'Gaar App', logo: '/gaarapp.png' },
     { name: 'MeherBooks', logo: '/meherbooks.png' },
+    { name: 'Iken', logo: '/iken.jpg' },
+    { name: 'Gear Tech', logo: '/gear-tech.jpg' },
 ];
 
 export default function ClientLogos() {
