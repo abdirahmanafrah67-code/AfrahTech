@@ -2,7 +2,6 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Professional from '../components/Professional';
 import Process from '../components/Process';
-import Testimonials from '../components/Testimonials';
 import ClientLogos from '../components/ClientLogos';
 import { motion } from 'framer-motion';
 
@@ -19,7 +18,6 @@ export default function Home() {
             <Services />
             <Process />
             <Professional />
-            <Testimonials />
         </motion.div>
     );
 }
