@@ -227,12 +227,5 @@
                 "description": "A smooth launch process followed by ongoing optimization to ensure your long-term digital success."
             }
         }
-    },
-    "ramadan": {
-        "title": "Ramadan Kareem!",
-        "subtitle": "Special Offer",
-        "description": "Celebrate the holy month with a special 30% discount on all our high-end digital services.",
-        "cta": "Claim Your Discount",
-        "valid_until": "Limited time offer during Ramadan"
     }
 }

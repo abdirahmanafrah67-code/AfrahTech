@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import RamadanBanner from './components/RamadanBanner';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
@@ -25,7 +24,6 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="min-h-screen bg-white">
-        <RamadanBanner />
         <Navbar />
         <main>
           <AnimatePresence mode="wait">

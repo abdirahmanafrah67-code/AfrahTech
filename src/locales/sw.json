@@ -172,12 +172,5 @@
         "whatsapp": "WhatsApp",
         "input_placeholder": "Uliza chochote kuhusu Afraino...",
         "restore": "Rejesha Afraino AI"
-    },
-    "ramadan": {
-        "title": "Ramadan Kareem!",
-        "subtitle": "Ofa Maalum",
-        "description": "Sherehekea mwezi huu mtukufu kwa punguzo maalum la 30% kwa huduma zetu zote za kidijitali.",
-        "cta": "Pata Punguzo",
-        "valid_until": "Ofa kwa muda mfupi katika mwezi wa Ramadan"
     }
 }

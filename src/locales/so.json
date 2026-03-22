@@ -172,12 +172,5 @@
         "whatsapp": "WhatsApp",
         "input_placeholder": "Weydii wax kasta oo ku saabsan Afraino...",
         "restore": "Soo celi Afraino AI"
-    },
-    "ramadan": {
-        "title": "Ramadan Kariim!",
-        "subtitle": "Dalab Gaar Ah",
-        "description": "U dabaaldeg bisha barakaysan adoo helaya 30% oo qiimo dhimis ah dhammaan adeegyadeena dijitaalka ah.",
-        "cta": "Hel Qiimo Dhimista",
-        "valid_until": "Dalab kooban inta lagu guda jiro bisha Ramadan"
     }
 }
