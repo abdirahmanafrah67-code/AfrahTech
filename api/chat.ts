@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || process.env.VITE_OPENROUTER_API_KEY || process.env.VITE_LLM_API_KEY;
+const OPENROUTER_API_KEY = (process.env.OPENROUTER_API_KEY || process.env.VITE_OPENROUTER_API_KEY || process.env.VITE_LLM_API_KEY || '').trim();
 const MODEL = process.env.VITE_OPENROUTER_MODEL || 'openai/gpt-4o-mini';
 
 const SYSTEM_PROMPT = `You are Afraino AI, the smart assistant for Afraino — the #1 Mobile & AI Development Agency in East Africa.
@@ -86,8 +86,8 @@ export default async function handler(
   } catch (error: any) {
     console.error('Chat API Error:', error);
     return response.status(500).json({ 
-        error: "I'm having trouble connecting right now. Please reach us at afraino2025@gmail.com or WhatsApp +252619849199. 🙏",
-        details: error.message
+        error: `AI Error: ${error.message || "Unknown error"}`,
+        details: error.toString()
     });
   }
 }
