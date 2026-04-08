@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const OPENROUTER_API_KEY = (process.env.OPENROUTER_API_KEY || process.env.VITE_OPENROUTER_API_KEY || process.env.VITE_LLM_API_KEY || '').trim();
+const OPENROUTER_API_KEY = (process.env.OPENROUTER_API_KEY || process.env.VITE_OPENROUTER_API_KEY || process.env.VITE_LLM_API_KEY || process.env.apk || '').trim();
 const MODEL = process.env.VITE_OPENROUTER_MODEL || 'openai/gpt-4o-mini';
 
 const SYSTEM_PROMPT = `You are Afraino AI, the smart assistant for Afraino — the #1 Mobile & AI Development Agency in East Africa.
