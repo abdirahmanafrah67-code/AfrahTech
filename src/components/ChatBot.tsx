@@ -126,10 +126,8 @@ export default function ChatBot() {
 
                             <div className="flex items-center gap-4 relative z-10">
                                 <div className="relative">
-                                    <div className="w-12 h-12 rounded-full shadow-2xl border-2 border-white/20 overflow-hidden bg-slate-800 flex items-center justify-center p-1">
-                                        <div className="w-full h-full bg-gradient-to-tr from-secondary to-primary rounded-full flex items-center justify-center">
-                                            <Sparkles className="w-6 h-6 text-white" />
-                                        </div>
+                                    <div className="w-12 h-12 rounded-full shadow-2xl border-2 border-white/20 overflow-hidden">
+                                        <img src="/afraino-icon.jpg" alt="SUGE" className="w-full h-full object-cover" />
                                     </div>
                                     <span className={`absolute -bottom-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-4 h-4 bg-emerald-400 border-2 border-slate-900 rounded-full shadow-lg`}></span>
                                 </div>
@@ -288,11 +286,12 @@ export default function ChatBot() {
                     {isOpen && !isMinimized ? (
                         <ChevronDown className="h-8 w-8 relative z-10" />
                     ) : (
-                        <div className="relative z-10 flex items-center justify-center gap-3 px-2">
-                            <Sparkles className="w-6 h-6 text-secondary" />
-                            <span className="font-heading font-bold text-sm tracking-wide hidden sm:block">SUGE</span>
+                        <div className="relative z-10 flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+                                <img src="/afraino-icon.jpg" alt="SUGE" className="w-full h-full object-cover" />
+                            </div>
                             <motion.div
-                                className={`absolute -top-2 ${i18n.language === 'ar' ? '-left-2' : '-right-2'} w-3 h-3 bg-emerald-400 rounded-full border-2 border-slate-900`}
+                                className={`absolute -top-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-slate-900`}
                                 animate={{ scale: [1, 1.2, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
