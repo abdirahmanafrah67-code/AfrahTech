@@ -117,23 +117,25 @@ export default function ChatBot() {
                         dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
                     >
                         {/* Header */}
-                        <div className="bg-[#0A4D4D] p-6 text-white flex items-center justify-between relative overflow-hidden">
+                        <div className="bg-gradient-to-br from-slate-900 via-primary-dark to-primary p-6 text-white flex items-center justify-between relative overflow-hidden">
                             <motion.div
-                                className={`absolute top-0 ${i18n.language === 'ar' ? 'left-0' : 'right-0'} w-32 h-32 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 ${i18n.language === 'ar' ? '-translate-x-1/2' : 'translate-x-1/2'}`}
-                                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                                className={`absolute top-0 ${i18n.language === 'ar' ? 'left-0' : 'right-0'} w-40 h-40 bg-secondary/20 rounded-full blur-3xl -translate-y-1/2 ${i18n.language === 'ar' ? '-translate-x-1/2' : 'translate-x-1/2'}`}
+                                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
                                 transition={{ duration: 4, repeat: Infinity }}
                             />
 
                             <div className="flex items-center gap-4 relative z-10">
                                 <div className="relative">
-                                    <div className="w-12 h-12 rounded-2xl shadow-lg border-2 border-[#FFD700]/20 overflow-hidden">
-                                        <img src="/afraino-icon.jpg" alt="Afraino" className="w-full h-full object-cover" />
+                                    <div className="w-12 h-12 rounded-full shadow-2xl border-2 border-white/20 overflow-hidden bg-slate-800 flex items-center justify-center p-1">
+                                        <div className="w-full h-full bg-gradient-to-tr from-secondary to-primary rounded-full flex items-center justify-center">
+                                            <Sparkles className="w-6 h-6 text-white" />
+                                        </div>
                                     </div>
-                                    <span className={`absolute -bottom-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-4 h-4 bg-green-500 border-2 border-[#0A4D4D] rounded-full`}></span>
+                                    <span className={`absolute -bottom-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-4 h-4 bg-emerald-400 border-2 border-slate-900 rounded-full shadow-lg`}></span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg tracking-tight">Afraino AI</h3>
-                                    <p className="text-[10px] text-[#FFD700] font-medium opacity-90">{getStageIndicator()}</p>
+                                    <h3 className="font-heading font-bold text-xl tracking-tight text-white drop-shadow-md">SUGE</h3>
+                                    <p className="text-[11px] text-emerald-300 font-medium tracking-wide uppercase opacity-90">{getStageIndicator()}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 relative z-10">
@@ -153,17 +155,17 @@ export default function ChatBot() {
                         </div>
 
                         {/* Quick Contact Bar */}
-                        <div className="bg-slate-100/80 backdrop-blur-sm border-b border-slate-200 p-3 flex justify-center gap-4">
+                        <div className="bg-slate-50/90 backdrop-blur-md border-b border-slate-200/50 p-3 flex justify-center gap-3">
                             <a
                                 href="mailto:afraino2025@gmail.com"
-                                className="flex items-center gap-2 text-[10px] font-bold text-[#0A4D4D] bg-white px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#FFD700] transition-all"
+                                className="flex items-center gap-2 text-[11px] font-bold text-slate-700 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200 hover:border-primary hover:text-primary hover:shadow-md transition-all"
                             >
-                                <Globe className="h-3 w-3 text-[#FFD700]" />
+                                <Globe className="h-3.5 w-3.5 text-primary" />
                                 {t('chatbot.email_us')}
                             </a>
                             <a
                                 href="https://wa.me/252619849199"
-                                className="flex items-center gap-2 text-[10px] font-bold text-[#0A4D4D] bg-white px-3 py-1.5 rounded-full border border-slate-200 hover:border-[#FFD700] transition-all"
+                                className="flex items-center gap-2 text-[11px] font-bold text-slate-700 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200 hover:border-emerald-500 hover:text-emerald-600 hover:shadow-md transition-all"
                             >
                                 <Rocket className="h-3 w-3 text-[#FFD700]" />
                                 {t('chatbot.whatsapp')}
@@ -268,8 +270,8 @@ export default function ChatBot() {
                 </AnimatePresence>
 
                 <motion.button
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => {
                         if (isMinimized) {
                             setIsMinimized(false);
@@ -277,22 +279,21 @@ export default function ChatBot() {
                             setIsOpen(!isOpen);
                         }
                     }}
-                    className={`p-5 rounded-[2rem] shadow-[0_10px_30px_rgba(10,77,77,0.4)] flex items-center justify-center transition-all relative overflow-hidden ${isOpen && !isMinimized ? 'bg-white text-[#0A4D4D]' : 'bg-[#0A4D4D] text-white'
+                    className={`p-4 rounded-full shadow-[0_10px_40px_rgba(10,77,77,0.3)] flex items-center justify-center transition-all relative overflow-hidden group ${isOpen && !isMinimized ? 'bg-white text-slate-800 hover:bg-slate-50' : 'bg-gradient-to-r from-slate-900 to-primary text-white border border-white/10'
                         }`}
                 >
                     <motion.div
-                        className="absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"
                     />
                     {isOpen && !isMinimized ? (
-                        <ChevronDown className="h-7 w-7" />
+                        <ChevronDown className="h-8 w-8 relative z-10" />
                     ) : (
-                        <div className="relative">
-                            <div className="w-8 h-8 rounded-lg overflow-hidden border border-[#FFD700]/30 shadow-sm">
-                                <img src="/afraino-icon.jpg" alt="Afraino Chat" className="w-full h-full object-cover" />
-                            </div>
+                        <div className="relative z-10 flex items-center justify-center gap-3 px-2">
+                            <Sparkles className="w-6 h-6 text-secondary" />
+                            <span className="font-heading font-bold text-sm tracking-wide hidden sm:block">SUGE</span>
                             <motion.div
-                                className={`absolute -top-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-[#0A4D4D]`}
-                                animate={{ scale: [1, 1.3, 1] }}
+                                className={`absolute -top-2 ${i18n.language === 'ar' ? '-left-2' : '-right-2'} w-3 h-3 bg-emerald-400 rounded-full border-2 border-slate-900`}
+                                animate={{ scale: [1, 1.2, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
                         </div>
