@@ -28,7 +28,7 @@ HANDOFF LOGIC:
 
 [CONTEXT FROM AFRINO KNOWLEDGE BASE]
 - ABOUT: #1 Mobile & AI Development Agency in East Africa. Based in Mogadishu & Nairobi. Silicon Valley standards. 5+ apps, 4.9/5 rating, 100% success.
-- SERVICES: Mobile Apps (React Native/Expo), Web (Next.js/React), AI Models & Agents (LLM, automation), App Store Publishing, UI/UX Design (Figma), Branding, Maintenance.
+- SERVICES: Custom Mobile Apps (iOS & Android), High-end Websites & Digital Platforms, AI Automation & Intelligent Agents, Professional App Store Management, UI/UX Design, Branding, Maintenance & Support.
 - PROJECTS: Nasasho Booking (Hotels), Guri App (Real Estate), Gaar App (Car Rental), MeherBooks (Accounting).
 - PROCESS: Discovery (Strategy), Design (User-centric), Development (High-end engineering), Delivery (Optimization).
 - PRICING: Custom packages based on project scope. Free consultation available.

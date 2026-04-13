@@ -27,66 +27,31 @@
         "items": {
             "mobile": {
                 "title": "Mobile App Development",
-                "description": "Native and cross-platform apps built with cutting-edge technology for iOS and Android.",
-                "features": [
-                    "React Native & Expo",
-                    "Offline Syncing & Storage",
-                    "App Store & Play Release"
-                ]
+                "description": "High-performance apps designed for iOS and Android with seamless user experiences."
             },
             "web": {
                 "title": "Web Development",
-                "description": "Responsive, modern websites and web applications built with the latest frameworks and technologies.",
-                "features": [
-                    "Next.js / React Web",
-                    "SEO & Core Web Vitals",
-                    "Dynamic Dashboards"
-                ]
+                "description": "Premium, responsive websites and digital platforms built to scale your business online."
             },
             "ai": {
                 "title": "AI Model & Agents",
-                "description": "Custom AI models and intelligent agents built to automate tasks and enhance decision-making.",
-                "features": [
-                    "LLM & Agent Integration",
-                    "Process Automation",
-                    "Predictive Analytics"
-                ]
+                "description": "Intelligent automated solutions that simplify complex business tasks and improve efficiency."
             },
             "publishing": {
                 "title": "App Store Publishing",
-                "description": "Complete handling of the submission process to Google Play Store and Apple App Store.",
-                "features": [
-                    "Compliance & Guardlines",
-                    "Metadata Optimization",
-                    "Submission Strategy"
-                ]
+                "description": "Professional management of the complete rollout process to global app stores."
             },
             "design": {
                 "title": "UI/UX Design",
-                "description": "User-centric interfaces designed for intuitive navigation and exceptional user experiences.",
-                "features": [
-                    "Design System Creation",
-                    "Interactive Prototyping",
-                    "Usability Testing"
-                ]
+                "description": "Intuitive, high-end interfaces that prioritize user satisfaction and engagement."
             },
             "branding": {
                 "title": "Branding & Identity",
-                "description": "Crafting unique brand identities that resonate with your target audience and stand out.",
-                "features": [
-                    "Brand Strategy & Guide",
-                    "Visual Identity Design",
-                    "Market Positioning"
-                ]
+                "description": "Strategic visual identities that establish credibility and help your brand stand out."
             },
             "maintenance": {
                 "title": "Maintenance & Support",
-                "description": "Ongoing updates, bug fixes, and performance optimization to keep your digital solutions running smoothly.",
-                "features": [
-                    "24/7 Security Monitoring",
-                    "Bug Fixes & Updates",
-                    "Performance Tuning"
-                ]
+                "description": "Proactive monitoring and ongoing care to ensure your digital tools run perfectly 24/7."
             }
         }
     },
