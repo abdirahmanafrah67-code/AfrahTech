@@ -1,4 +1,3 @@
-
 export interface ConversationContext {
     stage: 'active' | 'handoff';
     messageHistory: { role: 'user' | 'assistant'; content: string }[];
