@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const teamMembers = [
     { name: "Business Dev", role: "Business Development & Growth", image: "/business_dev.png" },
-    { name: "Data Scientist", role: "Data Scientist", image: "/data_scientist.jpg" },
+    { name: "CTO", role: "Chief Technology Officer", image: "/data_scientist.jpg" },
     { name: "Tech Lead", role: "Technical Lead", image: "/tech_lead.jpg" },
     { name: "Head of Design", role: "Head of Design", image: "/head_of_design.jpg" },
     { name: "AI Specialist", role: "Senior AI Agent", image: "/ai_specialist.jpg" },
