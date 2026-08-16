@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Smartphone, Apple, Star, ArrowUpRight, ChevronLeft, ChevronRight, Globe, Layers } from 'lucide-react';
+import { Smartphone, Apple, Star, ArrowUpRight, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 
 const projects = [
     {

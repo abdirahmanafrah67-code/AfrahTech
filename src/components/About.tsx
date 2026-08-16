@@ -1,6 +1,5 @@
 import { Globe, Users, Target, Eye, Sparkles, MapPin, Award, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const teamMembers = [
@@ -64,8 +63,6 @@ const whyItems = [
 ];
 
 export default function About() {
-    const { t } = useTranslation();
-
     const fadeUp = {
         hidden: { opacity: 0, y: 30 },
         visible: (i: number) => ({
