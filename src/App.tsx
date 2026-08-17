@@ -10,6 +10,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
 import Booking from './components/Booking';
+import SEO from './components/SEO';
 
 
 // Scroll to top or hash on route change
@@ -36,6 +37,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <SEO />
       <div className="min-h-screen">
         <Navbar />
         <main>

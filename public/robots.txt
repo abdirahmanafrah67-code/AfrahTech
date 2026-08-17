@@ -1,0 +1,6 @@
+# Robots.txt for Afraino (https://afraino.com)
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://afraino.com/sitemap.xml
