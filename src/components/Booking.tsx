@@ -117,12 +117,12 @@ export default function Booking() {
     };
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-4">
+        <div className="min-h-screen bg-white pt-28 md:pt-32 pb-24 px-4">
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-10">
-                    <h1 className="text-4xl font-bold text-slate-900 mb-3">{t('booking.title')}</h1>
-                    <p className="text-lg text-slate-600 max-w-xl mx-auto">{t('booking.description')}</p>
+                <div className="text-center mb-12">
+                    <h1 className="headline">{t('booking.title')}</h1>
+                    <p className="subhead mt-4 text-[#0A2E28]/65 max-w-xl mx-auto">{t('booking.description')}</p>
                 </div>
 
                 {/* Progress Tracker - Simplified & Elegant */}
@@ -191,7 +191,7 @@ export default function Booking() {
                                                         <button
                                                             key={serv.id}
                                                             onClick={() => setFormData({ ...formData, service: serv.label })}
-                                                            className={`p-5 rounded-2xl border text-left transition-all duration-300 flex items-start gap-4 ${
+                                                            className={`p-5 rounded-[20px] border text-left transition-all duration-300 flex items-start gap-4 ${
                                                                 isSelected 
                                                                     ? 'border-secondary bg-white ring-2 ring-secondary text-slate-950 shadow-md shadow-secondary/5' 
                                                                     : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm'
@@ -361,7 +361,7 @@ export default function Booking() {
                                 <button
                                     onClick={handlePrev}
                                     disabled={step === 1}
-                                    className="px-5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold flex items-center gap-2 transition-all hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed"
+                                    className="btn-pill border border-black/10 text-[#0A2E28]/70 hover:bg-[#f5f5f7] disabled:opacity-30 disabled:cursor-not-allowed"
                                 >
                                     <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
                                     {t('booking.prev')}
@@ -374,7 +374,7 @@ export default function Booking() {
                                             (step === 1 && !formData.service) ||
                                             (step === 2 && (!formData.date || !formData.timeSlot))
                                         }
-                                        className="px-6 py-2.5 bg-[#0A2E28] text-white font-bold rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg hover:bg-[#0d3d34] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {t('booking.next')}
                                         <ChevronRight className="w-4 h-4 rtl:rotate-180" />
@@ -383,7 +383,7 @@ export default function Booking() {
                                     <button
                                         onClick={handleSubmit}
                                         disabled={isSubmitting || !formData.name || !formData.email || !formData.phone}
-                                        className="px-6 py-2.5 bg-[#0A2E28] text-white font-bold rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg hover:bg-[#0d3d34] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {isSubmitting ? (
                                             <>

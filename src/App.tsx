@@ -11,6 +11,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Booking from './components/Booking';
 import SEO from './components/SEO';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 
 // Scroll to top or hash on route change
@@ -50,6 +52,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/book" element={<Booking />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
 
             </Routes>
           </AnimatePresence>

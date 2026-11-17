@@ -1,20 +1,11 @@
 import { motion } from 'framer-motion';
 
 const clients = [
+    { name: 'Kabba Real Estate', logo: '/kabba-logo.png' },
     { name: 'Nasasho', logo: '/nasasho.jpg' },
     { name: 'Guri App', logo: '/guriapp.png' },
     { name: 'Gaar App', logo: '/gaarapp.png' },
-    { name: 'MeherBooks', logo: '/m-logo.png' },
-    { name: 'Iken', logo: '/iken.jpg' },
-    { name: 'SkillLab', logo: '/gear-tech.jpg' },
-    { name: 'TECO Construction', logo: '/teco.png' },
-    { name: 'Luqma', logo: '/luqma.png' },
-    { name: 'Bookhol', logo: '/bookhol.png' },
-    // Duplicate for seamless infinite scroll
-    { name: 'Nasasho', logo: '/nasasho.jpg' },
-    { name: 'Guri App', logo: '/guriapp.png' },
-    { name: 'Gaar App', logo: '/gaarapp.png' },
-    { name: 'MeherBooks', logo: '/m-logo.png' },
+    { name: 'Mehrad', logo: '/m-logo.png' },
     { name: 'Iken', logo: '/iken.jpg' },
     { name: 'SkillLab', logo: '/gear-tech.jpg' },
     { name: 'TECO Construction', logo: '/teco.png' },
@@ -22,40 +13,26 @@ const clients = [
     { name: 'Bookhol', logo: '/bookhol.png' },
 ];
 
+// Rendered twice for a seamless infinite scroll
+const loop = [...clients, ...clients];
+
 export default function ClientLogos() {
     return (
-        <section className="py-16 border-y border-white/5 bg-slate-950/20 backdrop-blur-sm overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
-                <p className="text-sm font-bold text-white tracking-wider">
-                    Trusted by industry leaders
-                </p>
-            </div>
+        <section className="bg-white py-14 overflow-hidden border-b border-black/[0.06]">
+            <p className="text-center text-[14px] text-[#0A2E28]/50 mb-8">
+                Trusted by industry leaders
+            </p>
 
-            <div className="relative flex overflow-hidden">
+            <div className="relative [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
                 <motion.div
-                    className="flex gap-8 items-center whitespace-nowrap w-max"
-                    animate={{ x: ["0%", "-50%"] }}
-                    transition={{
-                        duration: 35, // Adjusted speed for more items
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
+                    className="flex gap-12 items-center w-max"
+                    animate={{ x: ['0%', '-50%'] }}
+                    transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
                 >
-                    {clients.map((client, index) => (
-                        <div
-                            key={index}
-                            className="flex items-center gap-3.5 px-4 py-2.5 bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.05] hover:border-white/[0.12] rounded-2xl transition-all duration-300 group cursor-pointer shadow-sm hover:shadow-md"
-                        >
-                            <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/95 p-1 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-inner">
-                                <img
-                                    src={client.logo}
-                                    alt={client.name}
-                                    className="max-w-full max-h-full object-contain rounded-lg"
-                                />
-                            </div>
-                            <span className="text-base font-semibold text-slate-200 group-hover:text-white transition-colors tracking-wide">
-                                {client.name}
-                            </span>
+                    {loop.map((client, index) => (
+                        <div key={index} className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+                            <img src={client.logo} alt={client.name} className="w-10 h-10 rounded-[10px] object-contain bg-white" />
+                            <span className="text-[15px] font-medium text-[#0A2E28] whitespace-nowrap">{client.name}</span>
                         </div>
                     ))}
                 </motion.div>

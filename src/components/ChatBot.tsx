@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Sparkles, ChevronDown, Minimize2, Globe, Rocket } from 'lucide-react';
+import { X, ArrowUp, Minus, Mail, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { generateContextualResponse, ConversationContext } from '../utils/aiService';
 
@@ -13,6 +13,7 @@ interface Message {
 
 export default function ChatBot() {
     const { t, i18n } = useTranslation();
+    const isRtl = i18n.language === 'ar';
     const [isOpen, setIsOpen] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
@@ -81,14 +82,14 @@ export default function ChatBot() {
 
         } catch (error: any) {
             console.error("Error handling message:", error);
-            
+
             const errorMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 text: "I'm having trouble connecting right now. Please reach us at afraino2025@gmail.com or WhatsApp +252619849199. 🙏",
                 sender: 'bot',
                 timestamp: new Date(),
             };
-            
+
             setMessages((prev) => [...prev, errorMessage]);
             setIsTyping(false);
         }
@@ -105,142 +106,136 @@ export default function ChatBot() {
         }
     };
 
+    const showPanel = isOpen && !isMinimized;
+
     return (
-        <div className={`fixed bottom-6 ${i18n.language === 'ar' ? 'left-6' : 'right-6'} z-50 flex flex-col items-end`}>
+        <div className={`fixed bottom-5 ${isRtl ? 'left-5' : 'right-5'} z-50 flex flex-col ${isRtl ? 'items-start' : 'items-end'}`}>
             <AnimatePresence>
-                {isOpen && !isMinimized && (
+                {showPanel && (
                     <motion.div
-                        initial={{ opacity: 0, y: 30, scale: 0.9, rotate: -2 }}
-                        animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
-                        exit={{ opacity: 0, y: 30, scale: 0.9, rotate: 2 }}
-                        className="bg-white w-[350px] sm:w-[400px] h-[550px] rounded-[2.5rem] shadow-[0_20px_50px_rgba(10,77,77,0.3)] border border-slate-200 overflow-hidden flex flex-col mb-4"
-                        dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+                        initial={{ opacity: 0, y: 16, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 16, scale: 0.97 }}
+                        transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                        style={{ transformOrigin: isRtl ? 'bottom left' : 'bottom right' }}
+                        className="bg-white w-[calc(100vw-2.5rem)] max-w-[380px] h-[min(560px,calc(100vh-8rem))] rounded-[24px] shadow-[0_12px_48px_rgba(0,0,0,0.16)] ring-1 ring-black/[0.06] overflow-hidden flex flex-col mb-3"
+                        dir={isRtl ? 'rtl' : 'ltr'}
                     >
-                        {/* Header */}
-                        <div className="bg-gradient-to-br from-slate-900 via-primary-dark to-primary p-6 text-white flex items-center justify-between relative overflow-hidden">
-                            <motion.div
-                                className={`absolute top-0 ${i18n.language === 'ar' ? 'left-0' : 'right-0'} w-40 h-40 bg-secondary/20 rounded-full blur-3xl -translate-y-1/2 ${i18n.language === 'ar' ? '-translate-x-1/2' : 'translate-x-1/2'}`}
-                                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                                transition={{ duration: 4, repeat: Infinity }}
-                            />
-
-                            <div className="flex items-center gap-4 relative z-10">
-                                <div className="relative">
-                                    <div className="w-12 h-12 rounded-full shadow-2xl border-2 border-white/20 overflow-hidden">
-                                        <img src="/afraino-icon.jpg" alt="SUGE" className="w-full h-full object-cover" />
+                        {/* Header — frosted, minimal */}
+                        <div className="px-5 pt-4 pb-3 bg-white/80 backdrop-blur-xl border-b border-black/[0.06]">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="relative">
+                                        <img src="/afraino-icon.jpg" alt="SUGE" className="w-9 h-9 rounded-full object-cover" />
+                                        <span className={`absolute bottom-0 ${isRtl ? 'left-0' : 'right-0'} w-2.5 h-2.5 bg-[#34c759] ring-2 ring-white rounded-full`} />
                                     </div>
-                                    <span className={`absolute -bottom-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-4 h-4 bg-emerald-400 border-2 border-slate-900 rounded-full shadow-lg`}></span>
+                                    <div className="leading-tight">
+                                        <h3 className="text-[15px] font-semibold text-[#0A2E28]">SUGE</h3>
+                                        <p className="text-[12px] text-[#0A2E28]/50">{getStageIndicator()}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-heading font-bold text-xl tracking-tight text-white drop-shadow-md">SUGE</h3>
-                                    <p className="text-[11px] text-emerald-300 font-medium tracking-wide opacity-90">{getStageIndicator()}</p>
+                                <div className="flex items-center gap-1">
+                                    <button
+                                        onClick={() => setIsMinimized(true)}
+                                        aria-label="Minimize chat"
+                                        className="w-7 h-7 rounded-full bg-black/[0.05] hover:bg-black/[0.09] flex items-center justify-center text-[#0A2E28]/60 transition-colors"
+                                    >
+                                        <Minus className="h-4 w-4" />
+                                    </button>
+                                    <button
+                                        onClick={() => setIsOpen(false)}
+                                        aria-label="Close chat"
+                                        className="w-7 h-7 rounded-full bg-black/[0.05] hover:bg-black/[0.09] flex items-center justify-center text-[#0A2E28]/60 transition-colors"
+                                    >
+                                        <X className="h-4 w-4" />
+                                    </button>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2 relative z-10">
-                                <button
-                                    onClick={() => setIsMinimized(true)}
-                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
+
+                            {/* Quick contact links */}
+                            <div className="mt-3 flex gap-2">
+                                <a
+                                    href="mailto:afraino2025@gmail.com"
+                                    className="flex items-center gap-1.5 text-[12px] font-medium text-[#0A2E28]/80 bg-black/[0.04] hover:bg-black/[0.07] px-3 py-1.5 rounded-full transition-colors"
                                 >
-                                    <Minimize2 className="h-5 w-5" />
-                                </button>
-                                <button
-                                    onClick={() => setIsOpen(false)}
-                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
+                                    <Mail className="h-3.5 w-3.5 text-[#1a7a1a]" />
+                                    {t('chatbot.email_us')}
+                                </a>
+                                <a
+                                    href="https://wa.me/252619849199"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1.5 text-[12px] font-medium text-[#0A2E28]/80 bg-black/[0.04] hover:bg-black/[0.07] px-3 py-1.5 rounded-full transition-colors"
                                 >
-                                    <X className="h-5 w-5" />
-                                </button>
+                                    <MessageCircle className="h-3.5 w-3.5 text-[#1a7a1a]" />
+                                    {t('chatbot.whatsapp')}
+                                </a>
                             </div>
                         </div>
 
-                        {/* Quick Contact Bar */}
-                        <div className="bg-slate-50/90 backdrop-blur-md border-b border-slate-200/50 p-3 flex justify-center gap-3">
-                            <a
-                                href="mailto:afraino2025@gmail.com"
-                                className="flex items-center gap-2 text-[11px] font-bold text-slate-700 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200 hover:border-primary hover:text-primary hover:shadow-md transition-all"
-                            >
-                                <Globe className="h-3.5 w-3.5 text-primary" />
-                                {t('chatbot.email_us')}
-                            </a>
-                            <a
-                                href="https://wa.me/252619849199"
-                                className="flex items-center gap-2 text-[11px] font-bold text-slate-700 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200 hover:border-emerald-500 hover:text-emerald-600 hover:shadow-md transition-all"
-                            >
-                                <Rocket className="h-3 w-3 text-[#FFD700]" />
-                                {t('chatbot.whatsapp')}
-                            </a>
-                        </div>
-
-                        {/* Messages */}
-                        <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/50">
-                            {messages.map((msg) => (
-                                <motion.div
-                                    key={msg.id}
-                                    initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                                    className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                                >
-                                    <div className={`flex gap-3 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                                        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden ${msg.sender === 'bot'
-                                            ? ''
-                                            : 'bg-secondary text-[#0A4D4D]'
-                                            }`}>
-                                            {msg.sender === 'bot' ? (
-                                                <img src="/afraino-icon.jpg" alt="AI Agent" className="w-full h-full object-cover" />
-                                            ) : (
-                                                <User className="h-5 w-5" />
-                                            )}
-                                        </div>
-                                        <div className={`p-4 rounded-[1.5rem] text-sm leading-relaxed shadow-sm ${msg.sender === 'bot'
-                                            ? `bg-white text-slate-700 border border-slate-100 ${i18n.language === 'ar' ? 'rounded-tr-none' : 'rounded-tl-none'}`
-                                            : `bg-[#0A4D4D] text-white ${i18n.language === 'ar' ? 'rounded-tl-none' : 'rounded-tr-none'}`
-                                            }`}>
+                        {/* Messages — iMessage-style bubbles */}
+                        <div className="flex-1 overflow-y-auto px-4 py-5 space-y-2.5">
+                            {messages.map((msg) => {
+                                const mine = msg.sender === 'user';
+                                return (
+                                    <motion.div
+                                        key={msg.id}
+                                        initial={{ opacity: 0, y: 6 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.2 }}
+                                        className={`flex flex-col ${mine ? 'items-end' : 'items-start'}`}
+                                    >
+                                        <div
+                                            className={`max-w-[80%] px-4 py-2.5 text-[15px] leading-[1.4] whitespace-pre-wrap break-words rounded-[20px] ${
+                                                mine
+                                                    ? 'bg-[#1a7a1a] text-white'
+                                                    : 'bg-[#f0f1f2] text-[#0A2E28]'
+                                            }`}
+                                        >
                                             {msg.text}
-                                            <p className={`text-[9px] mt-2 opacity-50 ${msg.sender === 'user' ? (i18n.language === 'ar' ? 'text-left' : 'text-right') : (i18n.language === 'ar' ? 'text-right' : 'text-left')}`}>
-                                                {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                            </p>
                                         </div>
-                                    </div>
-                                </motion.div>
-                            ))}
+                                        <span className="mt-1 px-2 text-[11px] text-[#0A2E28]/40">
+                                            {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                        </span>
+                                    </motion.div>
+                                );
+                            })}
 
                             {isTyping && (
-                                <motion.div
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    className="flex justify-start"
-                                >
-                                    <div className="flex gap-3 items-center">
-                                        <div className="w-10 h-10 rounded-2xl overflow-hidden bg-slate-200 animate-pulse flex items-center justify-center">
-                                            <img src="/afraino-icon.jpg" alt="AI thinking" className="w-full h-full object-cover opacity-50" />
-                                        </div>
-                                        <div className={`bg-white p-4 rounded-[1.5rem] ${i18n.language === 'ar' ? 'rounded-tr-none' : 'rounded-tl-none'} border border-slate-100 flex gap-1`}>
-                                            <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
-                                            <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity, delay: 0.2 }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
-                                            <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1, repeat: Infinity, delay: 0.4 }} className="w-1.5 h-1.5 bg-[#0A4D4D] rounded-full"></motion.span>
-                                        </div>
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
+                                    <div className="bg-[#f0f1f2] px-4 py-3.5 rounded-[20px] flex gap-1">
+                                        {[0, 0.15, 0.3].map((d) => (
+                                            <motion.span
+                                                key={d}
+                                                animate={{ opacity: [0.3, 1, 0.3] }}
+                                                transition={{ duration: 1, repeat: Infinity, delay: d }}
+                                                className="w-2 h-2 bg-[#0A2E28]/50 rounded-full"
+                                            />
+                                        ))}
                                     </div>
                                 </motion.div>
                             )}
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* Input */}
-                        <div className="p-6 bg-white border-t border-slate-100">
-                            <div className="relative group">
+                        {/* Input — pill field with round send button */}
+                        <div className="px-3 pb-3 pt-2 border-t border-black/[0.06]">
+                            <div className="flex items-center gap-2 rounded-full ring-1 ring-black/[0.1] focus-within:ring-[#1a7a1a]/50 bg-white ps-4 pe-1 py-1 transition-shadow">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
-                                    onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                                     placeholder={t('chatbot.input_placeholder')}
-                                    className={`w-full ${i18n.language === 'ar' ? 'pr-5 pl-14' : 'pl-5 pr-14'} py-4 bg-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-[#0A4D4D]/20 transition-all text-sm group-hover:bg-slate-200/50`}
+                                    className="flex-1 min-w-0 bg-transparent outline-none text-[15px] text-[#0A2E28] placeholder:text-[#0A2E28]/40 py-1.5"
                                 />
                                 <button
                                     onClick={handleSend}
                                     disabled={!input.trim() || isTyping}
-                                    className={`absolute ${i18n.language === 'ar' ? 'left-2' : 'right-2'} top-1/2 -translate-y-1/2 p-3 bg-[#0A4D4D] text-[#FFD700] rounded-xl hover:scale-105 transition-all disabled:opacity-50 disabled:scale-100 shadow-lg shadow-[#0A4D4D]/20`}
+                                    aria-label="Send message"
+                                    className="w-8 h-8 flex-shrink-0 rounded-full bg-[#1a7a1a] text-white flex items-center justify-center transition-opacity disabled:opacity-30"
                                 >
-                                    <Send className={`h-5 w-5 ${i18n.language === 'ar' ? 'rotate-180' : ''}`} />
+                                    <ArrowUp className="h-4 w-4" strokeWidth={2.5} />
                                 </button>
                             </div>
                         </div>
@@ -248,28 +243,25 @@ export default function ChatBot() {
                 )}
             </AnimatePresence>
 
-            {/* Floating Trigger Button */}
-            <div className="flex items-center gap-4">
+            {/* Launcher */}
+            <div className={`flex items-center gap-3 ${isRtl ? 'flex-row-reverse' : ''}`}>
                 <AnimatePresence>
                     {isMinimized && isOpen && (
                         <motion.button
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 0, x: isRtl ? -12 : 12 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 20 }}
+                            exit={{ opacity: 0, x: isRtl ? -12 : 12 }}
                             onClick={() => setIsMinimized(false)}
-                            className="bg-white px-6 py-3 rounded-2xl shadow-2xl border border-slate-200 text-sm font-bold flex items-center gap-3 text-[#0A4D4D] hover:border-[#FFD700] transition-all group"
+                            className="bg-white/90 backdrop-blur-xl px-4 py-2 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.06] text-[13px] font-medium text-[#0A2E28] hover:bg-white transition-colors"
                         >
-                            <div className="bg-[#0A4D4D]/10 p-2 rounded-lg group-hover:bg-[#0A4D4D] group-hover:text-[#FFD700] transition-all">
-                                <Sparkles className="h-4 w-4" />
-                            </div>
                             {t('chatbot.restore')}
                         </motion.button>
                     )}
                 </AnimatePresence>
 
                 <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => {
                         if (isMinimized) {
                             setIsMinimized(false);
@@ -277,25 +269,16 @@ export default function ChatBot() {
                             setIsOpen(!isOpen);
                         }
                     }}
-                    className={`p-4 rounded-full shadow-[0_10px_40px_rgba(10,77,77,0.3)] flex items-center justify-center transition-all relative overflow-hidden group ${isOpen && !isMinimized ? 'bg-white text-slate-800 hover:bg-slate-50' : 'bg-gradient-to-r from-slate-900 to-primary text-white border border-white/10'
-                        }`}
+                    aria-label={showPanel ? 'Close chat' : 'Open chat'}
+                    className="relative w-14 h-14 rounded-full shadow-[0_6px_24px_rgba(0,0,0,0.18)] flex items-center justify-center bg-white ring-1 ring-black/[0.06]"
                 >
-                    <motion.div
-                        className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
-                    {isOpen && !isMinimized ? (
-                        <ChevronDown className="h-8 w-8 relative z-10" />
+                    {showPanel ? (
+                        <X className="h-6 w-6 text-[#0A2E28]/70" />
                     ) : (
-                        <div className="relative z-10 flex items-center justify-center">
-                            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
-                                <img src="/afraino-icon.jpg" alt="SUGE" className="w-full h-full object-cover" />
-                            </div>
-                            <motion.div
-                                className={`absolute -top-1 ${i18n.language === 'ar' ? '-left-1' : '-right-1'} w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-slate-900`}
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                            />
-                        </div>
+                        <>
+                            <img src="/afraino-icon.jpg" alt="SUGE" className="w-14 h-14 rounded-full object-cover" />
+                            <span className={`absolute top-0.5 ${isRtl ? 'left-0.5' : 'right-0.5'} w-3 h-3 bg-[#34c759] ring-2 ring-white rounded-full`} />
+                        </>
                     )}
                 </motion.button>
             </div>

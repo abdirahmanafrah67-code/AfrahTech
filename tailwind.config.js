@@ -32,8 +32,8 @@ export default {
                 }
             },
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-                heading: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
+                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Segoe UI"', 'sans-serif'],
+                heading: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'sans-serif'],
                 logo: ['Poppins', 'sans-serif'],
             },
             backgroundImage: {

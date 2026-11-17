@@ -1,168 +1,110 @@
-import { Smartphone, Upload, Send, Layout, Wrench, Globe, Brain, Check } from 'lucide-react';
-import { useState } from 'react';
+import { Smartphone, Upload, Send, Layout, Wrench, Globe, Brain, Check, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// tone: 'dark' = brand dark green tile, 'lime' = brand lime tile, 'light' = soft grey tile
 const services = [
-    {
-        id: "mobile",
-        icon: <Smartphone className="h-7 w-7" />,
-        variant: "dark",
-    },
-    {
-        id: "web",
-        icon: <Globe className="h-7 w-7" />,
-        variant: "featured", // Highlighted Lime Green Card
-    },
-    {
-        id: "ai",
-        icon: <Brain className="h-7 w-7" />,
-        variant: "dark",
-    },
-    {
-        id: "publishing",
-        icon: <Upload className="h-7 w-7" />,
-        variant: "light",
-    },
-    {
-        id: "design",
-        icon: <Layout className="h-7 w-7" />,
-        variant: "light",
-    },
-    {
-        id: "branding",
-        icon: <Send className="h-7 w-7" />,
-        variant: "light",
-    },
-    {
-        id: "maintenance",
-        icon: <Wrench className="h-7 w-7" />,
-        variant: "light",
-    }
-];
+    { id: 'mobile', icon: Smartphone, tone: 'dark' },
+    { id: 'web', icon: Globe, tone: 'lime' },
+    { id: 'ai', icon: Brain, tone: 'light' },
+    { id: 'publishing', icon: Upload, tone: 'light' },
+    { id: 'design', icon: Layout, tone: 'light' },
+    { id: 'branding', icon: Send, tone: 'light' },
+    { id: 'maintenance', icon: Wrench, tone: 'light' },
+] as const;
+
+const toneStyles = {
+    dark: { tile: 'bg-[#0A2E28] text-white', body: 'text-white/70', icon: 'text-[#e8f500]', link: 'text-[#e8f500]' },
+    lime: { tile: 'bg-[#e8f500] text-[#0A2E28]', body: 'text-[#0A2E28]/75', icon: 'text-[#0A2E28]', link: 'text-[#0A2E28]' },
+    light: { tile: 'surface text-[#0A2E28]', body: 'text-[#0A2E28]/65', icon: 'text-[#1a7a1a]', link: 'text-[#1a7a1a]' },
+};
 
 export default function Services() {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { t } = useTranslation();
     const location = useLocation();
     const isPage = location.pathname === '/services';
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const cardVariants = {
-        hidden: { y: 25, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: { duration: 0.5, ease: "easeOut" }
-        }
-    };
-
     return (
-        <section id="services" className={`relative bg-white py-24 overflow-hidden ${isPage ? 'pt-32 min-h-screen' : ''}`}>
-            
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                {/* Header (Clean Title without badge) */}
+        <section id="services" className={`bg-white ${isPage ? 'pt-28 md:pt-32 pb-24 min-h-screen' : 'py-20 md:py-28'}`}>
+            <div className="max-w-[1024px] mx-auto px-4 sm:px-6">
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-3xl mx-auto mb-16"
+                    className="text-center max-w-[720px] mx-auto mb-12 md:mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-[#0A2E28] mb-6 leading-tight tracking-tight">
-                        Our Mission Is To Make Your{' '}
-                        <span className="bg-[#e8f500] text-[#0A2E28] px-3.5 py-1 rounded-2xl inline-block font-black shadow-sm my-1">
-                            Business
-                        </span>{' '}
-                        Better Through Technology
+                    <p className="eyebrow text-[#1a7a1a]">{t('nav.services')}</p>
+                    <h2 className="headline mt-2">
+                        Make your business better through technology.
                     </h2>
                 </motion.div>
 
-                {/* Services Cards Grid (Brand Color Palette) */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
+                {/* Compact tiles: icon top-left, title, short text; whole tile links to booking */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     {services.map((service, index) => {
+                        const s = toneStyles[service.tone];
+                        const Icon = service.icon;
                         const features = t(`services.items.${service.id}.features`, { returnObjects: true }) as string[];
-                        const isFeatured = service.variant === 'featured';
-                        const isDark = service.variant === 'dark';
 
                         return (
                             <motion.div
-                                key={index}
-                                variants={cardVariants}
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
-                                className="h-full"
+                                key={service.id}
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '-40px' }}
+                                transition={{ duration: 0.45, delay: (index % 4) * 0.05 }}
                             >
-                                <div className={`h-full rounded-3xl p-8 transition-all duration-300 flex flex-col justify-between relative overflow-hidden
-                                    ${isFeatured 
-                                        ? 'bg-[#e8f500] text-[#0A2E28] shadow-xl shadow-[#e8f500]/25 hover:scale-[1.02]' 
-                                        : isDark 
-                                            ? 'bg-[#0A2E28] text-white shadow-xl hover:scale-[1.02]' 
-                                            : 'bg-[#f4f9f6] text-[#0A2E28] border border-[#0A2E28]/10 hover:scale-[1.02] shadow-sm hover:shadow-md'
-                                    }`}
+                                <Link
+                                    to="/book"
+                                    className={`${s.tile} group h-full rounded-[18px] p-5 flex flex-col hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-200`}
                                 >
-                                    <div>
-                                        {/* Circular Icon Badge */}
-                                        <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-6 shadow-md transition-transform duration-300 ${hoveredIndex === index ? 'scale-110' : ''}
-                                            ${isFeatured
-                                                ? 'bg-[#0A2E28] text-white'
-                                                : isDark
-                                                    ? 'bg-[#e8f500] text-[#0A2E28]'
-                                                    : 'bg-[#0A2E28] text-white'
-                                            }`}
-                                        >
-                                            {service.icon}
-                                        </div>
-
-                                        {/* Card Title */}
-                                        <h3 className={`text-2xl font-heading font-extrabold mb-3 tracking-tight
-                                            ${isFeatured ? 'text-[#0A2E28]' : isDark ? 'text-white' : 'text-[#0A2E28]'}`}
-                                        >
-                                            {t(`services.items.${service.id}.title`)}
-                                        </h3>
-
-                                        {/* Card Description */}
-                                        <p className={`text-[15px] font-sans leading-relaxed mb-6 font-medium
-                                            ${isFeatured ? 'text-[#0A2E28]/90' : isDark ? 'text-slate-300' : 'text-slate-600'}`}
-                                        >
-                                            {t(`services.items.${service.id}.description`)}
-                                        </p>
-
-                                        {/* Features List */}
-                                        <div className="space-y-3 mb-8">
-                                            {Array.isArray(features) && features.map((feature, fIdx) => (
-                                                <div key={fIdx} className="flex items-start gap-3 text-[14px]">
-                                                    <div className="mt-1 flex-shrink-0">
-                                                        <Check className={`w-4 h-4 stroke-[3] ${isFeatured ? 'text-[#0A2E28]' : isDark ? 'text-[#e8f500]' : 'text-[#0A2E28]'}`} />
-                                                    </div>
-                                                    <span className={`font-sans font-medium ${isFeatured ? 'text-[#0A2E28]/90' : isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                                                        {feature}
-                                                    </span>
-                                                </div>
-                                            ))}
-                                        </div>
+                                    <div className="flex items-center justify-between">
+                                        <Icon className={`w-6 h-6 ${s.icon}`} strokeWidth={1.6} />
+                                        <ChevronRight className={`w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all ${s.link}`} />
                                     </div>
-                                </div>
+                                    <h3 className="mt-4 text-[16px] leading-[1.25] font-semibold tracking-[-0.01em]">
+                                        {t(`services.items.${service.id}.title`)}
+                                    </h3>
+                                    <p className={`mt-1.5 text-[13px] leading-[1.45] ${s.body} ${isPage ? '' : 'line-clamp-3'}`}>
+                                        {t(`services.items.${service.id}.description`)}
+                                    </p>
+
+                                    {isPage && Array.isArray(features) && (
+                                        <ul className="mt-4 space-y-1">
+                                            {features.map((feature) => (
+                                                <li key={feature} className={`flex items-start gap-1.5 text-[13px] ${s.body}`}>
+                                                    <Check className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${s.icon}`} />
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </Link>
                             </motion.div>
                         );
                     })}
-                </motion.div>
+
+                    {/* 8th tile: call to action, completes the 4×2 grid */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-40px' }}
+                        transition={{ duration: 0.45, delay: 0.15 }}
+                    >
+                        <Link
+                            to="/book"
+                            className="bg-[#1a7a1a] group h-full min-h-[150px] rounded-[18px] p-5 flex flex-col justify-between text-white hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-200"
+                        >
+                            <h3 className="text-[16px] leading-[1.25] font-semibold">Not sure what you need?</h3>
+                            <span className="mt-4 inline-flex items-center gap-0.5 text-[13px] font-medium">
+                                Book a free consultation
+                                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                            </span>
+                        </Link>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

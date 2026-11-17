@@ -54,11 +54,11 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className={`section-padding ${isPage ? 'pt-32 min-h-screen' : ''}`}>
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-4xl font-bold text-slate-900 mb-4">{t('contact.title')}</h2>
-                    <p className="text-lg text-slate-600">
+        <section id="contact" className={`bg-white px-4 sm:px-6 ${isPage ? 'pt-28 md:pt-32 pb-24 min-h-screen' : 'py-20 md:py-28'}`}>
+            <div className="max-w-[1024px] mx-auto">
+                <div className="text-center max-w-[720px] mx-auto mb-14">
+                    <h2 className="headline">{t('contact.title')}</h2>
+                    <p className="subhead mt-4 text-[#0A2E28]/65">
                         {t('contact.description')}
                     </p>
                 </div>
@@ -134,7 +134,7 @@ export default function Contact() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-auto px-10 bg-[#0A2E28] hover:bg-[#0d3d34] text-white font-bold py-4 rounded-full transition-all flex justify-center items-center gap-3 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed mx-auto"
+                                    className="btn-primary px-8 flex mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {isSubmitting ? (
                                         <>
