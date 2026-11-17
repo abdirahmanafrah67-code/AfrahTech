@@ -181,7 +181,7 @@ export default function Professional() {
                 )}
 
                 {/* Project tiles */}
-                <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10 md:gap-y-12">
                     <AnimatePresence mode="popLayout">
                         {visible.map((project) => (
                             <motion.article
@@ -191,9 +191,17 @@ export default function Professional() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.98 }}
                                 transition={{ duration: 0.4 }}
-                                className="group surface rounded-[22px] overflow-hidden flex flex-col"
+                                className="group flex flex-col"
                             >
-                                <div className="px-5 pt-6 md:px-6 md:pt-7 text-center">
+                                <div className="w-full aspect-[4/3] rounded-[18px] overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={titleOf(project)}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                    />
+                                </div>
+                                <div className="pt-4 px-1 text-center">
                                     <p className="text-[12px] text-[#1a7a1a] font-medium">
                                         {getTranslatedCategory(project.category)}
                                     </p>
@@ -217,16 +225,6 @@ export default function Professional() {
                                         <Link to="/book" className="link-more">
                                             Build similar <ChevronRight className="w-3.5 h-3.5" />
                                         </Link>
-                                    </div>
-                                </div>
-                                <div className="mt-5 px-4 md:px-5 pb-0 flex-1 flex items-end">
-                                    <div className="w-full aspect-[4/3] rounded-t-[14px] overflow-hidden bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.06)]">
-                                        <img
-                                            src={project.image}
-                                            alt={titleOf(project)}
-                                            loading="lazy"
-                                            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                                        />
                                     </div>
                                 </div>
                             </motion.article>
