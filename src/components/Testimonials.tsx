@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Play } from 'lucide-react';
+import { Play, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +13,8 @@ type Testimonial = {
     title: string;
     // A real quote from the client (shown in quotation marks)
     quote?: string;
+    // Star rating out of 5
+    rating: number;
     // Used instead of a quote when the client gave no written quote
     summary?: string;
     video: string;
@@ -30,6 +32,7 @@ const testimonials: Testimonial[] = [
         project: 'Mehrad app',
         title: 'From a simple idea to a real app.',
         quote: 'Afraino turned a simple idea into a modern digital system that really works.',
+        rating: 5,
         video: '/testimonials/mehrad.mp4',
         poster: '/testimonials/mehrad-poster.jpg',
     },
@@ -40,6 +43,7 @@ const testimonials: Testimonial[] = [
         project: 'WhatsApp AI chatbot',
         title: 'A chatbot that knows our business.',
         quote: 'Afraino built us a WhatsApp chatbot that knows our products and gives our customers the right answers.',
+        rating: 5,
         video: '/testimonials/anfa.mp4',
         poster: '/testimonials/anfa-poster.jpg',
     },
@@ -50,10 +54,25 @@ const testimonials: Testimonial[] = [
         project: 'Software & media marketing',
         title: 'Software and marketing for TECO.',
         summary: 'We built software for TECO Construction and ran their media marketing.',
+        rating: 5,
         video: '/testimonials/teco.mp4',
         poster: '/testimonials/teco-poster.jpg',
     },
 ];
+
+function Stars({ rating, className = '', size }: { rating: number; className?: string; size: string }) {
+    return (
+        <div className={`flex gap-0.5 ${className}`} role="img" aria-label={`Rated ${rating} out of 5`}>
+            {[1, 2, 3, 4, 5].map((n) => (
+                <Star
+                    key={n}
+                    aria-hidden="true"
+                    className={`${size} ${n <= rating ? 'fill-[#f5b301] text-[#f5b301]' : 'fill-[#0A2E28]/10 text-transparent'}`}
+                />
+            ))}
+        </div>
+    );
+}
 
 export default function Testimonials() {
     const [activeId, setActiveId] = useState(testimonials[0].id);
@@ -116,6 +135,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <div className="mt-10 md:mt-12 text-center max-w-[760px] mx-auto min-h-[180px]">
+                    <Stars rating={item.rating} className="justify-center mb-4" size="w-5 h-5" />
                     <h3 className="text-[24px] md:text-[32px] leading-[1.15] font-semibold tracking-[-0.025em] text-[#0A2E28]">
                         {item.title}
                     </h3>
@@ -152,6 +172,7 @@ export default function Testimonials() {
                                     />
                                 </div>
                                 <div className="px-3 py-2.5 md:px-4 md:py-3">
+                                    <Stars rating={t.rating} className="mb-1" size="w-3 h-3 md:w-3.5 md:h-3.5" />
                                     <p className="text-[13px] md:text-[15px] font-semibold text-[#0A2E28] truncate">{t.client}</p>
                                     <p className="hidden sm:block text-[12px] md:text-[13px] text-[#0A2E28]/55 truncate">{t.project}</p>
                                 </div>
