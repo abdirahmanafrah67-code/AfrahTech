@@ -1,6 +1,8 @@
 // SEO metadata shared by the SEO component (runtime) and scripts/prerender.mjs
 // (build time). Keep free of React/browser imports.
 import { posts, type Post } from './blog';
+import { servicePages, type ServicePage } from './servicePages';
+import { caseStudies, type CaseStudy } from './caseStudies';
 
 export const SITE_URL = 'https://afraino.com';
 export const SITE_NAME = 'Afraino';
@@ -17,9 +19,9 @@ export type PageMeta = {
 };
 
 const HOME: PageMeta = {
-    title: 'Afraino | Software & Mobile App Development Company in Somalia',
+    title: 'Afraino | Software Development & AI Solutions Company in Somalia',
     description:
-        "Afraino is a software and mobile app development company in Mogadishu, Somalia. We build iOS & Android apps, websites, AI chatbots and publish apps to Google Play and the App Store.",
+        "Afraino is a technology company in Somalia building mobile apps, websites, AI agents and custom software solutions that help businesses grow.",
     keywords:
         'Software Company in Somalia, Mobile App Development Somalia, Web Development Mogadishu, Software Development Mogadishu, Somali App Developers, Tech Company Somalia, Shirkad Software Somalia, Afraino',
 };
@@ -59,7 +61,7 @@ export const staticPages: Record<string, PageMeta> = {
     '/blog': {
         title: 'Blog – Apps, Websites & AI for Somali Businesses | Afraino',
         description:
-            'Practical guides on mobile app development, websites, AI chatbots, EVC Plus payments and app publishing for businesses in Somalia.',
+            'Practical guides on mobile app development, websites, AI chatbots and app publishing for businesses in Somalia.',
         keywords: 'mobile app development Somalia blog, tech guides Somalia, app development tips Mogadishu',
     },
 };
@@ -119,6 +121,66 @@ export const postMeta = (post: Post): PageMeta => ({
     ],
 });
 
+const faqLd = (faq: { q: string; a: string }[]) => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+});
+
+export const serviceMeta = (s: ServicePage): PageMeta => ({
+    title: s.metaTitle,
+    description: s.description,
+    keywords: s.keywords.join(', '),
+    image: absolute(s.image),
+    jsonLd: [
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: s.title,
+            serviceType: s.keyword,
+            description: s.description,
+            provider: { '@id': `${SITE_URL}/#organization` },
+            areaServed: { '@type': 'Country', name: 'Somalia' },
+            url: `${SITE_URL}/${s.slug}`,
+        },
+        faqLd(s.faq),
+        breadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: s.eyebrow, path: `/${s.slug}` },
+        ]),
+    ],
+});
+
+export const caseStudyMeta = (c: CaseStudy): PageMeta => ({
+    title: c.metaTitle,
+    description: c.description,
+    keywords: c.keywords.join(', '),
+    image: absolute(c.image),
+    type: 'article',
+    jsonLd: [
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: c.title,
+            description: c.description,
+            image: absolute(c.image),
+            author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+            publisher: { '@id': `${SITE_URL}/#organization` },
+            mainEntityOfPage: `${SITE_URL}/portfolio/${c.slug}`,
+        },
+        breadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Portfolio', path: '/portfolio' },
+            { name: c.client, path: `/portfolio/${c.slug}` },
+        ]),
+    ],
+});
+
 // Resolve metadata for any path (unknown paths fall back to home)
 export const metaForPath = (pathname: string): PageMeta => {
     const path = pathname !== '/' ? pathname.replace(/\/+$/, '') : '/';
@@ -128,11 +190,20 @@ export const metaForPath = (pathname: string): PageMeta => {
         const post = posts.find((p) => p.slug === m[1]);
         if (post) return postMeta(post);
     }
+    const cs = path.match(/^\/portfolio\/([^/]+)$/);
+    if (cs) {
+        const c = caseStudies.find((x) => x.slug === cs[1]);
+        if (c) return caseStudyMeta(c);
+    }
+    const svc = servicePages.find((s) => `/${s.slug}` === path);
+    if (svc) return serviceMeta(svc);
     return staticPages[path] ?? HOME;
 };
 
 // Every URL that should be prerendered and listed in the sitemap
 export const allPaths = (): string[] => [
     ...Object.keys(staticPages),
+    ...servicePages.map((s) => `/${s.slug}`),
+    ...caseStudies.map((c) => `/portfolio/${c.slug}`),
     ...posts.map((p) => `/blog/${p.slug}`),
 ];

@@ -12,6 +12,7 @@ type Project = {
     description: string;
     tags: string[];
     link?: { href: string; label: string };
+    caseStudy?: string; // slug in src/data/caseStudies.ts
 };
 
 const projects: Project[] = [
@@ -31,6 +32,7 @@ const projects: Project[] = [
         image: "/portfolio/anfa.jpg",
         description: "A WhatsApp AI chatbot for a fashion store, trained on the shop's own data. It knows the products and services and answers customer questions 24/7.",
         tags: ["AI Chatbot", "WhatsApp", "Retail"],
+        caseStudy: "anfa-collection",
     },
     {
         id: "bokhol",
@@ -56,6 +58,7 @@ const projects: Project[] = [
         image: "/portfolio/mehrad.jpg",
         description: "A loan and debt tracking app for small businesses — record customer loans, track payments and issue digital receipts, with Mehrad.ai, an AI chatbot that answers questions about your records. Live on Google Play.",
         tags: ["Mobile app", "AI chatbot", "Android"],
+        caseStudy: "mehrad",
         link: { href: "https://play.google.com/store/apps/details?id=com.meherbook.app", label: "View on Google Play" },
     },
     {
@@ -222,9 +225,15 @@ export default function Professional() {
                                                 {project.link.label} <ArrowUpRight className="w-3.5 h-3.5" />
                                             </a>
                                         )}
-                                        <Link to="/book" className="link-more">
-                                            Build similar <ChevronRight className="w-3.5 h-3.5" />
-                                        </Link>
+                                        {project.caseStudy ? (
+                                            <Link to={`/portfolio/${project.caseStudy}`} className="link-more">
+                                                Read case study <ChevronRight className="w-3.5 h-3.5" />
+                                            </Link>
+                                        ) : (
+                                            <Link to="/book" className="link-more">
+                                                Build similar <ChevronRight className="w-3.5 h-3.5" />
+                                            </Link>
+                                        )}
                                     </div>
                                 </div>
                             </motion.article>

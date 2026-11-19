@@ -13,6 +13,9 @@ import Booking from './components/Booking';
 import SEO from './components/SEO';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import ServiceLanding from './pages/ServiceLanding';
+import CaseStudy from './pages/CaseStudy';
+import { servicePages } from './data/servicePages';
 
 
 // Scroll to top or hash on route change
@@ -54,6 +57,10 @@ function App() {
               <Route path="/book" element={<Booking />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/portfolio/:slug" element={<CaseStudy />} />
+              {servicePages.map((s) => (
+                <Route key={s.slug} path={`/${s.slug}`} element={<ServiceLanding />} />
+              ))}
 
             </Routes>
           </AnimatePresence>

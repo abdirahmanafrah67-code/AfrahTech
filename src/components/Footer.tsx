@@ -28,11 +28,12 @@ export default function Footer() {
         {
             title: t('footer.services'),
             links: [
-                { label: t('services.items.mobile.title'), to: '/services' },
-                { label: t('services.items.publishing.title'), to: '/services' },
-                { label: t('services.items.design.title'), to: '/services' },
-                { label: t('services.items.branding.title'), to: '/services' },
-                { label: t('services.items.ai.title'), to: '/services' },
+                { label: 'Software Development', to: '/software-development-somalia' },
+                { label: t('services.items.mobile.title'), to: '/mobile-app-development' },
+                { label: t('services.items.web.title'), to: '/web-development' },
+                { label: t('services.items.ai.title'), to: '/ai-solutions' },
+                { label: 'WhatsApp AI Chatbot', to: '/whatsapp-ai-chatbot' },
+                { label: t('services.items.design.title'), to: '/ui-ux-design' },
             ],
         },
     ];

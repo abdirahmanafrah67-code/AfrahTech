@@ -15,7 +15,7 @@ const dist = join(root, 'dist');
 const tmp = join(root, 'node_modules', '.cache', 'prerender', 'data.mjs');
 await build({
     stdin: {
-        contents: "export * from './src/data/seo.ts'; export * from './src/data/blog.ts';",
+        contents: "export * from './src/data/seo.ts'; export * from './src/data/blog.ts'; export * from './src/data/servicePages.ts'; export * from './src/data/caseStudies.ts';",
         resolveDir: root,
         loader: 'ts',
     },
@@ -26,7 +26,7 @@ await build({
     logLevel: 'silent',
 });
 const data = await import(pathToFileURL(tmp).href + `?t=${Date.now()}`);
-const { SITE_URL, DEFAULT_IMAGE, metaForPath, allPaths, posts, sortedPosts, bodyHtml } = data;
+const { SITE_URL, DEFAULT_IMAGE, metaForPath, allPaths, posts, sortedPosts, bodyHtml, servicePages, servicePageHtml, caseStudies, caseStudyHtml } = data;
 
 const template = await readFile(join(dist, 'index.html'), 'utf8');
 
@@ -49,6 +49,20 @@ const staticBody = (path) => {
             `<h2>FAQ</h2>` + post.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('') +
             `<p><a href="/book">Book a free consultation</a></p></article>`;
     }
+    const svc = servicePages.find((s) => `/${s.slug}` === path);
+    if (svc) return servicePageHtml(svc);
+    const cs = caseStudies.find((c) => `/portfolio/${c.slug}` === path);
+    if (cs) return caseStudyHtml(cs);
+    if (path === '/services') {
+        return `<h1>Services</h1><ul>` +
+            servicePages.map((s) => `<li><a href="/${s.slug}">${esc(s.title)}</a><p>${esc(s.description)}</p></li>`).join('') +
+            `</ul>`;
+    }
+    if (path === '/portfolio') {
+        return `<h1>Portfolio</h1><h2>Case studies</h2><ul>` +
+            caseStudies.map((c) => `<li><a href="/portfolio/${c.slug}">${esc(c.title)}</a><p>${esc(c.summary)}</p></li>`).join('') +
+            `</ul>`;
+    }
     if (path === '/blog') {
         return `<h1>Blog</h1><ul>` +
             sortedPosts.map((p) => `<li><a href="/blog/${p.slug}">${esc(p.title)}</a><p>${esc(p.description)}</p></li>`).join('') +
@@ -58,7 +72,8 @@ const staticBody = (path) => {
     return `<h1>${esc(m.title)}</h1><p>${esc(m.description)}</p>`;
 };
 
-const nav = `<nav><a href="/">Home</a> <a href="/services">Services</a> <a href="/portfolio">Portfolio</a> <a href="/about">About</a> <a href="/blog">Blog</a> <a href="/contact">Contact</a> <a href="/book">Book a consultation</a></nav>`;
+const nav = `<nav><a href="/">Home</a> <a href="/services">Services</a> <a href="/portfolio">Portfolio</a> <a href="/about">About</a> <a href="/blog">Blog</a> <a href="/contact">Contact</a> <a href="/book">Book a consultation</a> ` +
+    servicePages.map((s) => `<a href="/${s.slug}">${esc(s.eyebrow)}</a>`).join(' ') + `</nav>`;
 
 for (const path of allPaths()) {
     const meta = metaForPath(path);

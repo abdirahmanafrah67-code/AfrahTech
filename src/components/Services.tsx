@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 
 // tone: 'dark' = brand dark green tile, 'lime' = brand lime tile, 'light' = soft grey tile
 const services = [
-    { id: 'mobile', icon: Smartphone, tone: 'dark' },
-    { id: 'web', icon: Globe, tone: 'lime' },
-    { id: 'ai', icon: Brain, tone: 'light' },
+    { id: 'mobile', icon: Smartphone, tone: 'dark', to: '/mobile-app-development' },
+    { id: 'web', icon: Globe, tone: 'lime', to: '/web-development' },
+    { id: 'ai', icon: Brain, tone: 'light', to: '/ai-solutions' },
     { id: 'publishing', icon: Upload, tone: 'light' },
-    { id: 'design', icon: Layout, tone: 'light' },
+    { id: 'design', icon: Layout, tone: 'light', to: '/ui-ux-design' },
     { id: 'branding', icon: Send, tone: 'light' },
     { id: 'maintenance', icon: Wrench, tone: 'light' },
 ] as const;
@@ -57,7 +57,7 @@ export default function Services() {
                                 transition={{ duration: 0.45, delay: (index % 4) * 0.05 }}
                             >
                                 <Link
-                                    to="/book"
+                                    to={"to" in service ? service.to : "/book"}
                                     className={`${s.tile} group h-full rounded-[18px] p-5 flex flex-col hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-200`}
                                 >
                                     <div className="flex items-center justify-between">
