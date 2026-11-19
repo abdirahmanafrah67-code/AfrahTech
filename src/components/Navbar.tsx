@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X, Globe, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import NavFlyout, { type FlyoutKey } from './NavFlyout';
 
 const languages = [
     { code: 'en', name: 'English' },
@@ -16,21 +18,42 @@ export default function Navbar() {
     const { t, i18n } = useTranslation();
     const location = useLocation();
 
-    const navLinks = [
+    const navLinks: { name: string; path: string; flyout?: FlyoutKey }[] = [
         { name: t('nav.home'), path: '/' },
-        { name: t('nav.services'), path: '/services' },
-        { name: t('nav.professional'), path: '/portfolio' },
+        { name: t('nav.services'), path: '/services', flyout: 'services' },
+        { name: t('nav.professional'), path: '/portfolio', flyout: 'portfolio' },
         { name: t('nav.why_choose'), path: '/#why-choose' },
         { name: t('nav.about'), path: '/about' },
-        { name: 'Blog', path: '/blog' },
+        { name: 'Blog', path: '/blog', flyout: 'blog' },
         { name: t('nav.booking'), path: '/book' },
     ];
+
+    // Desktop dropdown panel (opens on hover, closes shortly after leaving)
+    const [flyout, setFlyout] = useState<FlyoutKey | null>(null);
+    const closeTimer = useRef<number>();
+    const openFlyout = (key: FlyoutKey | null) => {
+        window.clearTimeout(closeTimer.current);
+        setFlyout(key);
+    };
+    const scheduleClose = () => {
+        window.clearTimeout(closeTimer.current);
+        closeTimer.current = window.setTimeout(() => setFlyout(null), 150);
+    };
 
     // Close menus on route change
     useEffect(() => {
         setIsOpen(false);
         setIsLangOpen(false);
-    }, [location.pathname, location.hash]);
+        setFlyout(null);
+    }, [location.pathname, location.search, location.hash]);
+
+    // Escape closes the dropdown
+    useEffect(() => {
+        if (!flyout) return;
+        const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setFlyout(null);
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [flyout]);
 
     // Lock page scroll while the mobile menu is open
     useEffect(() => {
@@ -46,10 +69,10 @@ export default function Navbar() {
     const isActive = (path: string) => !path.startsWith('/#') && location.pathname === path;
 
     return (
-        <header className="fixed top-0 inset-x-0 z-50">
+        <header className="fixed top-0 inset-x-0 z-50" onMouseLeave={scheduleClose}>
             <nav
-                className={`h-12 transition-colors duration-300 ${
-                    isOpen ? 'bg-white' : 'bg-white/80 backdrop-blur-xl backdrop-saturate-150'
+                className={`relative z-10 h-12 transition-colors duration-300 ${
+                    isOpen || flyout ? 'bg-white' : 'bg-white/80 backdrop-blur-xl backdrop-saturate-150'
                 } border-b border-black/[0.06]`}
             >
                 <div className="max-w-[1024px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -61,11 +84,16 @@ export default function Navbar() {
                     {/* Desktop links */}
                     <ul className="hidden md:flex items-center gap-7 lg:gap-9">
                         {navLinks.map((link) => (
-                            <li key={link.path}>
+                            <li key={link.path} onMouseEnter={() => openFlyout(link.flyout ?? null)}>
                                 <Link
                                     to={link.path}
+                                    onFocus={() => openFlyout(link.flyout ?? null)}
+                                    aria-haspopup={link.flyout ? 'true' : undefined}
+                                    aria-expanded={link.flyout ? flyout === link.flyout : undefined}
                                     className={`text-[12px] tracking-[-0.01em] transition-colors ${
-                                        isActive(link.path) ? 'text-[#0A2E28] font-medium' : 'text-[#0A2E28]/75 hover:text-[#0A2E28]'
+                                        isActive(link.path) || (link.flyout && flyout === link.flyout)
+                                            ? 'text-[#0A2E28] font-medium'
+                                            : 'text-[#0A2E28]/75 hover:text-[#0A2E28]'
                                     }`}
                                 >
                                     {link.name}
@@ -136,6 +164,34 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+
+            {/* Desktop dropdown panel + soft page blur behind it */}
+            <AnimatePresence>
+                {flyout && (
+                    <>
+                        <motion.div
+                            key="flyout-panel"
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            onMouseEnter={() => openFlyout(flyout)}
+                            className="hidden md:block absolute inset-x-0 top-12 z-10 bg-white border-b border-black/[0.06] shadow-[0_20px_40px_rgba(0,0,0,0.06)]"
+                        >
+                            <NavFlyout which={flyout} />
+                        </motion.div>
+                        <motion.div
+                            key="flyout-backdrop"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            aria-hidden="true"
+                            className="hidden md:block fixed inset-0 top-12 bg-white/30 backdrop-blur-md pointer-events-none"
+                        />
+                    </>
+                )}
+            </AnimatePresence>
 
             {/* Mobile full-screen menu */}
             {isOpen && (
