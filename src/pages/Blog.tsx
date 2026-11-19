@@ -74,15 +74,17 @@ export default function Blog() {
         <section className="bg-white pt-28 md:pt-32 pb-24">
             <div className="max-w-[1024px] mx-auto px-4 sm:px-6">
                 <div className="text-center max-w-[720px] mx-auto mb-8 md:mb-10">
-                    <h1 className="headline">Blog</h1>
+                    <h1 className="headline">{topic === 'All' ? 'Blog' : topic}</h1>
                     <p className="subhead mt-4 text-[#0A2E28]/65">
-                        Practical guides on apps, websites and AI for businesses in Somalia.
+                        {topic === 'All'
+                            ? 'Practical guides on apps, websites and AI for businesses in Somalia.'
+                            : `${filtered.length} ${filtered.length === 1 ? 'article' : 'articles'} on ${topic} for businesses in Somalia.`}
                     </p>
                 </div>
 
                 {/* Topics + search */}
-                <div className="flex flex-col md:flex-row md:items-center gap-3 md:justify-between mb-8">
-                    <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+                <div className="flex flex-col gap-4 mb-8">
+                    <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:justify-center md:overflow-visible">
                         {['All', ...blogTopics].map((t) => (
                             <button
                                 key={t}
@@ -98,7 +100,7 @@ export default function Blog() {
                             </button>
                         ))}
                     </div>
-                    <label className="relative md:w-[260px] flex-shrink-0">
+                    <label className="relative w-full md:w-[360px] md:mx-auto">
                         <span className="sr-only">Search articles</span>
                         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#0A2E28]/40" />
                         <input
