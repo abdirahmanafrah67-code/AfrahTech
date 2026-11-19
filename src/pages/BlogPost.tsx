@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
+import { ChevronRight, MessageCircle } from 'lucide-react';
 import { getPost, sortedPosts, readingMinutes, inlineHtml, type Block } from '../data/blog';
 
 const formatDate = (iso: string, lang: string) =>
@@ -43,13 +43,8 @@ export default function BlogPost() {
     return (
         <article className="bg-white pt-24 md:pt-28 pb-24" lang={post.lang}>
             <div className="max-w-[720px] mx-auto px-4 sm:px-6">
-                <Link to="/blog" className="link-more text-[14px]">
-                    <ChevronLeft className="w-4 h-4" /> Blog
-                </Link>
-
-                <header className="mt-6">
-                    <p className="text-[13px] text-[#1a7a1a] font-medium">{post.category}</p>
-                    <h1 className="mt-2 text-[32px] md:text-[44px] leading-[1.1] font-semibold tracking-[-0.03em] text-[#0A2E28]">
+                <header className="mt-4 md:mt-8">
+                    <h1 className="text-[32px] md:text-[44px] leading-[1.1] font-semibold tracking-[-0.03em] text-[#0A2E28]">
                         {post.title}
                     </h1>
                     <p className="mt-4 text-[17px] md:text-[19px] leading-[1.5] text-[#0A2E28]/65">{post.description}</p>
@@ -123,8 +118,7 @@ export default function BlogPost() {
                                 <img src={p.cover} alt={p.coverAlt} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
                             </div>
                             <div className="p-4">
-                                <p className="text-[12px] text-[#1a7a1a] font-medium">{p.category}</p>
-                                <h3 className="mt-1 text-[15px] leading-[1.3] font-semibold text-[#0A2E28]">{p.title}</h3>
+                                <h3 className="text-[15px] leading-[1.3] font-semibold text-[#0A2E28]">{p.title}</h3>
                             </div>
                         </Link>
                     ))}

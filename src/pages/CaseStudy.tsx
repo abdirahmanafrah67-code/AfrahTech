@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { ArrowUpRight, Check, ChevronRight, Play } from 'lucide-react';
 import { getCaseStudy, caseStudies } from '../data/caseStudies';
 import { getServicePage } from '../data/servicePages';
 import { ContactCta } from './ServiceLanding';
@@ -18,12 +18,8 @@ export default function CaseStudy() {
     return (
         <article className="bg-white pt-24 md:pt-28 pb-24">
             <div className="max-w-[760px] mx-auto px-4 sm:px-6">
-                <Link to="/portfolio" className="link-more text-[14px]">
-                    <ChevronLeft className="w-4 h-4" /> Portfolio
-                </Link>
-                <header className="mt-6">
-                    <p className="text-[13px] text-[#1a7a1a] font-medium">Case study · {c.category}</p>
-                    <h1 className="mt-2 text-[32px] md:text-[46px] leading-[1.1] font-semibold tracking-[-0.03em] text-[#0A2E28]">{c.title}</h1>
+                <header className="mt-4 md:mt-8">
+                    <h1 className="text-[32px] md:text-[46px] leading-[1.1] font-semibold tracking-[-0.03em] text-[#0A2E28]">{c.title}</h1>
                     <p className="mt-4 text-[17px] md:text-[19px] leading-[1.5] text-[#0A2E28]/65">{c.summary}</p>
                     {c.link && (
                         <a href={c.link.href} target="_blank" rel="noopener noreferrer" className="link-more mt-4">

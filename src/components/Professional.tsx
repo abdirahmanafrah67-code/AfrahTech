@@ -156,8 +156,7 @@ export default function Professional() {
                         </>
                     ) : (
                         <>
-                            <p className="eyebrow text-[#1a7a1a]">{t('nav.professional')}</p>
-                            <h2 className="headline mt-2">Built by Afraino.</h2>
+                            <h2 className="headline">Built by Afraino.</h2>
                         </>
                     )}
                 </div>

@@ -42,7 +42,7 @@ const replaceMeta = (html, attr, key, value) => {
 const staticBody = (path) => {
     const post = posts.find((p) => `/blog/${p.slug}` === path);
     if (post) {
-        return `<article><p><a href="/blog">Blog</a></p><h1>${esc(post.title)}</h1><p>${esc(post.description)}</p>` +
+        return `<article><h1>${esc(post.title)}</h1><p>${esc(post.description)}</p>` +
             `<p>${esc(post.author)} · <time datetime="${post.date}">${post.date}</time></p>` +
             `<img src="${post.cover}" alt="${esc(post.coverAlt)}" />` +
             bodyHtml(post) +

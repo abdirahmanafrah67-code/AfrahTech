@@ -52,8 +52,7 @@ export default function ServiceLanding() {
         <article className="bg-white pt-24 md:pt-28 pb-24">
             {/* Header */}
             <header className="max-w-[820px] mx-auto px-4 sm:px-6 text-center">
-                <Link to="/services" className="text-[13px] text-[#1a7a1a] font-medium hover:underline">{page.eyebrow}</Link>
-                <h1 className="mt-2 text-[34px] md:text-[52px] leading-[1.08] font-semibold tracking-[-0.03em] text-[#0A2E28]">
+                <h1 className="text-[34px] md:text-[52px] leading-[1.08] font-semibold tracking-[-0.03em] text-[#0A2E28]">
                     {page.title}
                 </h1>
                 {page.intro.map((t) => (

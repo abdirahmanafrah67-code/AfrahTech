@@ -35,8 +35,7 @@ export default function Services() {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-[720px] mx-auto mb-12 md:mb-16"
                 >
-                    <p className="eyebrow text-[#1a7a1a]">{t('nav.services')}</p>
-                    <h2 className="headline mt-2">
+                    <h2 className="headline">
                         Make your business better through technology.
                     </h2>
                 </motion.div>

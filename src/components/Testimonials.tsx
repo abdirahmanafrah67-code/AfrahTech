@@ -99,8 +99,7 @@ export default function Testimonials() {
         <section id="testimonials" className="surface py-20 md:py-28">
             <div className="max-w-[1024px] mx-auto px-4 sm:px-6">
                 <div className="text-center max-w-[720px] mx-auto mb-10 md:mb-14">
-                    <p className="text-[13px] text-[#1a7a1a] font-medium">Client stories</p>
-                    <h2 className="headline mt-1">Hear it from our clients.</h2>
+                    <h2 className="headline">Hear it from our clients.</h2>
                 </div>
 
                 {/* Main player */}

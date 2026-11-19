@@ -69,7 +69,6 @@ export default function About() {
             {/* Hero tile */}
             <div className="tile-brand pt-12">
                 <div className="max-w-[1024px] mx-auto px-6 pt-20 pb-24 md:pt-28 md:pb-32 text-center text-white">
-                    <motion.p {...fadeUp} className="eyebrow text-[#e8f500]">About Us</motion.p>
                     <motion.h1 {...fadeUp} className="mt-2 text-[44px] leading-[1.05] md:text-[80px] md:leading-[1.03] font-semibold tracking-[-0.035em]">
                         Your global
                         <br />
@@ -115,8 +114,7 @@ export default function About() {
             <div className="surface py-20 md:py-28">
                 <div className="max-w-[1024px] mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <motion.div {...fadeUp}>
-                        <p className="eyebrow text-[#1a7a1a]">Global Presence</p>
-                        <h2 className="headline-sm mt-2">Global reach. Local expertise.</h2>
+                        <h2 className="headline-sm">Global reach. Local expertise.</h2>
                         <p className="mt-5 text-[17px] leading-[1.5] text-[#0A2E28]/65">
                             Headquartered in Mogadishu and Nairobi, we serve clients worldwide across every continent. Our distributed team brings together diverse perspectives to create solutions that work everywhere.
                         </p>

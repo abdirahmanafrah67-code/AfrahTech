@@ -32,8 +32,7 @@ export default function Blog() {
                             />
                         </div>
                         <div className="p-6 md:p-10 flex flex-col justify-center">
-                            <p className="text-[12px] text-[#1a7a1a] font-medium">{featured.category}</p>
-                            <h2 className="mt-1 text-[24px] md:text-[32px] leading-[1.15] font-semibold tracking-[-0.02em]">
+                            <h2 className="text-[24px] md:text-[32px] leading-[1.15] font-semibold tracking-[-0.02em]">
                                 {featured.title}
                             </h2>
                             <p className="mt-3 text-[15px] leading-[1.5] text-[#0A2E28]/65 line-clamp-3">{featured.description}</p>
@@ -67,11 +66,7 @@ export default function Blog() {
                                     />
                                 </div>
                                 <div className="p-5 flex-1 flex flex-col">
-                                    <p className="text-[12px] text-[#1a7a1a] font-medium">
-                                        {post.category}
-                                        {post.lang === 'so' && ' · Soomaali'}
-                                    </p>
-                                    <h2 className="mt-1 text-[18px] leading-[1.25] font-semibold tracking-[-0.01em]">{post.title}</h2>
+                                    <h2 className="text-[18px] leading-[1.25] font-semibold tracking-[-0.01em]">{post.title}</h2>
                                     <p className="mt-2 text-[14px] leading-[1.45] text-[#0A2E28]/65 line-clamp-2">{post.description}</p>
                                     <p className="mt-auto pt-4 text-[12px] text-[#0A2E28]/50">
                                         {formatDate(post.date)} · {readingMinutes(post)} min read
