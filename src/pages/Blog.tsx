@@ -71,8 +71,30 @@ export default function Blog() {
     const grid = rest.slice(0, shown);
 
     return (
-        <section className="bg-white pt-28 md:pt-32 pb-24">
+        <section className="bg-white pt-20 md:pt-24 pb-24">
             <div className="max-w-[1024px] mx-auto px-4 sm:px-6">
+                {/* Search */}
+                <label className="relative block w-full md:w-[360px] mx-auto mb-10 md:mb-12">
+                    <span className="sr-only">Search articles</span>
+                    <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#0A2E28]/40" />
+                    <input
+                        type="search"
+                        value={query}
+                        onChange={(e) => { setQuery(e.target.value); setShown(PAGE_SIZE); }}
+                        placeholder="Search articles"
+                        className="w-full surface rounded-full pl-10 pr-9 py-2 text-[14px] text-[#0A2E28] placeholder:text-[#0A2E28]/40 outline-none focus:ring-2 focus:ring-[#1a7a1a]/30 [&::-webkit-search-cancel-button]:hidden"
+                    />
+                    {query && (
+                        <button
+                            onClick={() => setQuery('')}
+                            aria-label="Clear search"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#0A2E28]/40 hover:text-[#0A2E28]"
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
+                    )}
+                </label>
+
                 <div className="text-center max-w-[720px] mx-auto mb-8 md:mb-10">
                     <h1 className="headline">{topic === 'All' ? 'Blog' : topic}</h1>
                     <p className="subhead mt-4 text-[#0A2E28]/65">
@@ -82,8 +104,8 @@ export default function Blog() {
                     </p>
                 </div>
 
-                {/* Topics + search */}
-                <div className="flex flex-col gap-4 mb-8">
+                {/* Topics */}
+                <div className="mb-8">
                     <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:justify-center md:overflow-visible">
                         {['All', ...blogTopics].map((t) => (
                             <button
@@ -100,26 +122,6 @@ export default function Blog() {
                             </button>
                         ))}
                     </div>
-                    <label className="relative w-full md:w-[360px] md:mx-auto">
-                        <span className="sr-only">Search articles</span>
-                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#0A2E28]/40" />
-                        <input
-                            type="search"
-                            value={query}
-                            onChange={(e) => { setQuery(e.target.value); setShown(PAGE_SIZE); }}
-                            placeholder="Search articles"
-                            className="w-full surface rounded-full pl-10 pr-9 py-2 text-[14px] text-[#0A2E28] placeholder:text-[#0A2E28]/40 outline-none focus:ring-2 focus:ring-[#1a7a1a]/30 [&::-webkit-search-cancel-button]:hidden"
-                        />
-                        {query && (
-                            <button
-                                onClick={() => setQuery('')}
-                                aria-label="Clear search"
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#0A2E28]/40 hover:text-[#0A2E28]"
-                            >
-                                <X className="w-4 h-4" />
-                            </button>
-                        )}
-                    </label>
                 </div>
 
                 {/* Featured post */}
