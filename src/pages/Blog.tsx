@@ -97,11 +97,11 @@ export default function Blog() {
 
                 <div className="text-center max-w-[720px] mx-auto mb-8 md:mb-10">
                     <h1 className="headline">{topic === 'All' ? 'Blog' : topic}</h1>
-                    <p className="subhead mt-4 text-[#0A2E28]/65">
-                        {topic === 'All'
-                            ? 'Practical guides on apps, websites and AI for businesses in Somalia.'
-                            : `${filtered.length} ${filtered.length === 1 ? 'article' : 'articles'} on ${topic} for businesses in Somalia.`}
-                    </p>
+                    {topic === 'All' && (
+                        <p className="subhead mt-4 text-[#0A2E28]/65">
+                            Practical guides on apps, websites and AI for businesses in Somalia.
+                        </p>
+                    )}
                 </div>
 
                 {/* Topics */}
