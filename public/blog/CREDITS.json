@@ -1,42 +1,82 @@
 {
-  "mobile-app-development-company-somalia": {
-    "unsplash": "https://unsplash.com/photos/woman-and-man-sitting-in-front-of-monitor-IgUR1iX0mqM",
-    "alt": "woman and man sitting in front of monitor"
-  },
-  "mobile-app-cost-somalia": {
-    "unsplash": "https://unsplash.com/photos/a-person-sitting-at-a-table-with-a-laptop-oUbzU87d1Gc",
-    "alt": "a person sitting at a table with a laptop"
-  },
-  "whatsapp-ai-chatbot-somalia": {
-    "unsplash": "https://unsplash.com/photos/woman-laughing-at-smartphone-R6dSBkz32B8",
-    "alt": "A woman in a white shirt laughing while looking at her smartphone"
-  },
-  "publish-app-google-play-app-store-somalia": {
-    "unsplash": "https://unsplash.com/photos/space-gray-iphone-x-9e9PD9blAto",
-    "alt": "space gray iPhone X"
-  },
-  "business-website-mogadishu": {
-    "unsplash": "https://unsplash.com/photos/young-woman-smiling-while-working-on-laptop-NcpGG8t37Bw",
-    "alt": "Young woman smiling while working on laptop"
-  },
-  "ai-solutions-business-somalia": {
-    "unsplash": "https://unsplash.com/photos/an-abstract-image-of-a-sphere-with-dots-and-lines-nGoCBxiaRO0",
-    "alt": "an abstract image of a sphere with dots and lines"
-  },
-  "ui-ux-design-somalia": {
-    "unsplash": "https://unsplash.com/photos/white-printer-paper-with-black-pen-QY39YPpkxaI",
-    "alt": "white printer paper with black pen"
-  },
-  "branding-identity-somalia": {
-    "unsplash": "https://unsplash.com/photos/yellow-and-white-labeled-can-0adHvNJu-Zo",
-    "alt": "yellow and white labeled can"
-  },
-  "app-website-maintenance-support": {
-    "unsplash": "https://unsplash.com/photos/computer-monitor-and-laptop-programming-workspace-koOdUvfGr4c",
-    "alt": "A computer monitor and laptop displaying Swift code and a programming tutorial"
-  },
-  "sida-loo-dhiso-app-soomaaliya": {
-    "unsplash": "https://unsplash.com/photos/a-man-holding-a-smart-phone-and-pointing-at-it-IPKdZ2lPMo8",
-    "alt": "a man holding a smart phone and pointing at it"
-  }
+    "mobile-app-development-company-somalia":  {
+                                                   "unsplash":  "https://unsplash.com/photos/woman-and-man-sitting-in-front-of-monitor-IgUR1iX0mqM",
+                                                   "alt":  "woman and man sitting in front of monitor"
+                                               },
+    "mobile-app-cost-somalia":  {
+                                    "unsplash":  "https://unsplash.com/photos/a-person-sitting-at-a-table-with-a-laptop-oUbzU87d1Gc",
+                                    "alt":  "a person sitting at a table with a laptop"
+                                },
+    "whatsapp-ai-chatbot-somalia":  {
+                                        "unsplash":  "https://unsplash.com/photos/woman-laughing-at-smartphone-R6dSBkz32B8",
+                                        "alt":  "A woman in a white shirt laughing while looking at her smartphone"
+                                    },
+    "publish-app-google-play-app-store-somalia":  {
+                                                      "unsplash":  "https://unsplash.com/photos/space-gray-iphone-x-9e9PD9blAto",
+                                                      "alt":  "space gray iPhone X"
+                                                  },
+    "business-website-mogadishu":  {
+                                       "unsplash":  "https://unsplash.com/photos/young-woman-smiling-while-working-on-laptop-NcpGG8t37Bw",
+                                       "alt":  "Young woman smiling while working on laptop"
+                                   },
+    "ai-solutions-business-somalia":  {
+                                          "unsplash":  "https://unsplash.com/photos/an-abstract-image-of-a-sphere-with-dots-and-lines-nGoCBxiaRO0",
+                                          "alt":  "an abstract image of a sphere with dots and lines"
+                                      },
+    "ui-ux-design-somalia":  {
+                                 "unsplash":  "https://unsplash.com/photos/white-printer-paper-with-black-pen-QY39YPpkxaI",
+                                 "alt":  "white printer paper with black pen"
+                             },
+    "branding-identity-somalia":  {
+                                      "unsplash":  "https://unsplash.com/photos/yellow-and-white-labeled-can-0adHvNJu-Zo",
+                                      "alt":  "yellow and white labeled can"
+                                  },
+    "app-website-maintenance-support":  {
+                                            "unsplash":  "https://unsplash.com/photos/computer-monitor-and-laptop-programming-workspace-koOdUvfGr4c",
+                                            "alt":  "A computer monitor and laptop displaying Swift code and a programming tutorial"
+                                        },
+    "sida-loo-dhiso-app-soomaaliya":  {
+                                          "unsplash":  "https://unsplash.com/photos/a-man-holding-a-smart-phone-and-pointing-at-it-IPKdZ2lPMo8",
+                                          "alt":  "a man holding a smart phone and pointing at it"
+                                      },
+    "website-cost-somalia":  {
+                                 "unsplash":  "https://unsplash.com/photos/leLj_06wjJQ",
+                                 "alt":  "Hand writing in notebook with calculator and cash"
+                             },
+    "software-companies-somalia":  {
+                                       "unsplash":  "https://unsplash.com/photos/QckxruozjRg",
+                                       "alt":  "group of people using laptop computer"
+                                   },
+    "evc-plus-zaad-edahab-payment-integration":  {
+                                                     "unsplash":  "https://unsplash.com/photos/guNSeIXtT7M",
+                                                     "alt":  "a person holding a smart phone and a credit card"
+                                                 },
+    "ecommerce-website-somalia":  {
+                                      "unsplash":  "https://unsplash.com/photos/EKMZrbKJMo0",
+                                      "alt":  "Woman using smartphone and credit card for online shopping"
+                                  },
+    "pos-system-somalia":  {
+                               "unsplash":  "https://unsplash.com/photos/-gkndM1GvSA",
+                               "alt":  "a person is using a pos machine in a store"
+                           },
+    "school-management-system-somalia":  {
+                                             "unsplash":  "https://unsplash.com/photos/0NThr2qkxao",
+                                             "alt":  "Young boy in suit using laptop at desk with blackboard"
+                                         },
+    "google-business-profile-seo-mogadishu":  {
+                                                  "unsplash":  "https://unsplash.com/photos/JKUTrJ4vK00",
+                                                  "alt":  "graphs of performance analytics on a laptop screen"
+                                              },
+    "custom-software-vs-erp-somalia":  {
+                                           "unsplash":  "https://unsplash.com/photos/m_HRfLhgABo",
+                                           "alt":  "A MacBook with lines of code on its screen on a busy desk"
+                                       },
+    "somali-language-ai-chatbot":  {
+                                       "unsplash":  "https://unsplash.com/photos/CaRba5ZXJTQ",
+                                       "alt":  "Person typing on smartphone with ai chatbot on screen"
+                                   },
+    "qiimaha-website-app-soomaaliya":  {
+                                           "unsplash":  "https://unsplash.com/photos/zR7nFjjIAWE",
+                                           "alt":  "A calculator sitting on top of a pile of money"
+                                       }
 }
