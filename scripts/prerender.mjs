@@ -102,10 +102,15 @@ for (const path of allPaths()) {
         html = html.replace('</head>', `  <script type="application/ld+json" id="page-jsonld">${json}</script>\n</head>`);
     }
 
-    // Minimal styling so the static text looks tidy for the moment before React loads
-    const style = `<style>#root>nav{display:none}#root>main{max-width:720px;margin:96px auto;padding:0 16px;font:17px/1.6 Inter,system-ui,sans-serif;color:#0A2E28}#root>main img{max-width:100%;height:auto;border-radius:16px}#root>main a{color:#1a7a1a}</style>`;
+    // The static text stays in the HTML for search engines but is hidden from
+    // visitors, so it doesn't flash before React replaces #root. It becomes
+    // visible only without JavaScript (<noscript>) or if the app hasn't
+    // mounted after 4 seconds (e.g. the JS bundle failed to load).
+    const style = `<style>#root>nav{display:none}#root>main.prerender{visibility:hidden;max-width:720px;margin:96px auto;padding:0 16px;font:17px/1.6 Inter,system-ui,sans-serif;color:#0A2E28}#root>main.prerender img{max-width:100%;height:auto;border-radius:16px}#root>main.prerender a{color:#1a7a1a}</style>` +
+        `<noscript><style>#root>main.prerender{visibility:visible}</style></noscript>` +
+        `<script>setTimeout(function(){var m=document.querySelector('#root>main.prerender');if(m)m.style.visibility='visible'},4000)</script>`;
     html = html.replace('</head>', `  ${style}\n</head>`);
-    html = html.replace('<div id="root"></div>', `<div id="root">${nav}<main>${staticBody(path)}</main></div>`);
+    html = html.replace('<div id="root"></div>', `<div id="root">${nav}<main class="prerender">${staticBody(path)}</main></div>`);
 
     const out = path === '/' ? join(dist, 'index.html') : join(dist, path, 'index.html');
     await mkdir(dirname(out), { recursive: true });
