@@ -75,8 +75,9 @@ const projects: Project[] = [
         title: "PROPMAS",
         category: "Mobile Apps",
         image: "/portfolio/propmas.jpg",
-        description: "A real estate marketplace app for finding homes and property — search listings by location, compare beds, baths and size, save favourites and message agents.",
+        description: "A real estate marketplace app for finding homes and property — search listings by location, compare beds, baths and size, save favourites and message agents. Live on Google Play.",
         tags: ["Mobile app", "Real Estate", "Marketplace"],
+        link: { href: "https://play.google.com/store/apps/details?id=com.propmas", label: "View on Google Play" },
     },
     {
         id: "nasasho",

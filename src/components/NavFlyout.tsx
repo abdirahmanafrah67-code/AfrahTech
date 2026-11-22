@@ -87,6 +87,7 @@ function PortfolioPanel() {
                     <SmallLink href="https://www.bokhol.nl">Bokhol</SmallLink>
                     <SmallLink href="https://play.google.com/store/apps/details?id=com.meherbook.app">Mehrad on Google Play</SmallLink>
                     <SmallLink href="https://play.google.com/store/apps/details?id=com.afraino.iken">IKEN on Google Play</SmallLink>
+                    <SmallLink href="https://play.google.com/store/apps/details?id=com.propmas">PROPMAS on Google Play</SmallLink>
                 </ul>
             </div>
             <div>

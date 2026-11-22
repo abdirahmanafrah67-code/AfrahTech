@@ -72,7 +72,8 @@ const EX = {
         title: 'PROPMAS',
         category: 'Mobile app',
         image: '/portfolio/propmas.jpg',
-        text: 'Real estate marketplace app to search listings, save favourites and message agents.',
+        text: 'Real estate marketplace app to search listings, save favourites and message agents. Live on Google Play.',
+        href: 'https://play.google.com/store/apps/details?id=com.propmas',
     },
     anfa: {
         title: 'ANFA COLLECTION',
