@@ -6,6 +6,7 @@ import Testimonials from '../components/Testimonials';
 import BlogPreview from '../components/BlogPreview';
 
 import ClientLogos from '../components/ClientLogos';
+import WorldMap from '../components/WorldMap';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         >
             <Hero />
             <ClientLogos />
+            <WorldMap />
             <Testimonials />
             <Services />
             <WhyChoose />
