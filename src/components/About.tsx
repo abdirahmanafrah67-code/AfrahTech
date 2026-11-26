@@ -116,10 +116,10 @@ export default function About() {
                     <motion.div {...fadeUp}>
                         <h2 className="headline-sm">Global reach. Local expertise.</h2>
                         <p className="mt-5 text-[17px] leading-[1.5] text-[#0A2E28]/65">
-                            Headquartered in Mogadishu and Nairobi, we serve clients worldwide across every continent. Our distributed team brings together diverse perspectives to create solutions that work everywhere.
+                            Headquartered in Mogadishu, Somalia, we build for local businesses and for clients abroad, including projects in Europe and the Dominican Republic. Our team brings global standards to products that work for Somali customers.
                         </p>
                         <div className="mt-6 flex flex-wrap gap-2">
-                            {['Mogadishu', 'Nairobi', 'Worldwide'].map((city) => (
+                            {['Mogadishu', 'Europe', 'Worldwide'].map((city) => (
                                 <span key={city} className="inline-flex items-center gap-1.5 bg-white rounded-full px-3.5 py-1.5 text-[13px]">
                                     <MapPin className="w-3.5 h-3.5 text-[#1a7a1a]" /> {city}
                                 </span>

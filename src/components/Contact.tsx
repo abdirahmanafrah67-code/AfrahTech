@@ -1,7 +1,8 @@
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Send, CheckCircle2, MapPin, Phone, Clock, Star } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { BUSINESS, fullAddress } from '../data/business';
 
 export default function Contact() {
     const { t } = useTranslation();
@@ -150,6 +151,26 @@ export default function Contact() {
                                 </button>
                             </div>
                         </form>
+                    </div>
+
+                    {/* Office details: same name, address and phone as the Google Business Profile */}
+                    <div className="mt-14 grid sm:grid-cols-2 gap-4 text-[15px] text-[#0A2E28]/75">
+                        <a href={BUSINESS.mapUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 rounded-2xl bg-[#f5f5f7] p-5 hover:bg-[#ececef] transition-colors">
+                            <MapPin className="w-5 h-5 shrink-0 text-[#1a7a1a]" />
+                            <span><strong className="block text-[#0A2E28]">Our office</strong>{fullAddress}</span>
+                        </a>
+                        <a href={BUSINESS.phoneHref} className="flex gap-3 rounded-2xl bg-[#f5f5f7] p-5 hover:bg-[#ececef] transition-colors">
+                            <Phone className="w-5 h-5 shrink-0 text-[#1a7a1a]" />
+                            <span><strong className="block text-[#0A2E28]">Phone &amp; WhatsApp</strong>{BUSINESS.phone}</span>
+                        </a>
+                        <div className="flex gap-3 rounded-2xl bg-[#f5f5f7] p-5">
+                            <Clock className="w-5 h-5 shrink-0 text-[#1a7a1a]" />
+                            <span><strong className="block text-[#0A2E28]">Opening hours</strong>{BUSINESS.hours.map((h) => <span key={h} className="block">{h}</span>)}</span>
+                        </div>
+                        <a href={BUSINESS.reviewUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 rounded-2xl bg-[#f5f5f7] p-5 hover:bg-[#ececef] transition-colors">
+                            <Star className="w-5 h-5 shrink-0 text-[#1a7a1a]" />
+                            <span><strong className="block text-[#0A2E28]">Worked with us?</strong>Leave us a review on Google</span>
+                        </a>
                     </div>
                 </div>
             </div>

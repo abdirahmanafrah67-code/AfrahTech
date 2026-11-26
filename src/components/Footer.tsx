@@ -1,6 +1,7 @@
 import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { BUSINESS, fullAddress } from '../data/business';
 
 const socials = [
     { label: 'Facebook', href: '#', Icon: Facebook },
@@ -67,17 +68,25 @@ export default function Footer() {
                     <div>
                         <h4 className="text-[12px] font-semibold text-[#0A2E28] tracking-normal mb-2.5">{t('footer.contact')}</h4>
                         <ul className="space-y-2">
-                            <li><a href="mailto:afraino2025@gmail.com" className="hover:underline hover:text-[#0A2E28]">afraino2025@gmail.com</a></li>
-                            <li><a href="tel:+252619849199" className="hover:underline hover:text-[#0A2E28]">+252 619 849 199</a></li>
-                            <li>Worldwide</li>
+                            <li><a href={`mailto:${BUSINESS.email}`} className="hover:underline hover:text-[#0A2E28]">{BUSINESS.email}</a></li>
+                            <li><a href={BUSINESS.phoneHref} className="hover:underline hover:text-[#0A2E28]">{BUSINESS.phone}</a></li>
+                            <li>
+                                <a href={BUSINESS.mapUrl} target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-[#0A2E28]">
+                                    {fullAddress}
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="text-[12px] font-semibold text-[#0A2E28] tracking-normal mb-2.5">Hours</h4>
                         <ul className="space-y-2">
-                            <li>9:30 AM – 11:00 PM</li>
-                            <li>Fri: 4:00 PM – 11:00 PM</li>
+                            {BUSINESS.hours.map((h) => <li key={h}>{h}</li>)}
+                            <li>
+                                <a href={BUSINESS.reviewUrl} target="_blank" rel="noopener noreferrer" className="text-[#1a7a1a] hover:underline">
+                                    ★ Review us on Google
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

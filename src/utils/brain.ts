@@ -63,7 +63,7 @@ export const BRAIN: BrainIntent[] = [
         keywords: ['address', 'where', 'location', 'located', 'office', 'based'],
         priority: 2,
         responses: [
-            "We operate globally from our headquarters in Mogadishu and Nairobi, serving clients worldwide. Contact us at +252619849199."
+            "Our office is on Wadada Wadnaha, Taleex, Mogadishu, Somalia, and we work with clients in Somalia and abroad. Contact us at +252619849199."
         ]
     }
 ];
