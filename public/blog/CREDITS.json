@@ -78,5 +78,45 @@
     "qiimaha-website-app-soomaaliya":  {
                                            "unsplash":  "https://unsplash.com/photos/zR7nFjjIAWE",
                                            "alt":  "A calculator sitting on top of a pile of money"
-                                       }
+                                       },
+    "food-delivery-app-somalia":  {
+                                      "unsplash":  "https://unsplash.com/photos/delivery-driver-on-red-scooter-clYlmCaQbzY",
+                                      "alt":  "A delivery driver on a red scooter riding through a city at night"
+                                  },
+    "real-estate-app-somalia":  {
+                                    "unsplash":  "https://unsplash.com/photos/hand-holding-house-keys-over-miniature-houses-t0CRdNl_mTg",
+                                    "alt":  "Hand holding house keys over miniature houses"
+                                },
+    "taxi-app-somalia":  {
+                             "unsplash":  "https://unsplash.com/photos/two-women-hailing-a-taxi-on-a-city-street-DyHgVjHrElY",
+                             "alt":  "Two women hailing a taxi on a city street"
+                         },
+    "android-or-iphone-somalia":  {
+                                      "unsplash":  "https://unsplash.com/photos/person-holding-black-android-smartphone-wK-elt11pF0",
+                                      "alt":  "person holding black android smartphone"
+                                  },
+    "fintech-app-somalia":  {
+                                "unsplash":  "https://unsplash.com/photos/smartphone-contactless-payment-in-kitchen-oRKF_ZBJYGM",
+                                "alt":  "A person holding a smartphone near a contactless payment terminal"
+                            },
+    "booking-app-somalia":  {
+                                "unsplash":  "https://unsplash.com/photos/a-man-working-at-a-hotel-reception-desk-yXndKBtVbZA",
+                                "alt":  "A man working at a hotel reception desk"
+                            },
+    "app-development-timeline":  {
+                                     "unsplash":  "https://unsplash.com/photos/people-collaborating-on-project-plan-v89zhr0iBFY",
+                                     "alt":  "Two people collaborating on a project plan using sticky notes"
+                                 },
+    "mvp-app-development":  {
+                                "unsplash":  "https://unsplash.com/photos/website-wireframe-sketch-on-paper-4UGmm3WRUoQ",
+                                "alt":  "A hand-drawn wireframe on paper with an orange pen"
+                            },
+    "first-app-downloads-somalia":  {
+                                        "unsplash":  "https://unsplash.com/photos/two-women-looking-at-a-smartphone-together-at-cafe-QdAfA5izOb8",
+                                        "alt":  "Two women looking at a smartphone together at cafe"
+                                    },
+    "fikradaha-app-ganacsi-soomaaliya":  {
+                                             "unsplash":  "https://unsplash.com/photos/write-ideas-book-on-brown-wooden-board-AXqMy8MSSdk",
+                                             "alt":  "Write Ideas book on brown wooden board"
+                                         }
 }
